@@ -1,0 +1,12 @@
+09_Backups/
+Eski Versiyonlar/
+Örnek Dosyalar/
+work/
+~$*
+*.tmp
+*.log
+.DS_Store
+Thumbs.db
+*.ini
+.env
+.env.*

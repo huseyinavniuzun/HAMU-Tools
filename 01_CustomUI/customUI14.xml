@@ -1,0 +1,487 @@
+<?xml version='1.0' encoding='utf-8'?>
+<customUI xmlns="http://schemas.microsoft.com/office/2009/07/customui" onLoad="RibbonOnLoad">
+  <ribbon>
+    <tabs>
+      <tab id="tabHAMU" insertAfterMso="TabHome" label="HAMU Tools" getVisible="HAMU_IsTurkish">
+        <group id="g0" label="Aktarma">
+          <button id="r_HAMU_Transfer" size="large" image="hamu_logo_32" onAction="HAMU_OnAction" tag="HAMU_Transfer" showLabel="true" label="Aktar" screentip="Aktarma Sihirbazı" supertip="Şablondan LAMBDA, hücre stili, adlandırılmış veri aralığı, sayfa verisi ve Excel tablosu aktarır. Sayfa/tablo aktarımı değer ve biçim kopyalar; VBA taşımaz." />
+        </group>
+        <group id="g1" label="Dosya">
+          <menu id="fileHub" image="HAMU_Backup_32" size="large" itemSize="large" tag="UI:fileHub" showLabel="true" label="Dosya">
+            <button id="r_HAMU_Backup" tag="HAMU_Backup" onAction="HAMU_OnAction" image="HAMU_Backup_32" showLabel="true" label="Yedek Oluştur" screentip="Yedek Oluştur" supertip="Dosyanın tarih ve saatli kopyasını Belgeler &gt; HAMU &gt; Backup klasörüne kaydeder. Sonuç ekranında tam yolu gösterir; Klasörü Aç ile yedek klasörüne ulaşabilirsiniz." />
+            <button id="r_HAMU_AddDateToFilename" tag="HAMU_AddDateToFilename" onAction="HAMU_OnAction" image="HAMU_AddDateToFilename_32" showLabel="true" label="Tarihli Sürüm" screentip="Tarihli Sürüm" supertip="Kaydedilmiş dosyanın aynı klasörde tarih ve saat eklenmiş kopyasını oluşturur. Yeni kopya açılıp doğrulandıktan sonra eski dosya kapatılır ve silinir. Yeni dosya açılamazsa eski dosya korunur." />
+            <button id="r_HAMU_SaveCopy" tag="HAMU_SaveCopy" onAction="HAMU_OnAction" image="HAMU_SaveCopy_32" showLabel="true" label="Kopya Kaydet" screentip="Kopya Kaydet" supertip="Dosyanın bir kopyasını seçtiğiniz konuma kaydeder. Açık dosyanın adı, konumu ve kaydedilmemiş değişiklik durumu korunur; biçim ve makrolar değiştirilmez." />
+            <button id="r_HAMU_FolderIndex" tag="HAMU_FolderIndex" onAction="HAMU_OnAction" image="HAMU_FolderIndex_32" showLabel="true" label="Klasör İçeriği" screentip="Klasör İçeriği" supertip="Klasör seçildikten sonra yalnız bu klasör veya alt klasörlerle birlikte tarama seçilir. Alt klasör taraması uzun sürebilir. Dosyaları bağlantı, yol, tür, okunabilir boyut ve tarihlerle listeler." />
+            <button id="r_HAMU_ExportSheetsAsPDF" tag="HAMU_ExportSheetsAsPDF" onAction="HAMU_OnAction" image="HAMU_ExportSheetsAsPDF_32" showLabel="true" label="PDF Kaydet" screentip="PDF Kaydet" supertip="Alan Seç veya Etkin Sayfa seçeneğiyle PDF kaydeder. Alan Seç her zaman Excel aralık seçicisini açar; mevcut seçimi kendiliğinden kaydetmez. Otomatik/dikey/yatay yön sunar." />
+          </menu>
+        </group>
+        <group id="g2" label="Veri">
+          <menu id="mergeHub" image="HAMU_SmartAppendByHeaders_32" size="large" itemSize="large" tag="UI:mergeHub" showLabel="true" label="Birleştir">
+            <button id="r_HAMU_SmartAppendByHeaders" tag="HAMU_SmartAppendByHeaders" onAction="HAMU_OnAction" image="HAMU_SmartAppendByHeaders_32" showLabel="true" label="Akıllı Birleştir" screentip="Başlıklara Göre Akıllı Birleştir" supertip="Aynı bilgileri içeren sayfaları alt alta birleştirir. Örneğin Ocak ve Şubat satışlarında sütun sırası farklı olsa da Ürün başlıkları eşleştirilir. Eksik sütunlar boş kalır, KaynakSayfa eklenir. Kaynak sayfalar değiştirilmez; ilk satırlar başlık olmalıdır." />
+            <button id="r_HAMU_CombineCSVs" tag="HAMU_CombineCSVs" onAction="HAMU_OnAction" image="HAMU_CombineCSVs_32" showLabel="true" label="CSV Dosyalarını Birleştir" screentip="CSV Dosyalarını Birleştir" supertip="Seçtiğiniz klasördeki CSV dosyalarını tek sayfada alt alta toplar; ilk dosyanın başlığını kullanır ve sonraki dosyalarda başlık satırını atlar." />
+            <button id="r_HAMU_ConsolidateSheets" tag="HAMU_ConsolidateSheets" onAction="HAMU_OnAction" image="HAMU_ConsolidateSheets_32" showLabel="true" label="Sayfaları Birleştir" screentip="Sayfaları Alt Alta Birleştir" supertip="Aktif çalışma kitabındaki sayfaların kullanılan alanlarını tek sayfada birleştirir ve kaynak sayfa bilgisini sonuç verisine ekler." />
+            <button id="r_HAMU_AppendSelectedTables" tag="HAMU_AppendSelectedTables" onAction="HAMU_OnAction" image="HAMU_AppendSelectedTables_32" showLabel="true" label="Tabloları Birleştir" screentip="Seçili Tabloları Alt Alta Birleştir" supertip="Belirttiğiniz Excel tablolarının aynı yapıdaki satırlarını tek bir sonuç tablosunda alt alta toplar." />
+            <button id="r_HAMU_CollectFilesData" tag="HAMU_CollectFilesData" onAction="HAMU_OnAction" image="HAMU_CollectFilesData_32" showLabel="true" label="Dosyalardan Topla" screentip="Klasörden Veri Topla" supertip="Klasördeki Excel ve CSV dosyalarının ilk veri sayfalarını tek sonuçta alt alta toplar. İlk satır başlıktır; aynı başlıklar eşleştirilir. KaynakDosya eklenir, kaynak dosyalar değiştirilmez. Aynı tür tabloları içeren dosyalar kullanın." />
+            <button id="r_HAMU_SmartJoin" tag="HAMU_SmartJoin" onAction="HAMU_OnAction" image="HAMU_SmartJoin_32" showLabel="true" label="Anahtara Göre Tablo Eşleştir" screentip="Anahtara Göre Tablo Eşleştir" supertip="İki tablodaki kayıtları müşteri kodu veya ürün kodu gibi ortak alanlarla yan yana eşleştirir. LEFT: ilk tablonun tüm satırları; INNER: yalnız eşleşenler; FULL: iki tablonun tüm kayıtları. İkinci tablodan alınacak sütunlar ayrıca seçilir. Kaynaklar değiştirilmez." />
+            <button id="r_HAMU_MergeDuplicates" tag="HAMU_MergeDuplicates" onAction="HAMU_OnAction" image="HAMU_MergeDuplicates_32" showLabel="true" label="Tekrarları Birleştir" screentip="Tekrarları Birleştir" supertip="Tek veya çoklu anahtar sütunlarla tekrar eden kayıtları tek satırda birleştirir. Seçtiğiniz sayısal sütunları toplar, diğer alanlarda ilk dolu değeri korur ve kaç kaydın birleştiğini ayrıca yazar." />
+          </menu>
+          <menu id="extractHub" image="HAMU_SplitDataWizard_32" size="large" itemSize="large" tag="UI:extractHub" showLabel="true" label="Ayıkla">
+            <button id="r_HAMU_SplitDataWizard" tag="HAMU_SplitDataWizard" onAction="HAMU_OnAction" image="HAMU_SplitDataWizard_32" showLabel="true" label="Veriyi Böl" screentip="Veriyi Böl" supertip="Seçili tabloyu satır sayısına, eşit parçalara, tek veya çoklu sütun değerlerine göre ya da yıl, çeyrek, ay ve hafta bazında tarih grupları oluşturarak böler. Çıktıları yeni çalışma sayfalarına veya ayrı Excel dosyalarına aktarabilirsiniz." />
+            <button id="r_HAMU_ExtractUniqueList" tag="HAMU_ExtractUniqueList" onAction="HAMU_OnAction" image="HAMU_ExtractUniqueList_32" showLabel="true" label="Benzersiz Liste" screentip="Benzersiz Liste" supertip="Tekrar eden değerleri bir kez listeler. Çıktı için mevcut sayfada veya başka sayfada başlangıç hücresi seçebilir ya da yeni sayfa oluşturabilirsiniz. Dolu hedefte onay ister; kaynak hata ve boş hücrelerini atlar." />
+            <button id="r_HAMU_FilterRowsToNewTable" tag="HAMU_FilterRowsToNewTable" onAction="HAMU_OnAction" image="HAMU_FilterRowsToNewTable_32" showLabel="true" label="Koşulla Satır Filtrele" screentip="Koşulla Satır Filtrele" supertip="Koşula uyan satırları yeni sayfaya kopyalar; kaynak değişmez. Şehir=Bursa yalnız Bursa kayıtlarını, Satış&gt;0 pozitif satışları, Ürün~TV içinde TV geçenleri seçer. Noktalı virgülle birleştirilen koşulların hepsi sağlanmalıdır." />
+            <button id="r_HAMU_SampleData" tag="HAMU_SampleData" onAction="HAMU_OnAction" image="HAMU_SampleData_32" showLabel="true" label="Veriden Örnek Al" screentip="Veriden Örnek Al" supertip="Tüm veri kümesinden rastgele N satır seçebilir veya belirlediğiniz grup sütunlarına göre her gruptan en fazla N rastgele kayıt alarak yeni bir örnek veri sayfası oluşturabilir." />
+            <button id="r_HAMU_ShuffleRows" tag="HAMU_ShuffleRows" onAction="HAMU_OnAction" image="HAMU_ShuffleRows_32" showLabel="true" label="Satırları Karıştır" screentip="Satırları Karıştır" supertip="Kaynak veriyi değiştirmeden, başlık satırını koruyarak veri satırlarını rastgele sırada yeni bir çalışma sayfasına aktarır." />
+            <button id="quick_HAMU_CompareSheets" image="HAMU_CompareSheets_32" onAction="HAMU_OnAction" tag="HAMU_CompareSheets" showLabel="true" label="Sayfaları Karşılaştır" screentip="Sayfaları Karşılaştır" supertip="İki çalışma sayfasını belirlediğiniz anahtar sütuna göre karşılaştırır ve eklenen, silinen veya değişen kayıtları ayrı bir raporda gösterir." />
+            <button id="r_HAMU_CompareTwoLists" tag="HAMU_CompareTwoLists" onAction="HAMU_OnAction" image="HAMU_CompareTwoLists_32" showLabel="true" label="İki Listeyi Karşılaştır" screentip="İki Listeyi Karşılaştır" supertip="İki tek sütunlu listeyi karşılaştırır; yalnızca birinci listede, yalnızca ikinci listede veya her iki listede bulunan değerleri raporlar." />
+          </menu>
+          <menu id="reshapeHub" image="HAMU_UnpivotColumnsToRows_32" size="large" itemSize="large" tag="UI:reshapeHub" showLabel="true" label="Dönüştür">
+            <button id="r_HAMU_GroupAndSummarize" tag="HAMU_GroupAndSummarize" onAction="HAMU_OnAction" image="HAMU_GroupAndSummarize_32" showLabel="true" label="Grupla ve Özetle" screentip="Grupla ve Özetle" supertip="Bir veya birden fazla sütuna göre kayıtları gruplar; birden fazla sayısal sütunu aynı anda toplar. Sütunları numarayla veya başlık adıyla seçebilirsiniz." />
+            <button id="r_HAMU_UnpivotColumnsToRows" tag="HAMU_UnpivotColumnsToRows" onAction="HAMU_OnAction" image="HAMU_UnpivotColumnsToRows_32" showLabel="true" label="Unpivot" screentip="Sütunları Satırlara Dönüştür" supertip="Solda belirlediğiniz birden fazla sabit sütunu korur; sağa doğru uzanan pivot sütunlarını Alan ve Değer yapısında satırlara dönüştürür." />
+            <button id="r_HAMU_PivotRowsToColumns" tag="HAMU_PivotRowsToColumns" onAction="HAMU_OnAction" image="HAMU_PivotRowsToColumns_32" showLabel="true" label="Pivot" screentip="Satırlardan Çapraz Tablo Oluştur" supertip="Uzun formattaki veriyi tekrar geniş çapraz tabloya dönüştürür. Birden fazla sabit anahtar sütunu kullanabilir; yeni sütun başlıklarını seçilen alandan üretir ve aynı hücreye düşen kayıtları toplama, ilk değer veya sayım yöntemiyle birleştirir." />
+            <button id="r_HAMU_PivotExport" tag="HAMU_PivotExport" onAction="HAMU_OnAction" image="HAMU_PivotExport_32" showLabel="true" label="Pivotu Böl" screentip="Pivot Filtrelerini Ayrı Sayfalara Aktar" supertip="Seçili PivotTable'ın rapor filtresindeki değerleri sırayla uygular ve her filtre sonucu için ayrı çalışma sayfası oluşturur." />
+            <button id="r_HAMU_ConvertColumnTypes" tag="HAMU_ConvertColumnTypes" onAction="HAMU_OnAction" image="HAMU_ConvertColumnTypes_32" showLabel="true" label="Veri Türünü Düzelt" screentip="Sütun Veri Tipini Düzelt" supertip="Bir veya birden fazla sütunu metin, sayı, tarih, tam sayı veya yüzde tipine dönüştürür; dönüştürülemeyen hücreleri sayarak işlem sonucunu raporlar." />
+            <button id="r_HAMU_StandardizeHeaders" tag="HAMU_StandardizeHeaders" onAction="HAMU_OnAction" image="HAMU_StandardizeHeaders_32" showLabel="true" label="Başlıkları Düzelt" screentip="Başlıkları Standardize Et" supertip="Sütun başlıklarını teknik snake_case biçimine dönüştürebilir veya gereksiz boşlukları temizleyerek okunabilir başlık yapısını koruyabilir. Aynı başlık oluşursa otomatik olarak benzersiz ad üretir." />
+            <button id="r_HAMU_SplitByValueToFiles" tag="HAMU_SplitByValueToFiles" onAction="HAMU_OnAction" image="HAMU_SplitByValueToFiles_32" showLabel="true" label="Dosyalara Böl" screentip="Değere Göre Ayrı Dosyalar Oluştur" supertip="Seçtiğiniz sütunun benzersiz değerlerine göre veriyi filtreler ve her değer için ayrı bir Excel dosyası oluşturur." />
+            <button id="r_HAMU_SplitURLParameters" tag="HAMU_SplitURLParameters" onAction="HAMU_OnAction" image="HAMU_SplitURLParameters_32" showLabel="true" label="URL Ayıkla" screentip="URL Parametrelerini Sütunlara Ayır" supertip="URL'lerde soru işaretinden sonra bulunan sorgu parametrelerini algılar ve her parametreyi ayrı bir sütun halinde yeni sayfaya çıkarır." />
+          </menu>
+          <menu id="qualityHub" image="HAMU_DataQualityReport_32" size="large" itemSize="large" tag="UI:qualityHub" showLabel="true" label="Kalite">
+            <button id="r_HAMU_DataProfile" tag="HAMU_DataProfile" onAction="HAMU_OnAction" image="HAMU_DataProfile_32" showLabel="true" label="Veri Profili" screentip="Veri Profilini Çıkar" supertip="Seçtiğiniz başlıklı veri alanındaki sütunların doluluk, boşluk, benzersiz değer ve veri türlerini özetler. Sorunları görmek için bir rapor oluşturur; kaynak veriyi değiştirmez." />
+            <button id="r_HAMU_DataQualityReport" tag="HAMU_DataQualityReport" onAction="HAMU_OnAction" image="HAMU_DataQualityReport_32" showLabel="true" label="Kalite Raporu" screentip="Veri Kalitesi Raporu" supertip="Başlıklı tabloyu denetleyerek boş alan, tekrar eden kayıt ve veri türü sorunlarını raporlar. Sonuç yeni sayfaya yazılır; sorunları kaynaktan otomatik silmez. Önce raporu inceleyin." />
+            <button id="r_HAMU_FindMissingCombinations" tag="HAMU_FindMissingCombinations" onAction="HAMU_OnAction" image="HAMU_FindMissingCombinations_32" showLabel="true" label="Eksikleri Bul" screentip="Eksik Kombinasyonları Bul" supertip="Mağaza, Ürün, Hafta gibi seçtiğiniz sütunların benzersiz değerlerinden tüm olası kombinasyonları oluşturur ve kaynak veri setinde bulunmayan kombinasyonları yeni bir sayfada listeler." />
+          </menu>
+        </group>
+        <group id="g3" label="Metin ve Hücre">
+          <button id="quick_HAMU_CleanData" image="HAMU_CleanData_32" onAction="HAMU_OnAction" tag="HAMU_CleanData" size="large" showLabel="true" label="Temizle&#10;Kırp" screentip="Metin ve Boşluk Temizle" supertip="Seçili metinlerde görünmeyen NBSP karakterlerini, sekmeleri, satır sonlarını, sıfır genişlikli boşlukları ve art arda gelen gereksiz boşlukları temizler. Metnin başı/sonundaki boşlukları kaldırır; formülleri değiştirmez." />
+          <button id="r_HAMU_ExpandColumns" tag="HAMU_ExpandColumns" image="HAMU_FitWidth_32" onAction="HAMU_OnAction" showLabel="true" size="large" label="Genişlet" screentip="Genişlet" supertip="Seçili alanın sütun genişliğini metne göre ayarlar." /><button id="quick_HAMU_AutoFit" image="HAMU_FitHeight_32" onAction="HAMU_OnAction" tag="HAMU_AutoFit" showLabel="true" size="large" label="Sığdır" screentip="Sığdır" supertip="Seçili alanın satır yüksekliğini metne göre sığdırır. Sütun genişliği değişmez." />
+                <box id="quickBox_g3" boxStyle="vertical">
+            <button id="quick_HAMU_TextCase" image="HAMU_TextCase_16" onAction="HAMU_OnAction" tag="HAMU_TextCase" showLabel="true" label="Harf Dönüştür" screentip="Harf Dönüştür" supertip="Seçili metinleri tamamı büyük, tamamı küçük veya baş harfleri büyük biçime dönüştürür." />
+            <button id="r_HAMU_DeleteBlankCells" image="HAMU_DeleteBlankCells_16" onAction="HAMU_OnAction" tag="HAMU_DeleteBlankCells" showLabel="true" label="Boşlukları Sil" screentip="Boşlukları Sil" supertip="Seçili alandaki boş hücreleri silerek alttaki hücreleri yukarı kaydırır. Veri hizasını etkileyebileceği için tek sütunlu listelerde kullanılması önerilir." />
+            <menu id="m3" image="HAMU_CleanData_16" tag="UI:m3" showLabel="true" label="Düzenle">
+              <menu id="textSub0" image="HAMU_AddTextAffixes_16" tag="UI:textSub0" showLabel="true" label="Metin Araçları">
+                <button id="r_HAMU_AddTextAffixes" image="HAMU_AddTextAffixes_16" onAction="HAMU_OnAction" tag="HAMU_AddTextAffixes" showLabel="true" label="Başa / Sona Ekle" screentip="Başa / Sona Ekle" supertip="Seçili tek sütundaki metinlerin başına ve/veya sonuna metin ekler. Sonuç seçtiğiniz başlangıç hücresine yazılır; kaynak korunur. Boş hücreler boş kalır." />
+                <button id="r_HAMU_LeadingZeros" image="HAMU_LeadingZeros_16" onAction="HAMU_OnAction" tag="HAMU_LeadingZeros" showLabel="true" label="Baştaki Sıfırlar" screentip="Baştaki Sıfırlar" supertip="Kodları sabit uzunluğa baştan sıfır ekleyerek düzenler veya baştaki sıfırları kaldırır. Sonuç metin olarak seçtiğiniz hedefe yazılır; uzun kodlar ve kaynak korunur." />
+                <button id="r_HAMU_DeduplicateItems" image="HAMU_DeduplicateItems_16" onAction="HAMU_OnAction" tag="HAMU_DeduplicateItems" showLabel="true" label="Hücre İçi Tekrarlar" screentip="Hücre İçi Tekrarlar" supertip="Virgül veya belirttiğiniz ayraçla ayrılmış hücre içi öğeleri tekilleştirir. Örneğin elma, armut, elma → elma, armut. İlk sıra korunur; sonuç ayrı hedefe yazılır." />
+                <button id="r_HAMU_ExtractTextPart" image="HAMU_ExtractTextPart_16" onAction="HAMU_OnAction" tag="HAMU_ExtractTextPart" showLabel="true" label="Metin Parçası Al" screentip="Metin Parçası Al" supertip="Soldan/sağdan belirli sayıda karakteri, bir işaretin öncesini/sonrasını veya iki işaret arasını ayıklar. İlk eşleşmeyi kullanır; eşleşme yoksa boş sonuç verir. Kaynak korunur." />
+                <button id="r_HAMU_ExtractDigits" image="HAMU_ExtractDigits_16" onAction="HAMU_OnAction" tag="HAMU_ExtractDigits" showLabel="true" label="Metinden Sayıları Ayıkla" screentip="Metinden Sayıları Ayıkla" supertip="Metin içindeki rakam karakterlerini ayıklar ve sonucu hedef alana aktarır." />
+                <button id="r_HAMU_MaskData" image="HAMU_MaskData_16" onAction="HAMU_OnAction" tag="HAMU_MaskData" showLabel="true" label="Veriyi Maskele" screentip="Veriyi Maskele" supertip="Seçili metinlerin belirlediğiniz kadar başlangıç ve bitiş karakterini koruyup ortadaki karakterleri yıldızla gizler." />
+              </menu>
+              <menu id="textSub1" image="HAMU_RegexReplace_16" tag="UI:textSub1" showLabel="true" label="Normal İfade" screentip="Normal İfade" supertip="Normal ifadelerle metin bulun, ayıklayın veya değiştirin. Hazır örnekler ve özel desenler kullanılabilir.">
+                <button id="quick_HAMU_RegexReplace" image="HAMU_RegexReplace_16" onAction="HAMU_OnAction" tag="HAMU_RegexReplace" showLabel="true" label="Normal İfade ile Değiştir" screentip="Normal İfade ile Değiştir" supertip="Seçili metin hücrelerinde RegEx normal ifadeleri kullanarak toplu bul/değiştir işlemi yapar. Gruplama ve $1 gibi geri başvurular kullanılabilir." />
+                <button id="r_HAMU_PatternFind" image="HAMU_PatternFind_16" onAction="HAMU_OnAction" tag="HAMU_PatternFind" showLabel="true" label="Normal İfade ile Bul" screentip="Normal İfade ile Bul" supertip="Seçili hücrelerde RegEx normal ifade desenine uyan metinleri bulur ve eşleşen hücreleri vurgular. Sayı, kod, telefon veya belirli metin kalıplarını tespit etmek için kullanılabilir." />
+              </menu>
+              <menu id="textSub2" image="HAMU_AutoFit_16" tag="UI:textSub2" showLabel="true" label="Hücre Düzeni" screentip="Hücre Düzeni" supertip="Hücre görünümünü, sayı ve tarih biçimlerini ve sütun genişliklerini düzenleyen araçlar.">
+                <button id="r_HAMU_StandardFormat" image="HAMU_StandardFormat_16" onAction="HAMU_OnAction" tag="HAMU_StandardFormat" showLabel="true" label="Standart Sayı ve Tarih Biçimi" screentip="Standart Sayı ve Tarih Biçimi" supertip="Gerçek sayıları ondalıksız tam sayı görünümüyle, tarih hücrelerini gg.aa.yyyy biçiminde gösterir. Hücre değerlerini yuvarlamaz veya değiştirmez." />
+                <button id="r_HAMU_ConvertQuotedNumbers" image="HAMU_ConvertQuotedNumbers_16" onAction="HAMU_OnAction" tag="HAMU_ConvertQuotedNumbers" showLabel="true" label="Metin Olarak Saklanan Sayıları Düzelt" screentip="Metin Olarak Saklanan Sayıları Düzelt" supertip="Başında gizli tek tırnak bulunan veya Excel tarafından metin olarak saklanan sayısal değerleri gerçek sayıya dönüştürmeye çalışır." />
+                <button id="r_HAMU_ConvertFormulasToValues" image="HAMU_ConvertFormulasToValues_16" onAction="HAMU_OnAction" tag="HAMU_ConvertFormulasToValues" showLabel="true" label="Formülleri Değere Dönüştür" screentip="Formülleri Değere Dönüştür" supertip="Seçili hücrelerdeki formülleri mevcut sonuçlarıyla değiştirir. İşlem sonrasında hücrelerde formül yerine sabit değer kalır." />
+                <button id="r_HAMU_UnmergeAndFill" image="HAMU_UnmergeAndFill_16" onAction="HAMU_OnAction" tag="HAMU_UnmergeAndFill" showLabel="true" label="Birleşimleri Çöz ve Doldur" screentip="Birleşimleri Çöz ve Doldur" supertip="Birleştirilmiş hücreleri çözer ve birleşik alanın sol üst değerini çözülen hücrelerin tamamına yazar." />
+                <button id="r_HAMU_FillDownBlanks" image="HAMU_FillDownBlanks_16" onAction="HAMU_OnAction" tag="HAMU_FillDownBlanks" showLabel="true" label="Boşlukları Aşağı Doldur" screentip="Boşlukları Aşağı Doldur" supertip="Seçili aralıktaki boş hücreleri aynı sütundaki en yakın üst dolu değerle doldurur. Pivot veya rapor çıktılarındaki grup etiketlerini satırlara yaymak için kullanışlıdır." />
+                <button id="r_HAMU_FillBlanksZero" image="HAMU_FillBlanksZero_16" onAction="HAMU_OnAction" tag="HAMU_FillBlanksZero" showLabel="true" label="Boşlukları Sıfırla Doldur" screentip="Boşlukları Sıfırla Doldur" supertip="Seçili aralıktaki gerçekten boş hücrelere 0 yazar. Dolu hücreleri ve boş metin döndüren formülleri korur." />
+              </menu>
+            </menu>
+          </box>
+        </group>
+        <group id="g4" label="Tablo">
+          <button id="quick_HAMU_AutoTable" image="HAMU_AutoTable_32" onAction="HAMU_OnAction" tag="HAMU_AutoTable" size="large" showLabel="true" label="Hızlı&#10;Tablo" screentip="Otomatik Tablo Oluştur" supertip="Tek hücre seçildiyse çevresindeki kesintisiz veri alanını, aksi halde seçilen alanı başlıklı Excel tablosuna dönüştürür. HAMU stili ve filtreleri uygular." />
+          <box id="quickBox_g4" boxStyle="vertical">
+            <button id="r_HAMU_DataEntry" onAction="HAMU_OnAction" tag="HAMU_DataEntry" image="HAMU_DataEntry_16" showLabel="true" label="Veri Girişi" screentip="Veri Girişi" supertip="Excel’in yerleşik veri giriş formunu açar. Bir tabloya veya benzersiz başlıkları olan kesintisiz listeye tıklayın; en fazla 32 sütun." />
+            <button id="quick_HAMU_ResizeTable" image="HAMU_ResizeTable_16" onAction="HAMU_OnAction" tag="HAMU_ResizeTable" showLabel="true" label="Tabloyu Genişlet" screentip="Tabloyu Genişlet" supertip="Tablonun altındaki bitişik verileri tabloya dahil eder." />
+            <menu id="m4" image="HAMU_ResizeTable_16" tag="UI:m4" showLabel="true" label="Tablo Araçları">
+              <button id="r_HAMU_SelectColumnsToNewTable" image="HAMU_SelectColumnsToNewTable_16" onAction="HAMU_OnAction" tag="HAMU_SelectColumnsToNewTable" showLabel="true" label="Sütun Kopyala" screentip="Sütun Kopyala" supertip="Başlık ve veri alanından sütunları adlarıyla veya seçim içindeki 1,2,3 gibi numaralarla seçer. Seçilen sütunlar ile yeni bir tablo oluşturulur." />
+            <button id="r_HAMU_TableTotals" tag="HAMU_TableTotals" image="HAMU_TableTotals_16" onAction="HAMU_OnAction" showLabel="true" label="Toplam Satırı" screentip="Toplam Satırı" supertip="Etkin tablonun toplam satırını açar veya kapatır; sayısal sütunlara toplam ekler." /><button id="r_HAMU_CopyVisibleTable" tag="HAMU_CopyVisibleTable" image="HAMU_SelectColumnsToNewTable_16" onAction="HAMU_OnAction" showLabel="true" label="Görünür Satırları Kopyala" screentip="Görünür Satırları Kopyala" supertip="Filtre sonrası görünen kayıtları yeni sayfada bağımsız tabloya kopyalar." /></menu>
+          </box>
+        </group>
+        <group id="g5" label="Tarih">
+          <button id="quick_HAMU_DatePicker" image="HAMU_DatePicker_32" onAction="HAMU_OnAction" tag="HAMU_DatePicker" size="large" showLabel="true" label="Tarih Seç" screentip="Tarih Seçici" supertip="HAMU takvim penceresini açar. Aktif hücrede tarih varsa takvim o tarihle açılır; seçtiğiniz tarih hücreye gerçek Excel tarihi olarak dd.mm.yyyy biçiminde yazılır." />
+          <box id="quickBox_g5" boxStyle="vertical">
+            <button id="quick_HAMU_FixDates" image="HAMU_FixDates_16" onAction="HAMU_OnAction" tag="HAMU_FixDates" showLabel="true" label="Tarihleri Düzelt" screentip="Tarihleri Düzelt" supertip="03/10/2026, 2026-10-03, 20261003, 3 Ekim 2026 ve benzeri farklı tarih gösterimlerini gerçek Excel tarihine dönüştürür ve dd.mm.yyyy biçiminde standardize eder." />
+            <button id="quick_HAMU_CheckDates" image="HAMU_CheckDates_16" onAction="HAMU_OnAction" tag="HAMU_CheckDates" showLabel="true" label="Tarih Kontrolü" screentip="Tarih Kontrolü" supertip="Seçili hücrelerdeki değerlerin geçerli bir tarih olup olmadığını kontrol eder. Geçerli tarihleri ve tanımlanamayan değerleri farklı renklerle işaretler." />
+            <menu id="m5" image="HAMU_DateRangeList_16" tag="UI:m5" showLabel="true" label="Tarih Araçları">
+              <button id="r_HAMU_DateBuilder" image="HAMU_DateBuilder_16" onAction="HAMU_OnAction" tag="HAMU_DateBuilder" showLabel="true" label="Tarih Oluştur" screentip="Tarih Oluştur" supertip="Ayrı sütunlarda bulunan yıl, ay ve gün değerlerini birleştirerek gerçek Excel tarihleri oluşturur. Ay alanında sayı veya Türkçe ay adı kullanılabilir." />
+              <button id="r_HAMU_DateRangeList" image="HAMU_DateRangeList_16" onAction="HAMU_OnAction" tag="HAMU_DateRangeList" showLabel="true" label="Tarih Listesi" screentip="Tarih Listesi" supertip="Başlangıç ve bitiş dahil tarih listesi oluşturur. Tüm günler veya yalnız hafta içi seçilir; hafta içi seçeneği resmî tatilleri hesaplamaz. Sonuç seçtiğiniz başlangıç hücresine yazılır." />
+            </menu>
+          </box>
+        </group>
+        <group id="g6" label="Sayfa ve Görsel">
+          <button id="quick_HAMU_SheetIndex" image="HAMU_SheetIndex_32" onAction="HAMU_OnAction" tag="HAMU_SheetIndex" size="large" showLabel="true" label="Sayfa İndeksi" screentip="Sayfa İndeksi" supertip="Görünür çalışma sayfalarını listeleyen ve her sayfaya tıklanabilir bağlantı veren bir İçindekiler sayfası oluşturur." />
+          <button id="r_HAMU_InsertPhotosFromFolder" image="HAMU_InsertPhotosFromFolder_32" onAction="HAMU_OnAction" tag="HAMU_InsertPhotosFromFolder" size="large" showLabel="true" label="Toplu&#10;Fotoğraf" screentip="Klasörden Toplu Fotoğraf Ekle" supertip="Seçtiğiniz klasördeki görselleri aktif hücreden başlayarak satırlara ekler ve yan hücreye dosya adını yazar." />
+          <button id="r_HAMU_CreateQRCode" image="HAMU_CreateQRCode_32" onAction="HAMU_OnAction" tag="HAMU_CreateQRCode" size="large" showLabel="true" label="Karekod&#10;Barkod" screentip="Karekod ve Barkod" supertip="Tek ekranda Karekod veya Barkod seçin; tür değişince model listesi güncellenir. Metin, bağlantı, e-posta ve telefon içeriği; tek giriş veya tek sütundan toplu üretim. Kodlar verinin sağındaki boş hücreye eklenir. İnternet gerekir; en fazla 250 kod." />
+          <box id="quickBox_g6" boxStyle="vertical">
+            <button id="quick_HAMU_SelectionToPNG" image="HAMU_SelectionToPNG_16" onAction="HAMU_OnAction" tag="HAMU_SelectionToPNG" showLabel="true" label="Resim Kaydet" screentip="Resim Kaydet" supertip="Seçili alanı PNG, JPG veya GIF olarak kaydeder. Çok büyük görsel alanlarını durdurur ve geçici grafiği temizler." />
+            <button id="r_HAMU_RowStriping" image="HAMU_RowStriping_16" onAction="HAMU_OnAction" tag="HAMU_RowStriping" showLabel="true" label="Satırları Renklendir" screentip="Satırları Renklendir" supertip="Seçili aralıkta dönüşümlü satır renklendirmesi uygular. Çalıştırıldığında mavi, yeşil, sarı, turuncu, mor, gri ve pembe tonlarından birini seçebilirsiniz." />
+            <menu id="m6" image="HAMU_SheetIndex_16" tag="UI:m6" showLabel="true" label="Sayfa Araçları" screentip="Sayfa ve Görsel — Diğer Araçlar" supertip="Bu kategorideki diğer komutları ve açıklamalarını gösterir.">
+              <button id="r_HAMU_SortSheets" image="HAMU_SortSheets_16" onAction="HAMU_OnAction" tag="HAMU_SortSheets" showLabel="true" label="Sayfaları Alfabetik Sırala" screentip="Sayfaları Alfabetik Sırala" supertip="Çalışma kitabındaki çalışma sayfalarını adlarına göre alfabetik olarak yeniden sıralar." />
+              <button id="r_HAMU_ShowHidden" image="HAMU_ShowHidden_16" onAction="HAMU_OnAction" tag="HAMU_ShowHidden" showLabel="true" label="Tüm Gizlileri Göster" screentip="Tüm Gizlileri Göster" supertip="Aktif çalışma kitabındaki gizli çalışma sayfalarını, satırları ve sütunları görünür hale getirir." />
+              <button id="quick_HAMU_DynamicValidation" image="HAMU_DynamicValidation_16" onAction="HAMU_OnAction" tag="HAMU_DynamicValidation" showLabel="true" label="Dinamik Veri Doğrulama Listesi" screentip="Dinamik Veri Doğrulama Listesi" supertip="Seçili hücrelere liste tipi veri doğrulama uygular. Kaynak olarak adlandırılmış aralık, Tablo[Sütun], doğrudan aralık veya A1# biçimindeki dinamik taşan dizi kullanılabilir. Bir adlandırma A1# kaynağına bağlıysa taşan aralık büyüdükçe doğrulama listesi de dinamik kalır." />
+              <button id="r_HAMU_DeleteDropdowns" image="HAMU_DeleteDropdowns_16" onAction="HAMU_OnAction" tag="HAMU_DeleteDropdowns" showLabel="true" label="Eski Dropdown Nesnelerini Sil" screentip="Eski Dropdown Nesnelerini Sil" supertip="Aktif sayfadaki eski Form Denetimi ve ActiveX açılır kutu nesnelerini siler. Hücrelerdeki veri doğrulama listeleri korunur." />
+            </menu>
+          </box>
+        </group>
+        <group id="g7" label="Denetim">
+          <button id="quick_HAMU_MarkProblemCells" image="HAMU_MarkProblemCells_32" onAction="HAMU_OnAction" tag="HAMU_MarkProblemCells" size="large" showLabel="true" label="Sorunlu&#10;Hücreler" screentip="Sorunlu Hücreleri İşaretle" supertip="Sayı gibi görünen metinleri ve eşittir işaretiyle başlayan ancak gerçek formül olmayan metinleri bularak hücreleri farklı renklerle işaretler." />
+          <menu id="m7" image="HAMU_FormulaAudit_32" size="large" tag="UI:m7" showLabel="true" label="Denetim&#10;Araçları">
+            <button id="r_HAMU_FormulaAudit" image="HAMU_FormulaAudit_16" onAction="HAMU_OnAction" tag="HAMU_FormulaAudit" showLabel="true" label="Formül Denetimi" screentip="Formül Denetimi" supertip="Kitaptaki formülleri kaynak hücre bağlantısı, formül metni, görüntülenen sonuç, hata durumu ve dış kitap başvurusu bilgisiyle yeni sayfada listeler. Kaynak formüller değiştirilmez. Dış başvuru tespiti doğrudan XLS/CSV kitap başvurularını tarar." />
+            <button id="r_HAMU_ListDefinedNames" image="HAMU_ListDefinedNames_16" onAction="HAMU_OnAction" tag="HAMU_ListDefinedNames" showLabel="true" label="Tanımlı Adları Listele" screentip="Tanımlı Adları Listele" supertip="Kitap ve sayfa kapsamındaki tanımlı adları, başvurularını, görünürlüklerini ve geçersiz başvuru durumlarını yeni sayfada listeler. Adları değiştirmez veya silmez." />
+            <button id="r_HAMU_ListLinks" image="HAMU_ListLinks_16" onAction="HAMU_OnAction" tag="HAMU_ListLinks" showLabel="true" label="Harici Bağlantıları Listele" screentip="Harici Bağlantıları Listele" supertip="Çalışma kitabındaki Excel türü dış bağlantıları yeni bir sayfada listeler." />
+            <button id="r_HAMU_BreakLinks" image="HAMU_BreakLinks_16" onAction="HAMU_OnAction" tag="HAMU_BreakLinks" showLabel="true" label="Harici Bağlantıları Kır" screentip="Harici Bağlantıları Kır" supertip="Çalışma kitabındaki harici Excel bağlantılarını kırar. Bağlantılı formüller mevcut değerlerine dönüştürülebileceği için işlemden önce yedek alınması önerilir." />
+          </menu>
+          <box id="quickBox_g7" boxStyle="vertical">
+            <button id="quick_HAMU_HighlightDuplicates" image="HAMU_HighlightDuplicates_16" onAction="HAMU_OnAction" tag="HAMU_HighlightDuplicates" showLabel="true" label="Tekrar Edenleri Vurgula" screentip="Tekrar Edenleri Vurgula" supertip="Seçili alanda birden fazla kez bulunan değerleri tespit eder ve tekrar eden hücreleri renklendirir." />
+            <button id="r_HAMU_ClearHighlights" onAction="HAMU_OnAction" tag="HAMU_ClearHighlights" image="HAMU_ClearHighlights_16" showLabel="true" label="Vurguyu Kaldır" screentip="Vurguyu Kaldır" supertip="Seçili alandaki HAMU vurgu renklerini kaldırır. Aynı oturumda önceki dolguyu geri yükler; daha eski vurgular sarı/turuncu paletiyle tanınır." />
+            <menu id="auditHighlight" image="HAMU_MarkProblemCells_16" tag="UI:auditHighlight" showLabel="true" label="Vurgu ve Sayım">
+              <button id="r_HAMU_HighlightByCriteria" image="HAMU_HighlightByCriteria_16" onAction="HAMU_OnAction" tag="HAMU_HighlightByCriteria" showLabel="true" label="Hücre Türüne Göre Vurgula" screentip="Hücre Türüne Göre Vurgula" supertip="Seçili alanda sayı, metin, hata veya boş hücreleri seçtiğiniz kritere göre vurgular." />
+              <button id="r_HAMU_AddDuplicateCount" image="HAMU_AddDuplicateCount_16" onAction="HAMU_OnAction" tag="HAMU_AddDuplicateCount" showLabel="true" label="Tekrar Sayısını Yaz" screentip="Tekrar Sayısını Yaz" supertip="Giriş listesindeki her değerin kaç kez geçtiğini hesaplayıp ayrı seçtiğiniz çıkış alanına yazar. Tek çıkış hücresi seçerseniz sonuç aşağı doğru genişler." />
+              <button id="r_HAMU_SelectSpecialCells" image="HAMU_SelectSpecialCells_16" onAction="HAMU_OnAction" tag="HAMU_SelectSpecialCells" showLabel="true" label="Özel Hücreleri Seç" screentip="Özel Hücreleri Seç" supertip="Mevcut seçimdeki formül, sabit değer, hata, boş veya görünür hücreleri seçer. Değer ve biçimler değiştirilmez; boş metin döndüren formüller gerçek boş sayılmaz." />
+              <button id="r_HAMU_CountByColor" image="HAMU_CountByColor_16" onAction="HAMU_OnAction" tag="HAMU_CountByColor" showLabel="true" label="Renge Göre Say" screentip="Renge Göre Say" supertip="Seçilen aralıkta örnek hücrenin görüntülenen dolgu rengiyle eşleşen hücreleri sayar; koşullu biçimlendirme dahildir." />
+              <button id="r_HAMU_SumByColor" image="HAMU_SumByColor_16" onAction="HAMU_OnAction" tag="HAMU_SumByColor" showLabel="true" label="Renge Göre Topla" screentip="Renge Göre Topla" supertip="Örnek hücrenin görüntülenen dolgu rengiyle eşleşen sayısal değerleri toplar; metin, boş ve hata değerlerini toplama katmaz." />
+            </menu>
+          </box>
+        </group>
+        <group id="g8" label="Bilgi">
+            <menu id="extraFunctions" image="HAMU_UDFHelp_32" size="large" tag="UI:extraFunctions" showLabel="true" label="Fonksiyonlar" screentip="Fonksiyonlar" supertip="HAMU hücre fonksiyonlarını ve LAMBDA şablonlarını örnekleriyle inceleyin.">
+            <menu id="worksheetFunctions" image="HAMU_About_16" tag="UI:worksheetFunctions" showLabel="true" label="Hücre Fonksiyonları">
+              <button id="r_UDF_URLDecode" image="HAMU_UDFHelp_16" onAction="HAMU_OnAction" tag="UDF_URLDecode" showLabel="true" label="HAMU_URLCoz" screentip="HAMU_URLCoz" supertip="=HAMU_URLCoz(A1) | UTF-8 URL karakterlerini çözer. Geçersiz yüzde dizisini korur." />
+              <button id="r_UDF_RenklileriTopla" image="HAMU_UDFHelp_16" onAction="HAMU_OnAction" tag="UDF_RenklileriTopla" showLabel="true" label="HAMU_RengeGoreTopla" screentip="HAMU_RengeGoreTopla" supertip="=HAMU_RengeGoreTopla(A1:A20;B1) | B1 ile aynı dolgu rengine sahip sayıları toplar. Biçim değişimi sonrası F9 kullanın." />
+              <button id="r_UDF_RengeGoreSay" image="HAMU_UDFHelp_16" onAction="HAMU_OnAction" tag="UDF_RengeGoreSay" showLabel="true" label="HAMU_RengeGoreSay" screentip="HAMU_RengeGoreSay" supertip="=HAMU_RengeGoreSay(A1:A20;B1) | B1 ile aynı dolgu rengine sahip hücreleri sayar. Biçim değişimi sonrası F9 kullanın." />
+              <button id="r_UDF_YerelDosyaYolu" image="HAMU_UDFHelp_16" onAction="HAMU_OnAction" tag="UDF_YerelDosyaYolu" showLabel="true" label="HAMU_YerelDosyaYolu" screentip="HAMU_YerelDosyaYolu" supertip="=HAMU_YerelDosyaYolu(A1) | Kişisel OneDrive URL yolunu yerel OneDrive ortam değişkeniyle eşler; diğer URL türlerini korur." />
+              <button id="r_UDF_GizliLink" image="HAMU_UDFHelp_16" onAction="HAMU_OnAction" tag="UDF_GizliLink" showLabel="true" label="HAMU_GizliLink" screentip="HAMU_GizliLink" supertip="=HAMU_GizliLink(A1) | Hücrenin ilk köprü adresini getirir." />
+              <button id="r_UDF_LinkParamDegeri" image="HAMU_UDFHelp_16" onAction="HAMU_OnAction" tag="UDF_LinkParamDegeri" showLabel="true" label="HAMU_LinkParamDegeri" screentip="HAMU_LinkParamDegeri" supertip="=HAMU_LinkParamDegeri(A1;&quot;id&quot;) | URL içindeki sorgu parametresinin değerini getirir." />
+              <button id="r_UDF_SayidanMetine" image="HAMU_UDFHelp_16" onAction="HAMU_OnAction" tag="UDF_SayidanMetine" showLabel="true" label="HAMU_SayidanMetine" screentip="HAMU_SayidanMetine" supertip="=HAMU_SayidanMetine(123) | Türkçe: yüz yirmi üç. 15 basamaktan küçük mutlak değerler; ondalık kısmı tek tek okur." />
+              <button id="r_UDF_TablodanVeriGetir" image="HAMU_UDFHelp_16" onAction="HAMU_OnAction" tag="UDF_TablodanVeriGetir" showLabel="true" label="HAMU_TablodanVeriGetir" screentip="HAMU_TablodanVeriGetir" supertip="=HAMU_TablodanVeriGetir(A1;&quot;Tablo1&quot;;&quot;Kod&quot;;&quot;Ad&quot;) | Formülün bulunduğu kitapta tablodan ilk eşleşen değeri getirir." />
+            </menu>
+            <menu id="lambdaFunctions" image="HAMU_About_16" tag="UI:lambdaFunctions" showLabel="true" label="LAMBDA Şablonları">
+              <button id="openLambdaTemplates" onAction="HAMU_OnLambdaTemplate" image="HAMU_About_16" showLabel="true" label="Şablonu Aç" supertip="Üç uzman LAMBDA tanımı içeren dosyayı açar. Aktarma Sihirbazı ile kendi kitabınıza alın." />
+              <button id="r_UDF_LambdaMultiLookup" onAction="HAMU_OnAction" tag="UDF_LambdaMultiLookup" image="UDF_LambdaMultiLookup_16" showLabel="true" label="HAMU_L_CokluAra" screentip="HAMU_L_CokluAra" supertip="İki ayrı anahtar/sonuç sütununda tam eşleşme arar; ilk sonucu verir. Örnek: =HAMU_L_CokluAra(G2;A2:A10;B2:B10;D2:D10;E2:E10). LAMBDA şablonundan aktarılır; Microsoft 365/Excel 2024 gerekir." />
+              <button id="r_UDF_LambdaMultiSum" onAction="HAMU_OnAction" tag="UDF_LambdaMultiSum" image="UDF_LambdaMultiLookup_16" showLabel="true" label="HAMU_L_CokluTopla" screentip="HAMU_L_CokluTopla" supertip="İki ayrı anahtar/değer sütununda koşula uyan sayıları toplar. Örnek: =HAMU_L_CokluTopla(G2;A2:A10;B2:B10;D2:D10;E2:E10). Şablondan aktarılır; Microsoft 365/Excel 2024 gerekir." />
+              <button id="r_UDF_LambdaUniqueMerge" onAction="HAMU_OnAction" tag="UDF_LambdaUniqueMerge" image="UDF_LambdaMultiLookup_16" showLabel="true" label="HAMU_L_BenzersizBirlestir" screentip="HAMU_L_BenzersizBirlestir" supertip="İki alandaki dolu değerleri tek bir sıralı benzersiz listeye dönüştürür. Örnek: =HAMU_L_BenzersizBirlestir(A2:B10;D2:E10). Sonuç için boş taşma alanı gerekir. Microsoft 365/Excel 2024 gerekir." />
+            </menu>
+            <button id="r_HAMU_UDFHelp" image="HAMU_UDFHelp_16" onAction="HAMU_OnAction" tag="HAMU_UDFHelp" showLabel="true" label="Çalışma Sayfası Fonksiyonları" screentip="Çalışma Sayfası Fonksiyonları" supertip="HAMU çalışma sayfası fonksiyonlarını ve formül örneklerini gösterir." />
+          </menu>
+          <menu id="m8" image="HAMU_About_32" size="large" tag="UI:m8" showLabel="true" label="Bilgi">
+            <button id="quick_HAMU_Help" image="HAMU_Help_16" onAction="HAMU_OnAction" tag="HAMU_Help" showLabel="true" label="Yardım" screentip="Yardım" supertip="HAMU Tools içindeki komutların kullanım amacı ve temel kullanım bilgilerini gösterir." />
+            <button id="quick_HAMU_About" image="HAMU_About_16" onAction="HAMU_OnAction" tag="HAMU_About" showLabel="true" label="Hakkında" screentip="Hakkında" supertip="HAMU Tools V1 sürümü, HAMU markası ve huseyinavniuzun.com bilgileri ile eklentinin kapsamını gösterir." />
+          </menu>
+        </group>
+      </tab>
+    <tab id="en_tabHAMU" insertAfterMso="TabHome" label="HAMU Tools (EN)" getVisible="HAMU_IsEnglish">
+        <group id="en_g0" label="Transfer">
+          <button id="en_r_HAMU_Transfer" size="large" image="hamu_logo_32" onAction="HAMU_OnAction" tag="HAMU_Transfer" showLabel="true" label="Transfer" screentip="Transfer Wizard" supertip="Transfer LAMBDA definitions, cell styles, named data ranges, sheet data and Excel tables. Sheet/table transfer copies values and formatting, without VBA." />
+        </group>
+        <group id="en_g1" label="Files">
+          <menu id="en_fileHub" image="HAMU_Backup_32" size="large" itemSize="large" tag="UI:fileHub" showLabel="true" label="Files">
+            <button id="en_r_HAMU_Backup" tag="HAMU_Backup" onAction="HAMU_OnAction" image="HAMU_Backup_32" showLabel="true" label="Create Backup" screentip="Create Backup" supertip="Save a timestamped copy to the backup folder configured in Settings. The result displays its full path and an Open Folder button." />
+            <button id="en_r_HAMU_AddDateToFilename" tag="HAMU_AddDateToFilename" onAction="HAMU_OnAction" image="HAMU_AddDateToFilename_32" showLabel="true" label="Dated Version" screentip="Dated Version" supertip="Create a timestamped copy in the original folder. Open and verify the copy before closing and deleting the original; keep the original if verification fails." />
+            <button id="en_r_HAMU_SaveCopy" tag="HAMU_SaveCopy" onAction="HAMU_OnAction" image="HAMU_SaveCopy_32" showLabel="true" label="Save Copy" screentip="Save Copy" supertip="Save a copy at a chosen location, preserving the open workbook identity, unsaved state, file format and macros." />
+            <button id="en_r_HAMU_FolderIndex" tag="HAMU_FolderIndex" onAction="HAMU_OnAction" image="HAMU_FolderIndex_32" showLabel="true" label="Folder Contents" screentip="Folder Contents" supertip="List files with hyperlinks, local paths, extensions, types, readable sizes and creation/modification dates. Choose current-folder or recursive scanning; large folder trees take longer." />
+            <button id="en_r_HAMU_ExportSheetsAsPDF" tag="HAMU_ExportSheetsAsPDF" onAction="HAMU_OnAction" image="HAMU_ExportSheetsAsPDF_32" showLabel="true" label="Save PDF" screentip="Save PDF" supertip="Save PDF using Select Range or Active Sheet. Select Range always opens Excel's range picker instead of automatically exporting the selection. Choose automatic, portrait or landscape." />
+          </menu>
+        </group>
+        <group id="en_g2" label="Data">
+          <menu id="en_mergeHub" image="HAMU_SmartAppendByHeaders_32" size="large" itemSize="large" tag="UI:mergeHub" showLabel="true" label="Combine">
+            <button id="en_r_HAMU_SmartAppendByHeaders" tag="HAMU_SmartAppendByHeaders" onAction="HAMU_OnAction" image="HAMU_SmartAppendByHeaders_32" showLabel="true" label="Smart Append" screentip="Smart Append" supertip="Append worksheets by matching header names, even when column order differs. Missing columns remain blank. Add the source sheet name and preserve the source worksheets." />
+            <button id="en_r_HAMU_CombineCSVs" tag="HAMU_CombineCSVs" onAction="HAMU_OnAction" image="HAMU_CombineCSVs_32" showLabel="true" label="Combine CSV Files" screentip="Combine CSV Files" supertip="Append CSV files from a folder to one sheet. Keep the first file's header and skip header rows in subsequent files." />
+            <button id="en_r_HAMU_ConsolidateSheets" tag="HAMU_ConsolidateSheets" onAction="HAMU_OnAction" image="HAMU_ConsolidateSheets_32" showLabel="true" label="Combine Sheets" screentip="Append Worksheets" supertip="Append used ranges from worksheets in the active workbook and add the source worksheet name to the results." />
+            <button id="en_r_HAMU_AppendSelectedTables" tag="HAMU_AppendSelectedTables" onAction="HAMU_OnAction" image="HAMU_AppendSelectedTables_32" showLabel="true" label="Combine Tables" screentip="Append Selected Tables" supertip="Combine rows from selected Excel tables with matching structures into one result table." />
+            <button id="en_r_HAMU_CollectFilesData" tag="HAMU_CollectFilesData" onAction="HAMU_OnAction" image="HAMU_CollectFilesData_32" showLabel="true" label="Collect Files" screentip="Collect Folder Data" supertip="Read the first data sheet from Excel/CSV files in a folder and append matching headers. Add the source filename without changing source files." />
+            <button id="en_r_HAMU_SmartJoin" tag="HAMU_SmartJoin" onAction="HAMU_OnAction" image="HAMU_SmartJoin_32" showLabel="true" label="Join by Key" screentip="Join by Key" supertip="Match two datasets using selected key columns. Check key types, spaces and duplicates before choosing the fields to include." />
+            <button id="en_r_HAMU_MergeDuplicates" tag="HAMU_MergeDuplicates" onAction="HAMU_OnAction" image="HAMU_MergeDuplicates_32" showLabel="true" label="Merge Duplicate Records" screentip="Merge Duplicate Records" supertip="Merge records by one or more key columns, sum selected numeric fields, keep the first nonblank value in other fields and include a record count." />
+          </menu>
+          <menu id="en_extractHub" image="HAMU_SplitDataWizard_32" size="large" itemSize="large" tag="UI:extractHub" showLabel="true" label="Extract">
+            <button id="en_r_HAMU_SplitDataWizard" tag="HAMU_SplitDataWizard" onAction="HAMU_OnAction" image="HAMU_SplitDataWizard_32" showLabel="true" label="Split Data" screentip="Split Data" supertip="Split values or datasets using the options shown in the dialog. Choose the source columns and desired output." />
+            <button id="en_r_HAMU_ExtractUniqueList" tag="HAMU_ExtractUniqueList" onAction="HAMU_OnAction" image="HAMU_ExtractUniqueList_32" showLabel="true" label="Unique List" screentip="Unique List" supertip="Create a list of distinct values in a selected destination range or on a new worksheet. Configure the default destination behavior in Settings." />
+            <button id="en_r_HAMU_FilterRowsToNewTable" tag="HAMU_FilterRowsToNewTable" onAction="HAMU_OnAction" image="HAMU_FilterRowsToNewTable_32" showLabel="true" label="Filter Rows" screentip="Filter Rows" supertip="Create an output table containing rows that satisfy the chosen column condition. Source data remains unchanged." />
+            <button id="en_r_HAMU_SampleData" tag="HAMU_SampleData" onAction="HAMU_OnAction" image="HAMU_SampleData_32" showLabel="true" label="Sample Data" screentip="Sample Data" supertip="Create a sample of records using the requested sample size or selection options." />
+            <button id="en_r_HAMU_ShuffleRows" tag="HAMU_ShuffleRows" onAction="HAMU_OnAction" image="HAMU_ShuffleRows_32" showLabel="true" label="Shuffle Rows" screentip="Shuffle Rows" supertip="Randomize the order of data rows while preserving values within each row." />
+            <button id="en_quick_HAMU_CompareSheets" image="HAMU_CompareSheets_32" onAction="HAMU_OnAction" tag="HAMU_CompareSheets" showLabel="true" label="Compare Sheets" screentip="Compare Sheets" supertip="Compare worksheets and identify differences." />
+            <button id="en_r_HAMU_CompareTwoLists" tag="HAMU_CompareTwoLists" onAction="HAMU_OnAction" image="HAMU_CompareTwoLists_32" showLabel="true" label="Compare Lists" screentip="Compare Lists" supertip="Compare values in two lists and report matches and differences." />
+          </menu>
+          <menu id="en_reshapeHub" image="HAMU_UnpivotColumnsToRows_32" size="large" itemSize="large" tag="UI:reshapeHub" showLabel="true" label="Reshape">
+            <button id="en_r_HAMU_GroupAndSummarize" tag="HAMU_GroupAndSummarize" onAction="HAMU_OnAction" image="HAMU_GroupAndSummarize_32" showLabel="true" label="Group and Summarize" screentip="Group and Summarize" supertip="Group records by one or more key columns and summarize selected numeric fields. Specify column numbers or header names." />
+            <button id="en_r_HAMU_UnpivotColumnsToRows" tag="HAMU_UnpivotColumnsToRows" onAction="HAMU_OnAction" image="HAMU_UnpivotColumnsToRows_32" showLabel="true" label="Unpivot" screentip="Unpivot" supertip="Convert wide columns into field/value rows. Keep text headers such as 2026.01 as text." />
+            <button id="en_r_HAMU_PivotRowsToColumns" tag="HAMU_PivotRowsToColumns" onAction="HAMU_OnAction" image="HAMU_PivotRowsToColumns_32" showLabel="true" label="Pivot" screentip="Pivot" supertip="Build a cross-tab by moving row categories into columns and summarizing values." />
+            <button id="en_r_HAMU_PivotExport" tag="HAMU_PivotExport" onAction="HAMU_OnAction" image="HAMU_PivotExport_32" showLabel="true" label="Split Pivot" screentip="Export Pivot Filters" supertip="Export separate PivotTable filter results to worksheets. Select a cell within the PivotTable first." />
+            <button id="en_r_HAMU_ConvertColumnTypes" tag="HAMU_ConvertColumnTypes" onAction="HAMU_OnAction" image="HAMU_ConvertColumnTypes_32" showLabel="true" label="Convert Types" screentip="Fix Column Types" supertip="Convert selected columns to the requested data types. Review mixed values and conversion errors." />
+            <button id="en_r_HAMU_StandardizeHeaders" tag="HAMU_StandardizeHeaders" onAction="HAMU_OnAction" image="HAMU_StandardizeHeaders_32" showLabel="true" label="Clean Headers" screentip="Normalize Headers" supertip="Clean spaces and normalize column headings to a consistent naming scheme." />
+            <button id="en_r_HAMU_SplitByValueToFiles" tag="HAMU_SplitByValueToFiles" onAction="HAMU_OnAction" image="HAMU_SplitByValueToFiles_32" showLabel="true" label="Split to Files" screentip="Split into Files" supertip="Create separate files for distinct values in a selected column. Choose the destination folder and preserve the source data." />
+            <button id="en_r_HAMU_SplitURLParameters" tag="HAMU_SplitURLParameters" onAction="HAMU_OnAction" image="HAMU_SplitURLParameters_32" showLabel="true" label="Extract URL" screentip="Expand URL Parameters" supertip="Extract URL query parameters into separate columns for analysis." />
+          </menu>
+          <menu id="en_qualityHub" image="HAMU_DataQualityReport_32" size="large" itemSize="large" tag="UI:qualityHub" showLabel="true" label="Quality">
+            <button id="en_r_HAMU_DataProfile" tag="HAMU_DataProfile" onAction="HAMU_OnAction" image="HAMU_DataProfile_32" showLabel="true" label="Data Profile" screentip="Data Profile" supertip="Summarize the contents and data types of selected columns to help assess a dataset." />
+            <button id="en_r_HAMU_DataQualityReport" tag="HAMU_DataQualityReport" onAction="HAMU_OnAction" image="HAMU_DataQualityReport_32" showLabel="true" label="Quality Report" screentip="Data Quality" supertip="Inspect missing values, duplicates and data consistency. Review the report before deciding how to clean the source data." />
+            <button id="en_r_HAMU_FindMissingCombinations" tag="HAMU_FindMissingCombinations" onAction="HAMU_OnAction" image="HAMU_FindMissingCombinations_32" showLabel="true" label="Find Missing" screentip="Missing Combinations" supertip="Find missing combinations of selected category columns." />
+          </menu>
+        </group>
+        <group id="en_g3" label="Text and Cells">
+          <button id="en_quick_HAMU_CleanData" image="HAMU_CleanData_32" onAction="HAMU_OnAction" tag="HAMU_CleanData" size="large" showLabel="true" label="Clean&#10;Trim" screentip="Clean Text and Spaces" supertip="Clean redundant spaces and invisible characters while preserving Turkish characters." />
+          <button id="en_r_HAMU_ExpandColumns" tag="HAMU_ExpandColumns" image="HAMU_FitWidth_32" onAction="HAMU_OnAction" showLabel="true" size="large" label="Fit Width" screentip="Fit Width" supertip="Fit selected column widths to the content." /><button id="en_quick_HAMU_AutoFit" image="HAMU_FitHeight_32" onAction="HAMU_OnAction" tag="HAMU_AutoFit" showLabel="true" size="large" label="Fit Height" screentip="Fit Height" supertip="Fit row heights to selected content without changing column widths." />
+                <box id="en_quickBox_g3" boxStyle="vertical">
+            <button id="en_quick_HAMU_TextCase" image="HAMU_TextCase_16" onAction="HAMU_OnAction" tag="HAMU_TextCase" showLabel="true" label="Change Case" screentip="Change Case" supertip="Choose uppercase, lowercase or title case from a simple selection dialog." />
+            <button id="en_r_HAMU_DeleteBlankCells" image="HAMU_DeleteBlankCells_16" onAction="HAMU_OnAction" tag="HAMU_DeleteBlankCells" showLabel="true" label="Delete Blanks" screentip="Delete Blanks" supertip="Delete empty cells and shift remaining cells upward. Check related columns before changing their alignment." />
+            <menu id="en_m3" image="HAMU_CleanData_16" tag="UI:m3" showLabel="true" label="Edit">
+              <menu id="en_textSub0" image="HAMU_AddTextAffixes_16" tag="UI:textSub0" showLabel="true" label="Text Tools">
+                <button id="en_r_HAMU_AddTextAffixes" image="HAMU_AddTextAffixes_16" onAction="HAMU_OnAction" tag="HAMU_AddTextAffixes" showLabel="true" label="Add Prefix or Suffix" screentip="Add Prefix or Suffix" supertip="Add text before or after values and write to a separate output range. Preserve the source and leading zeros." />
+                <button id="en_r_HAMU_LeadingZeros" image="HAMU_LeadingZeros_16" onAction="HAMU_OnAction" tag="HAMU_LeadingZeros" showLabel="true" label="Leading Zeros" screentip="Leading Zeros" supertip="Add or remove leading zeros from text codes. Preserve source values and write the result as text." />
+                <button id="en_r_HAMU_DeduplicateItems" image="HAMU_DeduplicateItems_16" onAction="HAMU_OnAction" tag="HAMU_DeduplicateItems" showLabel="true" label="Deduplicate Cell Items" screentip="Deduplicate Cell Items" supertip="Remove repeated items within each cell using the chosen separator, keeping their first occurrence." />
+                <button id="en_r_HAMU_ExtractTextPart" image="HAMU_ExtractTextPart_16" onAction="HAMU_OnAction" tag="HAMU_ExtractTextPart" showLabel="true" label="Extract Text Part" screentip="Extract Text Part" supertip="Extract characters from the left/right or text before, after or between specified markers." />
+                <button id="en_r_HAMU_ExtractDigits" image="HAMU_ExtractDigits_16" onAction="HAMU_OnAction" tag="HAMU_ExtractDigits" showLabel="true" label="Extract Digits" screentip="Extract Digits" supertip="Extract numeric characters from selected text values." />
+                <button id="en_r_HAMU_MaskData" image="HAMU_MaskData_16" onAction="HAMU_OnAction" tag="HAMU_MaskData" showLabel="true" label="Mask Data" screentip="Mask Data" supertip="Mask selected text according to the available options. Keep an original copy when required." />
+              </menu>
+              <menu id="en_textSub1" image="HAMU_RegexReplace_16" tag="UI:textSub1" showLabel="true" label="Regular Expressions" screentip="Regular Expressions" supertip="Find, extract or replace text using regular expressions. Use examples or a custom pattern.">
+                <button id="en_quick_HAMU_RegexReplace" image="HAMU_RegexReplace_16" onAction="HAMU_OnAction" tag="HAMU_RegexReplace" showLabel="true" label="Replace by Regular Expression" screentip="Replace by Regular Expression" supertip="Replace matching text using a regular expression. Capture groups and references such as $1 can be used." />
+                <button id="en_r_HAMU_PatternFind" image="HAMU_PatternFind_16" onAction="HAMU_OnAction" tag="HAMU_PatternFind" showLabel="true" label="Find by Regular Expression" screentip="Find by Regular Expression" supertip="Find text matching a regular-expression pattern and highlight matching cells. Use a preset or a custom pattern." />
+              </menu>
+              <menu id="en_textSub2" image="HAMU_AutoFit_16" tag="UI:textSub2" showLabel="true" label="Cell Layout" screentip="Cell Layout" supertip="Tools for cell layout, number and date formats, and column widths.">
+                <button id="en_r_HAMU_StandardFormat" image="HAMU_StandardFormat_16" onAction="HAMU_OnAction" tag="HAMU_StandardFormat" showLabel="true" label="Number and Date Format" screentip="Number and Date Format" supertip="Apply integer number formatting or standard date formatting. Formatting controls display and does not automatically repair data types." />
+                <button id="en_r_HAMU_ConvertQuotedNumbers" image="HAMU_ConvertQuotedNumbers_16" onAction="HAMU_OnAction" tag="HAMU_ConvertQuotedNumbers" showLabel="true" label="Convert Text Numbers" screentip="Convert Text Numbers" supertip="Convert suitable numbers stored as text to numeric values. Review decimal and thousands separators." />
+                <button id="en_r_HAMU_ConvertFormulasToValues" image="HAMU_ConvertFormulasToValues_16" onAction="HAMU_OnAction" tag="HAMU_ConvertFormulasToValues" showLabel="true" label="Formulas to Values" screentip="Formulas to Values" supertip="Replace selected formulas with their current calculated results." />
+                <button id="en_r_HAMU_UnmergeAndFill" image="HAMU_UnmergeAndFill_16" onAction="HAMU_OnAction" tag="HAMU_UnmergeAndFill" showLabel="true" label="Unmerge and Fill" screentip="Unmerge and Fill" supertip="Unmerge cells and fill the resulting area with the original merged value." />
+                <button id="en_r_HAMU_FillDownBlanks" image="HAMU_FillDownBlanks_16" onAction="HAMU_OnAction" tag="HAMU_FillDownBlanks" showLabel="true" label="Fill Down Blanks" screentip="Fill Down Blanks" supertip="Fill blank cells with the nearest nonblank value above in the same column. Useful for repeated group labels in reports." />
+                <button id="en_r_HAMU_FillBlanksZero" image="HAMU_FillBlanksZero_16" onAction="HAMU_OnAction" tag="HAMU_FillBlanksZero" showLabel="true" label="Fill Blanks with Zero" screentip="Fill Blanks with Zero" supertip="Write zero only to genuinely empty cells. Preserve populated cells and formulas returning empty text." />
+              </menu>
+            </menu>
+          </box>
+        </group>
+        <group id="en_g4" label="Tables">
+          <button id="en_quick_HAMU_AutoTable" image="HAMU_AutoTable_32" onAction="HAMU_OnAction" tag="HAMU_AutoTable" size="large" showLabel="true" label="Quick&#10;Table" screentip="Create Table" supertip="Create an Excel table from a header/data range and apply a consistent table style. A single selected cell uses its current data region." />
+          <box id="en_quickBox_g4" boxStyle="vertical">
+            <button id="en_r_HAMU_DataEntry" onAction="HAMU_OnAction" tag="HAMU_DataEntry" image="HAMU_DataEntry_16" showLabel="true" label="Data Entry" screentip="Data Entry" supertip="Open Excel's native data form for the current table or contiguous list with unique headers; at most 32 columns." />
+            <button id="en_quick_HAMU_ResizeTable" image="HAMU_ResizeTable_16" onAction="HAMU_OnAction" tag="HAMU_ResizeTable" showLabel="true" label="Expand Table" screentip="Expand Table" supertip="Include adjacent data rows below the table." />
+            <menu id="en_m4" image="HAMU_ResizeTable_16" tag="UI:m4" showLabel="true" label="Table Tools">
+              <button id="en_r_HAMU_SelectColumnsToNewTable" image="HAMU_SelectColumnsToNewTable_16" onAction="HAMU_OnAction" tag="HAMU_SelectColumnsToNewTable" showLabel="true" label="Copy Columns" screentip="Copy Columns" supertip="Select columns by header names or positions such as 1,2,3 within the selected data. Whole-column sources are trimmed to populated rows." />
+            <button id="en_r_HAMU_TableTotals" tag="HAMU_TableTotals" image="HAMU_TableTotals_16" onAction="HAMU_OnAction" showLabel="true" label="Total Row" screentip="Total Row" supertip="Toggle the active table total row and sum numeric columns." /><button id="en_r_HAMU_CopyVisibleTable" tag="HAMU_CopyVisibleTable" image="HAMU_SelectColumnsToNewTable_16" onAction="HAMU_OnAction" showLabel="true" label="Copy Visible Rows" screentip="Copy Visible Rows" supertip="Copy visible filtered records into a standalone table on a new sheet." /></menu>
+          </box>
+        </group>
+        <group id="en_g5" label="Dates">
+          <button id="en_quick_HAMU_DatePicker" image="HAMU_DatePicker_32" onAction="HAMU_OnAction" tag="HAMU_DatePicker" size="large" showLabel="true" label="Pick Date" screentip="Date Picker" supertip="Choose a date and write it to the previously selected active cell. Select month/year and see the distance from today." />
+          <box id="en_quickBox_g5" boxStyle="vertical">
+            <button id="en_quick_HAMU_FixDates" image="HAMU_FixDates_16" onAction="HAMU_OnAction" tag="HAMU_FixDates" showLabel="true" label="Fix Dates" screentip="Fix Dates" supertip="Normalize suitable date values and review values that cannot be converted." />
+            <button id="en_quick_HAMU_CheckDates" image="HAMU_CheckDates_16" onAction="HAMU_OnAction" tag="HAMU_CheckDates" showLabel="true" label="Check Dates" screentip="Check Dates" supertip="Inspect date values for invalid or inconsistent entries." />
+            <menu id="en_m5" image="HAMU_DateRangeList_16" tag="UI:m5" showLabel="true" label="Date Tools">
+              <button id="en_r_HAMU_DateBuilder" image="HAMU_DateBuilder_16" onAction="HAMU_OnAction" tag="HAMU_DateBuilder" showLabel="true" label="Build Dates" screentip="Build Dates" supertip="Create dates from separate year, month and day fields." />
+              <button id="en_r_HAMU_DateRangeList" image="HAMU_DateRangeList_16" onAction="HAMU_OnAction" tag="HAMU_DateRangeList" showLabel="true" label="Date List" screentip="Date List" supertip="Generate dates between a start and end date, optionally excluding weekends. Choose the output start cell." />
+            </menu>
+          </box>
+        </group>
+        <group id="en_g6" label="Sheet and Images">
+          <button id="en_quick_HAMU_SheetIndex" image="HAMU_SheetIndex_32" onAction="HAMU_OnAction" tag="HAMU_SheetIndex" size="large" showLabel="true" label="Sheet Index" screentip="Sheet Index" supertip="Create a worksheet index with hyperlinks to the workbook's sheets." />
+          <button id="en_r_HAMU_InsertPhotosFromFolder" image="HAMU_InsertPhotosFromFolder_32" onAction="HAMU_OnAction" tag="HAMU_InsertPhotosFromFolder" size="large" showLabel="true" label="Batch&#10;Photos" screentip="Insert Folder Images" supertip="Insert supported images from a folder into cells or over cells. In-cell conversion depends on Excel version support; over-cell images are constrained to cell bounds." />
+          <button id="en_r_HAMU_CreateQRCode" image="HAMU_CreateQRCode_32" onAction="HAMU_OnAction" tag="HAMU_CreateQRCode" size="large" showLabel="true" label="QR Code&#10;Barcode" screentip="QR and Barcode" supertip="Select QR Code or Barcode in one form; model choices follow the type. Supports text, links, email, phone, single values or a batch column. Batch codes go in empty cells to the right. Internet required; at most 250 codes." />
+          <box id="en_quickBox_g6" boxStyle="vertical">
+            <button id="en_quick_HAMU_SelectionToPNG" image="HAMU_SelectionToPNG_16" onAction="HAMU_OnAction" tag="HAMU_SelectionToPNG" showLabel="true" label="Save Image" screentip="Save Image" supertip="Save the selected range as PNG, JPG or GIF. Reject oversized images and clean up the temporary chart." />
+            <button id="en_r_HAMU_RowStriping" image="HAMU_RowStriping_16" onAction="HAMU_OnAction" tag="HAMU_RowStriping" showLabel="true" label="Stripe Rows" screentip="Stripe Rows" supertip="Apply alternating row colors to the selected area." />
+            <menu id="en_m6" image="HAMU_SheetIndex_16" tag="UI:m6" showLabel="true" label="Sheet Tools" screentip="Page and Visual — Other Tools" supertip="Shows other commands and descriptions in this category.">
+              <button id="en_r_HAMU_SortSheets" image="HAMU_SortSheets_16" onAction="HAMU_OnAction" tag="HAMU_SortSheets" showLabel="true" label="Sort Sheets" screentip="Sort Sheets" supertip="Sort worksheet tabs alphabetically." />
+              <button id="en_r_HAMU_ShowHidden" image="HAMU_ShowHidden_16" onAction="HAMU_OnAction" tag="HAMU_ShowHidden" showLabel="true" label="Show Hidden Items" screentip="Show Hidden Items" supertip="Reveal hidden sheets, rows or columns as supported by the command." />
+              <button id="en_quick_HAMU_DynamicValidation" image="HAMU_DynamicValidation_16" onAction="HAMU_OnAction" tag="HAMU_DynamicValidation" showLabel="true" label="Dynamic Validation List" screentip="Dynamic Validation List" supertip="Create list validation using a named range, Table[Column], direct range or spilled range such as A1#. Table/spill sources can expand dynamically." />
+              <button id="en_r_HAMU_DeleteDropdowns" image="HAMU_DeleteDropdowns_16" onAction="HAMU_OnAction" tag="HAMU_DeleteDropdowns" showLabel="true" label="Remove Old Dropdown Objects" screentip="Remove Old Dropdown Objects" supertip="Remove old worksheet dropdown objects while preserving cell data-validation lists." />
+            </menu>
+          </box>
+        </group>
+        <group id="en_g7" label="Audit">
+          <button id="en_quick_HAMU_MarkProblemCells" image="HAMU_MarkProblemCells_32" onAction="HAMU_OnAction" tag="HAMU_MarkProblemCells" size="large" showLabel="true" label="Problem&#10;Cells" screentip="Mark Problem Cells" supertip="Highlight cells with the problems selected in the dialog." />
+          <menu id="en_m7" image="HAMU_FormulaAudit_32" size="large" tag="UI:m7" showLabel="true" label="Audit&#10;Tools">
+            <button id="en_r_HAMU_FormulaAudit" image="HAMU_FormulaAudit_16" onAction="HAMU_OnAction" tag="HAMU_FormulaAudit" showLabel="true" label="Formula Audit" screentip="Formula Audit" supertip="List formulas, source-cell links, displayed results, errors and direct external workbook references on a new sheet. Source formulas remain unchanged." />
+            <button id="en_r_HAMU_ListDefinedNames" image="HAMU_ListDefinedNames_16" onAction="HAMU_OnAction" tag="HAMU_ListDefinedNames" showLabel="true" label="List Defined Names" screentip="List Defined Names" supertip="List workbook/worksheet names, references, visibility and broken references on a new sheet without modifying the names." />
+            <button id="en_r_HAMU_ListLinks" image="HAMU_ListLinks_16" onAction="HAMU_OnAction" tag="HAMU_ListLinks" showLabel="true" label="List External Links" screentip="List External Links" supertip="List external Excel workbook links on a new worksheet." />
+            <button id="en_r_HAMU_BreakLinks" image="HAMU_BreakLinks_16" onAction="HAMU_OnAction" tag="HAMU_BreakLinks" showLabel="true" label="Break External Links" screentip="Break External Links" supertip="Break external Excel links. Linked formulas may become values; back up the workbook before proceeding." />
+          </menu>
+          <box id="en_quickBox_g7" boxStyle="vertical">
+            <button id="en_quick_HAMU_HighlightDuplicates" image="HAMU_HighlightDuplicates_16" onAction="HAMU_OnAction" tag="HAMU_HighlightDuplicates" showLabel="true" label="Highlight Duplicates" screentip="Highlight Duplicates" supertip="Highlight repeated values within the selected area." />
+            <button id="en_r_HAMU_ClearHighlights" onAction="HAMU_OnAction" tag="HAMU_ClearHighlights" image="HAMU_ClearHighlights_16" showLabel="true" label="Clear Highlights" screentip="Clear Highlights" supertip="Remove HAMU highlights in the selection. Restore prior fills in the same session; older highlights are recognized by their yellow/orange palette." />
+            <menu id="en_auditHighlight" image="HAMU_MarkProblemCells_16" tag="UI:auditHighlight" showLabel="true" label="Highlight and Count">
+              <button id="en_r_HAMU_HighlightByCriteria" image="HAMU_HighlightByCriteria_16" onAction="HAMU_OnAction" tag="HAMU_HighlightByCriteria" showLabel="true" label="Highlight Cell Types" screentip="Highlight Cell Types" supertip="Highlight cells matching a selected type or criterion." />
+              <button id="en_r_HAMU_AddDuplicateCount" image="HAMU_AddDuplicateCount_16" onAction="HAMU_OnAction" tag="HAMU_AddDuplicateCount" showLabel="true" label="Write Duplicate Counts" screentip="Write Duplicate Counts" supertip="Count occurrences of each input value and write the counts to a separately selected output range. A single output cell defines the starting point." />
+              <button id="en_r_HAMU_SelectSpecialCells" image="HAMU_SelectSpecialCells_16" onAction="HAMU_OnAction" tag="HAMU_SelectSpecialCells" showLabel="true" label="Select Special Cells" screentip="Select Special Cells" supertip="Select formulas, constants, errors, blanks or visible cells within the current area. Do not change values or formatting." />
+              <button id="en_r_HAMU_CountByColor" image="HAMU_CountByColor_16" onAction="HAMU_OnAction" tag="HAMU_CountByColor" showLabel="true" label="Count by Color" screentip="Count by Color" supertip="Count cells matching the sample cell's displayed fill color, including conditional formatting." />
+              <button id="en_r_HAMU_SumByColor" image="HAMU_SumByColor_16" onAction="HAMU_OnAction" tag="HAMU_SumByColor" showLabel="true" label="Sum by Color" screentip="Sum by Color" supertip="Sum numeric values matching the sample cell's displayed fill color, including conditional formatting. Ignore blank, text and error values." />
+            </menu>
+          </box>
+        </group>
+        <group id="en_g8" label="Information">
+            <menu id="en_extraFunctions" image="HAMU_UDFHelp_32" size="large" tag="UI:extraFunctions" showLabel="true" label="Functions" screentip="Functions" supertip="Explore HAMU worksheet functions and LAMBDA templates with examples.">
+            <menu id="en_worksheetFunctions" image="HAMU_About_16" tag="UI:worksheetFunctions" showLabel="true" label="Worksheet Functions">
+              <button id="en_r_UDF_URLDecode" image="HAMU_UDFHelp_16" onAction="HAMU_OnAction" tag="UDF_URLDecode" showLabel="true" label="HAMU_URLCoz" screentip="HAMU_URLCoz" supertip="=HAMU_URLCoz(A1) | Decode UTF-8 URL characters; preserve invalid percent sequences." />
+              <button id="en_r_UDF_RenklileriTopla" image="HAMU_UDFHelp_16" onAction="HAMU_OnAction" tag="UDF_RenklileriTopla" showLabel="true" label="HAMU_RengeGoreTopla" screentip="HAMU_RengeGoreTopla" supertip="=HAMU_RengeGoreTopla(A1:A20;B1) | Sum numbers with the same direct fill color as B1. Recalculate with F9 after changing formatting." />
+              <button id="en_r_UDF_RengeGoreSay" image="HAMU_UDFHelp_16" onAction="HAMU_OnAction" tag="UDF_RengeGoreSay" showLabel="true" label="HAMU_RengeGoreSay" screentip="HAMU_RengeGoreSay" supertip="=HAMU_RengeGoreSay(A1:A20;B1) | Count cells with the same direct fill color as B1. Recalculate with F9 after changing formatting." />
+              <button id="en_r_UDF_YerelDosyaYolu" image="HAMU_UDFHelp_16" onAction="HAMU_OnAction" tag="UDF_YerelDosyaYolu" showLabel="true" label="HAMU_YerelDosyaYolu" screentip="HAMU_YerelDosyaYolu" supertip="=HAMU_YerelDosyaYolu(A1) | Map a personal OneDrive URL to a local path using the local OneDrive environment variable; preserve other URL types." />
+              <button id="en_r_UDF_GizliLink" image="HAMU_UDFHelp_16" onAction="HAMU_OnAction" tag="UDF_GizliLink" showLabel="true" label="HAMU_GizliLink" screentip="HAMU_GizliLink" supertip="=HAMU_GizliLink(A1) | Return the first hyperlink address in the cell." />
+              <button id="en_r_UDF_LinkParamDegeri" image="HAMU_UDFHelp_16" onAction="HAMU_OnAction" tag="UDF_LinkParamDegeri" showLabel="true" label="HAMU_LinkParamDegeri" screentip="HAMU_LinkParamDegeri" supertip="=HAMU_LinkParamDegeri(A1;&quot;id&quot;) | Return the value of the specified URL query parameter." />
+              <button id="en_r_UDF_SayidanMetine" image="HAMU_UDFHelp_16" onAction="HAMU_OnAction" tag="UDF_SayidanMetine" showLabel="true" label="HAMU_SayidanMetine" screentip="HAMU_SayidanMetine" supertip="=HAMU_SayidanMetine(123) | Spell numbers in Turkish. Supports absolute values below 15 digits and reads decimal digits individually. The output language stays Turkish." />
+              <button id="en_r_UDF_TablodanVeriGetir" image="HAMU_UDFHelp_16" onAction="HAMU_OnAction" tag="UDF_TablodanVeriGetir" showLabel="true" label="HAMU_TablodanVeriGetir" screentip="HAMU_TablodanVeriGetir" supertip="=HAMU_TablodanVeriGetir(A1;&quot;Tablo1&quot;;&quot;Kod&quot;;&quot;Ad&quot;) | Return the first matching value from a table in the workbook containing the formula." />
+            </menu>
+            <menu id="en_lambdaFunctions" image="HAMU_About_16" tag="UI:lambdaFunctions" showLabel="true" label="LAMBDA Templates">
+              <button id="en_openLambdaTemplates" onAction="HAMU_OnLambdaTemplate" image="HAMU_About_16" showLabel="true" label="Open Template" supertip="Open the template containing three expert LAMBDA functions. Use Transfer Wizard to copy them into your workbook." />
+              <button id="en_r_UDF_LambdaMultiLookup" onAction="HAMU_OnAction" tag="UDF_LambdaMultiLookup" image="UDF_LambdaMultiLookup_16" showLabel="true" label="HAMU_L_CokluAra" screentip="HAMU_L_CokluAra" supertip="Exact lookup across two key/result pairs, returning the first match. Example: =HAMU_L_CokluAra(G2;A2:A10;B2:B10;D2:D10;E2:E10). Transfer it from the LAMBDA template; Microsoft 365/Excel 2024 required." />
+              <button id="en_r_UDF_LambdaMultiSum" onAction="HAMU_OnAction" tag="UDF_LambdaMultiSum" image="UDF_LambdaMultiLookup_16" showLabel="true" label="HAMU_L_CokluTopla" screentip="HAMU_L_CokluTopla" supertip="Sum matching values across two key/value pairs. Example: =HAMU_L_CokluTopla(G2;A2:A10;B2:B10;D2:D10;E2:E10). Transfer from the template; Microsoft 365/Excel 2024 required." />
+              <button id="en_r_UDF_LambdaUniqueMerge" onAction="HAMU_OnAction" tag="UDF_LambdaUniqueMerge" image="UDF_LambdaMultiLookup_16" showLabel="true" label="HAMU_L_BenzersizBirlestir" screentip="HAMU_L_BenzersizBirlestir" supertip="Combine nonblank values from two areas into a sorted unique list. Example: =HAMU_L_BenzersizBirlestir(A2:B10;D2:E10). Requires a blank spill area and Microsoft 365/Excel 2024." />
+            </menu>
+            <button id="en_r_HAMU_UDFHelp" image="HAMU_UDFHelp_16" onAction="HAMU_OnAction" tag="HAMU_UDFHelp" showLabel="true" label="Worksheet Functions" screentip="Worksheet Functions" supertip="Show the eight HAMU worksheet functions with examples. Function names remain unchanged when switching language." />
+          </menu>
+          <menu id="en_m8" image="HAMU_About_32" size="large" tag="UI:m8" showLabel="true" label="Information">
+            <button id="en_quick_HAMU_Help" image="HAMU_Help_16" onAction="HAMU_OnAction" tag="HAMU_Help" showLabel="true" label="Help" screentip="Help" supertip="Open the usage guide with workflows, selection/output explanations, limitations and the complete tool catalog." />
+            <button id="en_quick_HAMU_About" image="HAMU_About_16" onAction="HAMU_OnAction" tag="HAMU_About" showLabel="true" label="About" screentip="About" supertip="Show HAMU Tools V1, Hüseyin Avni UZUN and the website, GitHub and email links." />
+          </menu>
+        </group>
+      </tab>
+    </tabs>
+  </ribbon>
+  <backstage>
+    <tab id="bsHAMU" firstColumnMinWidth="380" secondColumnMinWidth="360" firstColumnMaxWidth="540" secondColumnMaxWidth="480" label="HAMU Tools" getVisible="HAMU_IsTurkish">
+      <firstColumn>
+        <group id="spacer_firstColumn">
+          <topItems>
+            <labelControl id="blank_firstColumn" label=" " />
+          </topItems>
+        </group>
+        <group id="guide0" label="01  Nereden başlamalıyım?" helperText="Kaynak veriyi seçin, uygun aracı açın ve açıklamayı okuyun. İlk kez kullanıyorsanız dört adımlı başlangıç rehberini inceleyin.">
+          <primaryItem>
+            <button id="guideButton0" image="HAMU_Help_32" onAction="HAMU_OnGuide" tag="start" isDefinitive="true" label="Rehberi aç" />
+          </primaryItem>
+        </group>
+        <group id="guide1" label="02  Veriyi temizleyin" helperText="Başlıkları düzenleyin, boşlukları ve tekrarları inceleyin. Kodların başındaki sıfırları koruyun; metin ve sayı türlerini kontrol edin.">
+          <primaryItem>
+            <button id="guideButton1" image="HAMU_Help_32" onAction="HAMU_OnGuide" tag="clean" isDefinitive="true" label="Rehberi aç" />
+          </primaryItem>
+        </group>
+        <group id="guide2" label="03  Listeden anlamlı sonuçlara" helperText="Aynı yapılı listeleri birleştirin, ortak anahtarla eşleştirin; Grupla, Pivot ve Unpivot ile veri yapısını dönüştürün.">
+          <primaryItem>
+            <button id="guideButton2" image="HAMU_AutoTable_32" onAction="HAMU_OnGuide" tag="tables" isDefinitive="true" label="Rehberi aç" />
+          </primaryItem>
+        </group>
+        <group id="guide3" label="04  Dosyalarınızı yönetin" helperText="Önce tarih ve saatli bir yedek alın. Klasör envanteri, dosyalardan veri toplama ve şablon aktarımı için uygun akışı seçin.">
+          <primaryItem>
+            <button id="guideButton3" image="HAMU_Backup_32" onAction="HAMU_OnGuide" tag="files" isDefinitive="true" label="Rehberi aç" />
+          </primaryItem>
+        </group>
+        <group id="guide4" label="05  Görseller ve kodlar" helperText="Hücre içine veya üstüne resim ekleme seçeneklerini öğrenin. Barkod ve karekod üretiminde internet ve veri paylaşımı bilgilerini okuyun.">
+          <primaryItem>
+            <button id="guideButton4" image="HAMU_Help_32" onAction="HAMU_OnGuide" tag="visual" isDefinitive="true" label="Rehberi aç" />
+          </primaryItem>
+        </group>
+      </firstColumn>
+      <secondColumn>
+        <group id="spacer_secondColumn">
+          <topItems>
+            <labelControl id="blank_secondColumn" label=" " />
+          </topItems>
+        </group>
+        <group id="brand" label="HAMU · V1" helperText="Excel üretkenlik ve veri araçları">
+          <topItems>
+            <imageControl id="brandLogo" image="hamu_wordmark_hero" altText="Özgün HAMU logosu" />
+            <labelControl id="brandName" label="Hüseyin Avni UZUN" />
+            <labelControl id="brandPurpose" label="Veriyi düzenleyin. Tekrarlayan işleri hızlandırın. Sonuçları anlaşılır kılın." />
+            <hyperlink id="profile0" target="https://huseyinavniuzun.com" label="Web sitesi" />
+            <hyperlink id="profile1" target="https://github.com/huseyinavniuzun" label="GitHub" />
+            <hyperlink id="profile2" target="mailto:hamu@huseyinavniuzun.com" label="hamu@huseyinavniuzun.com" />
+          </topItems>
+        </group>
+        <group id="settingsCenter" label="Ayarlar" helperText="Dil, kayıt konumları ve işlem tercihlerini bu merkezden yönetin.">
+          <primaryItem>
+            <button id="openSettings" image="hamu_settings_32" onAction="HAMU_OnSettings" isDefinitive="true" label="Tüm ayarları düzenle" />
+          </primaryItem>
+          <topItems>
+            <dropDown id="settingLanguage" getSelectedItemIndex="HAMU_GetLanguageIndex" onAction="HAMU_OnLanguage" sizeString="Türkçe / Turkish" label="Arayüz dili">
+              <item id="languageTR" label="Türkçe / Turkish" />
+              <item id="languageEN" label="English" />
+            </dropDown>
+            <labelControl id="settingsBackup" getLabel="HAMU_GetSettingsSummary" />
+            <labelControl id="settingsStorage" label="Tercihler kullanıcıya özeldir; diğer çalışma kitaplarının ayarlarını değiştirmez." />
+          </topItems>
+        </group>
+        <group id="learn" label="İhtiyacınız olan bilgi">
+          <topItems>
+            <button id="topic1" onAction="HAMU_OnGuide" tag="selection" isDefinitive="true" image="HAMU_Help_16" label="Aralık ve çıktı seçimi" />
+            <button id="topic6" onAction="HAMU_OnGuide" tag="functions" isDefinitive="true" image="HAMU_Help_16" label="HAMU hücre fonksiyonları" />
+            <button id="topic7" onAction="HAMU_OnGuide" tag="errors" isDefinitive="true" image="HAMU_Help_16" label="Sorun giderme ve sınırlar" />
+            <button id="topic8" onAction="HAMU_OnGuide" tag="catalog" isDefinitive="true" image="HAMU_Help_16" label="Tüm araçlar" />
+            <button id="aboutProfile" onAction="HAMU_OnAction" tag="HAMU_About" isDefinitive="true" image="hamu_logo_16" label="HAMU hakkında" />
+          </topItems>
+        </group>
+        <group id="note" label="Çalışmaya başlamadan">
+          <topItems>
+            <labelControl id="backupNote" label="VBA işlemleri geri alma geçmişini temizleyebilir. Önemli dosyalarda önce Yedek Al kullanın." />
+            <labelControl id="internetNote" label="Barkod ve karekod içeriği, üretim için üçüncü taraf internet servisine gönderilir." />
+          </topItems>
+        </group>
+      </secondColumn>
+    </tab>
+  <tab id="en_bsHAMU" firstColumnMinWidth="380" secondColumnMinWidth="360" firstColumnMaxWidth="540" secondColumnMaxWidth="480" label="HAMU Tools" getVisible="HAMU_IsEnglish">
+      <firstColumn>
+        <group id="en_spacer_firstColumn">
+          <topItems>
+            <labelControl id="en_blank_firstColumn" label=" " />
+          </topItems>
+        </group>
+        <group id="en_guide0" label="01  Where Do I Start?" helperText="Select source data, open the appropriate tool and read the description. Check the four-step start guide if you’re using the first time.">
+          <primaryItem>
+            <button id="en_guideButton0" image="HAMU_Help_32" onAction="HAMU_OnGuide" tag="start" isDefinitive="true" label="Open Guide" />
+          </primaryItem>
+        </group>
+        <group id="en_guide1" label="02  Clean Your Data" helperText="Edit headers, view blanks and repetitions. Protect zeros at the beginning of the codes; check text and number types.">
+          <primaryItem>
+            <button id="en_guideButton1" image="HAMU_Help_32" onAction="HAMU_OnGuide" tag="clean" isDefinitive="true" label="Open Guide" />
+          </primaryItem>
+        </group>
+        <group id="en_guide2" label="03  Turn Lists into Results" helperText="Combine the same structured lists, match with common key; Convert data structure with group, Pivot and Unpivot.">
+          <primaryItem>
+            <button id="en_guideButton2" image="HAMU_AutoTable_32" onAction="HAMU_OnGuide" tag="tables" isDefinitive="true" label="Open Guide" />
+          </primaryItem>
+        </group>
+        <group id="en_guide3" label="04  Manage Your Files" helperText="Get a backup with date and time first. Select folder inventory, appropriate stream for data collection and template transfer from files.">
+          <primaryItem>
+            <button id="en_guideButton3" image="HAMU_Backup_32" onAction="HAMU_OnGuide" tag="files" isDefinitive="true" label="Open Guide" />
+          </primaryItem>
+        </group>
+        <group id="en_guide4" label="05  Images and Codes" helperText="Learn the options of adding pictures into the cell or above. Read internet and data sharing information in barcode and square code production.">
+          <primaryItem>
+            <button id="en_guideButton4" image="HAMU_Help_32" onAction="HAMU_OnGuide" tag="visual" isDefinitive="true" label="Open Guide" />
+          </primaryItem>
+        </group>
+      </firstColumn>
+      <secondColumn>
+        <group id="en_spacer_secondColumn">
+          <topItems>
+            <labelControl id="en_blank_secondColumn" label=" " />
+          </topItems>
+        </group>
+        <group id="en_brand" label="HAMU · V1" helperText="Excel productivity and data tools">
+          <topItems>
+            <imageControl id="en_brandLogo" image="hamu_wordmark_hero" altText="Original HAMU logo" />
+            <labelControl id="en_brandName" label="Hüseyin Avni UZUN" />
+            <labelControl id="en_brandPurpose" label="Organize data. Speed up repetitive tasks. Make results clear." />
+            <hyperlink id="en_profile0" target="https://huseyinavniuzun.com" label="Website" />
+            <hyperlink id="en_profile1" target="https://github.com/huseyinavniuzun" label="GitHub" />
+            <hyperlink id="en_profile2" target="mailto:hamu@huseyinavniuzun.com" label="hamu@huseyinavniuzun.com" />
+          </topItems>
+        </group>
+        <group id="en_settingsCenter" label="Settings" helperText="Manage language, registration locations and trading preferences from this center.">
+          <primaryItem>
+            <button id="en_openSettings" image="hamu_settings_32" onAction="HAMU_OnSettings" isDefinitive="true" label="Edit All Settings" />
+          </primaryItem>
+          <topItems>
+            <dropDown id="en_settingLanguage" getSelectedItemIndex="HAMU_GetLanguageIndex" onAction="HAMU_OnLanguage" sizeString="Türkçe / Turkish" label="Interface Language">
+              <item id="en_languageTR" label="Türkçe / Turkish" />
+              <item id="en_languageEN" label="English" />
+            </dropDown>
+            <labelControl id="en_settingsBackup" getLabel="HAMU_GetSettingsSummary" />
+            <labelControl id="en_settingsStorage" label="Preferences belong to this Windows user and do not change other workbooks' settings." />
+          </topItems>
+        </group>
+        <group id="en_learn" label="Find the Information You Need">
+          <topItems>
+            <button id="en_topic1" onAction="HAMU_OnGuide" tag="selection" isDefinitive="true" image="HAMU_Help_16" label="Range and Output Selection" />
+            <button id="en_topic6" onAction="HAMU_OnGuide" tag="functions" isDefinitive="true" image="HAMU_Help_16" label="HAMU Worksheet Functions" />
+            <button id="en_topic7" onAction="HAMU_OnGuide" tag="errors" isDefinitive="true" image="HAMU_Help_16" label="Troubleshooting and Limits" />
+            <button id="en_topic8" onAction="HAMU_OnGuide" tag="catalog" isDefinitive="true" image="HAMU_Help_16" label="All Tools" />
+            <button id="en_aboutProfile" onAction="HAMU_OnAction" tag="HAMU_About" isDefinitive="true" image="hamu_logo_16" label="About HAMU" />
+          </topItems>
+        </group>
+        <group id="en_note" label="Before You Start">
+          <topItems>
+            <labelControl id="en_backupNote" label="VBA operations can clear Excel's undo history. Back up important files before proceeding." />
+            <labelControl id="en_internetNote" label="Barcode and QR content is sent to a third-party internet service for generation." />
+          </topItems>
+        </group>
+      </secondColumn>
+    </tab>
+  </backstage>
+</customUI>

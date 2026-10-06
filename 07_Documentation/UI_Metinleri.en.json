@@ -1,0 +1,688 @@
+{
+  "aboutProfile": {
+    "label": "About HAMU"
+  },
+  "auditHighlight": {
+    "label": "Highlight and Count"
+  },
+  "backupNote": {
+    "label": "VBA operations can clear Excel's undo history. Back up important files before proceeding."
+  },
+  "brand": {
+    "label": "HAMU · V1",
+    "helperText": "Excel productivity and data tools"
+  },
+  "brandLogo": {
+    "altText": "Original HAMU logo"
+  },
+  "brandName": {
+    "label": "Hüseyin Avni UZUN"
+  },
+  "brandPurpose": {
+    "label": "Organize data. Speed up repetitive tasks. Make results clear."
+  },
+  "bsHAMU": {
+    "label": "HAMU Tools"
+  },
+  "extraFunctions": {
+    "label": "Functions",
+    "screentip": "Functions",
+    "supertip": "Explore HAMU worksheet functions and LAMBDA templates with examples."
+  },
+  "extractHub": {
+    "label": "Extract"
+  },
+  "fileHub": {
+    "label": "Files"
+  },
+  "g0": {
+    "label": "Transfer"
+  },
+  "g1": {
+    "label": "Files"
+  },
+  "g2": {
+    "label": "Data"
+  },
+  "g3": {
+    "label": "Text and Cells"
+  },
+  "g4": {
+    "label": "Tables"
+  },
+  "g5": {
+    "label": "Dates"
+  },
+  "g6": {
+    "label": "Sheet and Images"
+  },
+  "g7": {
+    "label": "Audit"
+  },
+  "g8": {
+    "label": "Information"
+  },
+  "guide0": {
+    "label": "01  Where Do I Start?",
+    "helperText": "Select source data, open the appropriate tool and read the description. Check the four-step start guide if you’re using the first time."
+  },
+  "guide1": {
+    "label": "02  Clean Your Data",
+    "helperText": "Edit headers, view blanks and repetitions. Protect zeros at the beginning of the codes; check text and number types."
+  },
+  "guide2": {
+    "label": "03  Turn Lists into Results",
+    "helperText": "Combine the same structured lists, match with common key; Convert data structure with group, Pivot and Unpivot."
+  },
+  "guide3": {
+    "label": "04  Manage Your Files",
+    "helperText": "Get a backup with date and time first. Select folder inventory, appropriate stream for data collection and template transfer from files."
+  },
+  "guide4": {
+    "label": "05  Images and Codes",
+    "helperText": "Learn the options of adding pictures into the cell or above. Read internet and data sharing information in barcode and square code production."
+  },
+  "guideButton0": {
+    "label": "Open Guide"
+  },
+  "guideButton1": {
+    "label": "Open Guide"
+  },
+  "guideButton2": {
+    "label": "Open Guide"
+  },
+  "guideButton3": {
+    "label": "Open Guide"
+  },
+  "guideButton4": {
+    "label": "Open Guide"
+  },
+  "internetNote": {
+    "label": "Barcode and QR content is sent to a third-party internet service for generation."
+  },
+  "lambdaFunctions": {
+    "label": "LAMBDA Templates"
+  },
+  "learn": {
+    "label": "Find the Information You Need"
+  },
+  "m3": {
+    "label": "Edit",
+    "screentip": "Text and Cell — Other Tools",
+    "supertip": "Shows other commands and descriptions in this category."
+  },
+  "m4": {
+    "label": "Table Tools",
+    "screentip": "Table and View — Other Vehicles",
+    "supertip": "Shows other commands and descriptions in this category."
+  },
+  "m5": {
+    "label": "Date Tools",
+    "screentip": "Date Tools — Other Vehicles",
+    "supertip": "Shows other commands and descriptions in this category."
+  },
+  "m6": {
+    "label": "Sheet Tools",
+    "screentip": "Page and Visual — Other Tools",
+    "supertip": "Shows other commands and descriptions in this category."
+  },
+  "m7": {
+    "label": "Audit\nTools",
+    "screentip": "Control and Control — Other Vehicles",
+    "supertip": "Shows other commands and descriptions in this category."
+  },
+  "m8": {
+    "label": "Information",
+    "screentip": "Help and About — Other Vehicles",
+    "supertip": "Shows other commands and descriptions in this category."
+  },
+  "mergeHub": {
+    "label": "Combine"
+  },
+  "note": {
+    "label": "Before You Start"
+  },
+  "openLambdaTemplates": {
+    "label": "Open Template",
+    "supertip": "Open the template containing three expert LAMBDA functions. Use Transfer Wizard to copy them into your workbook."
+  },
+  "openSettings": {
+    "label": "Edit All Settings"
+  },
+  "profile0": {
+    "label": "Website"
+  },
+  "profile1": {
+    "label": "GitHub"
+  },
+  "profile2": {
+    "label": "hamu@huseyinavniuzun.com"
+  },
+  "qualityHub": {
+    "label": "Quality"
+  },
+  "quick_HAMU_About": {
+    "label": "About",
+    "screentip": "About",
+    "supertip": "Show HAMU Tools V1, Hüseyin Avni UZUN and the website, GitHub and email links."
+  },
+  "quick_HAMU_AutoFit": {
+    "label": "Fit Height",
+    "screentip": "Fit Height",
+    "supertip": "Fit row heights to selected content without changing column widths."
+  },
+  "quick_HAMU_AutoTable": {
+    "label": "Quick\nTable",
+    "screentip": "Create Table",
+    "supertip": "Create an Excel table from a header/data range and apply a consistent table style. A single selected cell uses its current data region."
+  },
+  "quick_HAMU_CheckDates": {
+    "label": "Check Dates",
+    "screentip": "Check Dates",
+    "supertip": "Inspect date values for invalid or inconsistent entries."
+  },
+  "quick_HAMU_CleanData": {
+    "label": "Clean\nTrim",
+    "screentip": "Clean Text and Spaces",
+    "supertip": "Clean redundant spaces and invisible characters while preserving Turkish characters."
+  },
+  "quick_HAMU_CompareSheets": {
+    "label": "Compare Sheets",
+    "screentip": "Compare Sheets",
+    "supertip": "Compare worksheets and identify differences."
+  },
+  "quick_HAMU_DatePicker": {
+    "label": "Pick Date",
+    "screentip": "Date Picker",
+    "supertip": "Choose a date and write it to the previously selected active cell. Select month/year and see the distance from today."
+  },
+  "quick_HAMU_DynamicValidation": {
+    "label": "Dynamic Validation List",
+    "screentip": "Dynamic Validation List",
+    "supertip": "Create list validation using a named range, Table[Column], direct range or spilled range such as A1#. Table/spill sources can expand dynamically."
+  },
+  "quick_HAMU_FixDates": {
+    "label": "Fix Dates",
+    "screentip": "Fix Dates",
+    "supertip": "Normalize suitable date values and review values that cannot be converted."
+  },
+  "quick_HAMU_Help": {
+    "label": "Help",
+    "screentip": "Help",
+    "supertip": "Open the usage guide with workflows, selection/output explanations, limitations and the complete tool catalog."
+  },
+  "quick_HAMU_HighlightDuplicates": {
+    "label": "Highlight Duplicates",
+    "screentip": "Highlight Duplicates",
+    "supertip": "Highlight repeated values within the selected area."
+  },
+  "quick_HAMU_MarkProblemCells": {
+    "label": "Problem\nCells",
+    "screentip": "Mark Problem Cells",
+    "supertip": "Highlight cells with the problems selected in the dialog."
+  },
+  "quick_HAMU_RegexReplace": {
+    "label": "Replace by Regular Expression",
+    "screentip": "Replace by Regular Expression",
+    "supertip": "Replace matching text using a regular expression. Capture groups and references such as $1 can be used."
+  },
+  "quick_HAMU_ResizeTable": {
+    "label": "Expand Table",
+    "screentip": "Expand Table",
+    "supertip": "Include adjacent data rows below the table."
+  },
+  "quick_HAMU_SelectionToPNG": {
+    "label": "Save Image",
+    "screentip": "Save Image",
+    "supertip": "Save the selected range as PNG, JPG or GIF. Reject oversized images and clean up the temporary chart."
+  },
+  "quick_HAMU_SheetIndex": {
+    "label": "Sheet Index",
+    "screentip": "Sheet Index",
+    "supertip": "Create a worksheet index with hyperlinks to the workbook's sheets."
+  },
+  "quick_HAMU_TextCase": {
+    "label": "Change Case",
+    "screentip": "Change Case",
+    "supertip": "Choose uppercase, lowercase or title case from a simple selection dialog."
+  },
+  "r_HAMU_AddDateToFilename": {
+    "label": "Dated Version",
+    "screentip": "Dated Version",
+    "supertip": "Create a timestamped copy in the original folder. Open and verify the copy before closing and deleting the original; keep the original if verification fails."
+  },
+  "r_HAMU_AddDuplicateCount": {
+    "label": "Write Duplicate Counts",
+    "screentip": "Write Duplicate Counts",
+    "supertip": "Count occurrences of each input value and write the counts to a separately selected output range. A single output cell defines the starting point."
+  },
+  "r_HAMU_AddTextAffixes": {
+    "label": "Add Prefix or Suffix",
+    "screentip": "Add Prefix or Suffix",
+    "supertip": "Add text before or after values and write to a separate output range. Preserve the source and leading zeros."
+  },
+  "r_HAMU_AppendSelectedTables": {
+    "label": "Combine Tables",
+    "screentip": "Append Selected Tables",
+    "supertip": "Combine rows from selected Excel tables with matching structures into one result table."
+  },
+  "r_HAMU_Backup": {
+    "label": "Create Backup",
+    "screentip": "Create Backup",
+    "supertip": "Save a timestamped copy to the backup folder configured in Settings. The result displays its full path and an Open Folder button."
+  },
+  "r_HAMU_BreakLinks": {
+    "label": "Break External Links",
+    "screentip": "Break External Links",
+    "supertip": "Break external Excel links. Linked formulas may become values; back up the workbook before proceeding."
+  },
+  "r_HAMU_ClearHighlights": {
+    "label": "Clear Highlights",
+    "screentip": "Clear Highlights",
+    "supertip": "Remove HAMU highlights in the selection. Restore prior fills in the same session; older highlights are recognized by their yellow/orange palette."
+  },
+  "r_HAMU_CollectFilesData": {
+    "label": "Collect Files",
+    "screentip": "Collect Folder Data",
+    "supertip": "Read the first data sheet from Excel/CSV files in a folder and append matching headers. Add the source filename without changing source files."
+  },
+  "r_HAMU_CombineCSVs": {
+    "label": "Combine CSV Files",
+    "screentip": "Combine CSV Files",
+    "supertip": "Append CSV files from a folder to one sheet. Keep the first file's header and skip header rows in subsequent files."
+  },
+  "r_HAMU_CompareTwoLists": {
+    "label": "Compare Lists",
+    "screentip": "Compare Lists",
+    "supertip": "Compare values in two lists and report matches and differences."
+  },
+  "r_HAMU_ConsolidateSheets": {
+    "label": "Combine Sheets",
+    "screentip": "Append Worksheets",
+    "supertip": "Append used ranges from worksheets in the active workbook and add the source worksheet name to the results."
+  },
+  "r_HAMU_ConvertColumnTypes": {
+    "label": "Convert Types",
+    "screentip": "Fix Column Types",
+    "supertip": "Convert selected columns to the requested data types. Review mixed values and conversion errors."
+  },
+  "r_HAMU_ConvertFormulasToValues": {
+    "label": "Formulas to Values",
+    "screentip": "Formulas to Values",
+    "supertip": "Replace selected formulas with their current calculated results."
+  },
+  "r_HAMU_ConvertQuotedNumbers": {
+    "label": "Convert Text Numbers",
+    "screentip": "Convert Text Numbers",
+    "supertip": "Convert suitable numbers stored as text to numeric values. Review decimal and thousands separators."
+  },
+  "r_HAMU_CopyVisibleTable": {
+    "label": "Copy Visible Rows",
+    "screentip": "Copy Visible Rows",
+    "supertip": "Copy visible filtered records into a standalone table on a new sheet."
+  },
+  "r_HAMU_CountByColor": {
+    "label": "Count by Color",
+    "screentip": "Count by Color",
+    "supertip": "Count cells matching the sample cell's displayed fill color, including conditional formatting."
+  },
+  "r_HAMU_CreateQRCode": {
+    "label": "QR Code\nBarcode",
+    "screentip": "QR and Barcode",
+    "supertip": "Select QR Code or Barcode in one form; model choices follow the type. Supports text, links, email, phone, single values or a batch column. Batch codes go in empty cells to the right. Internet required; at most 250 codes."
+  },
+  "r_HAMU_DataEntry": {
+    "label": "Data Entry",
+    "screentip": "Data Entry",
+    "supertip": "Open Excel's native data form for the current table or contiguous list with unique headers; at most 32 columns."
+  },
+  "r_HAMU_DataProfile": {
+    "label": "Data Profile",
+    "screentip": "Data Profile",
+    "supertip": "Summarize the contents and data types of selected columns to help assess a dataset."
+  },
+  "r_HAMU_DataQualityReport": {
+    "label": "Quality Report",
+    "screentip": "Data Quality",
+    "supertip": "Inspect missing values, duplicates and data consistency. Review the report before deciding how to clean the source data."
+  },
+  "r_HAMU_DateBuilder": {
+    "label": "Build Dates",
+    "screentip": "Build Dates",
+    "supertip": "Create dates from separate year, month and day fields."
+  },
+  "r_HAMU_DateRangeList": {
+    "label": "Date List",
+    "screentip": "Date List",
+    "supertip": "Generate dates between a start and end date, optionally excluding weekends. Choose the output start cell."
+  },
+  "r_HAMU_DeduplicateItems": {
+    "label": "Deduplicate Cell Items",
+    "screentip": "Deduplicate Cell Items",
+    "supertip": "Remove repeated items within each cell using the chosen separator, keeping their first occurrence."
+  },
+  "r_HAMU_DeleteBlankCells": {
+    "label": "Delete Blanks",
+    "screentip": "Delete Blanks",
+    "supertip": "Delete empty cells and shift remaining cells upward. Check related columns before changing their alignment."
+  },
+  "r_HAMU_DeleteDropdowns": {
+    "label": "Remove Old Dropdown Objects",
+    "screentip": "Remove Old Dropdown Objects",
+    "supertip": "Remove old worksheet dropdown objects while preserving cell data-validation lists."
+  },
+  "r_HAMU_ExpandColumns": {
+    "label": "Fit Width",
+    "screentip": "Fit Width",
+    "supertip": "Fit selected column widths to the content."
+  },
+  "r_HAMU_ExportSheetsAsPDF": {
+    "label": "Save PDF",
+    "screentip": "Save PDF",
+    "supertip": "Save PDF using Select Range or Active Sheet. Select Range always opens Excel's range picker instead of automatically exporting the selection. Choose automatic, portrait or landscape."
+  },
+  "r_HAMU_ExtractDigits": {
+    "label": "Extract Digits",
+    "screentip": "Extract Digits",
+    "supertip": "Extract numeric characters from selected text values."
+  },
+  "r_HAMU_ExtractTextPart": {
+    "label": "Extract Text Part",
+    "screentip": "Extract Text Part",
+    "supertip": "Extract characters from the left/right or text before, after or between specified markers."
+  },
+  "r_HAMU_ExtractUniqueList": {
+    "label": "Unique List",
+    "screentip": "Unique List",
+    "supertip": "Create a list of distinct values in a selected destination range or on a new worksheet. Configure the default destination behavior in Settings."
+  },
+  "r_HAMU_FillBlanksZero": {
+    "label": "Fill Blanks with Zero",
+    "screentip": "Fill Blanks with Zero",
+    "supertip": "Write zero only to genuinely empty cells. Preserve populated cells and formulas returning empty text."
+  },
+  "r_HAMU_FillDownBlanks": {
+    "label": "Fill Down Blanks",
+    "screentip": "Fill Down Blanks",
+    "supertip": "Fill blank cells with the nearest nonblank value above in the same column. Useful for repeated group labels in reports."
+  },
+  "r_HAMU_FilterRowsToNewTable": {
+    "label": "Filter Rows",
+    "screentip": "Filter Rows",
+    "supertip": "Create an output table containing rows that satisfy the chosen column condition. Source data remains unchanged."
+  },
+  "r_HAMU_FindMissingCombinations": {
+    "label": "Find Missing",
+    "screentip": "Missing Combinations",
+    "supertip": "Find missing combinations of selected category columns."
+  },
+  "r_HAMU_FolderIndex": {
+    "label": "Folder Contents",
+    "screentip": "Folder Contents",
+    "supertip": "List files with hyperlinks, local paths, extensions, types, readable sizes and creation/modification dates. Choose current-folder or recursive scanning; large folder trees take longer."
+  },
+  "r_HAMU_FormulaAudit": {
+    "label": "Formula Audit",
+    "screentip": "Formula Audit",
+    "supertip": "List formulas, source-cell links, displayed results, errors and direct external workbook references on a new sheet. Source formulas remain unchanged."
+  },
+  "r_HAMU_GroupAndSummarize": {
+    "label": "Group and Summarize",
+    "screentip": "Group and Summarize",
+    "supertip": "Group records by one or more key columns and summarize selected numeric fields. Specify column numbers or header names."
+  },
+  "r_HAMU_HighlightByCriteria": {
+    "label": "Highlight Cell Types",
+    "screentip": "Highlight Cell Types",
+    "supertip": "Highlight cells matching a selected type or criterion."
+  },
+  "r_HAMU_InsertPhotosFromFolder": {
+    "label": "Batch\nPhotos",
+    "screentip": "Insert Folder Images",
+    "supertip": "Insert supported images from a folder into cells or over cells. In-cell conversion depends on Excel version support; over-cell images are constrained to cell bounds."
+  },
+  "r_HAMU_LeadingZeros": {
+    "label": "Leading Zeros",
+    "screentip": "Leading Zeros",
+    "supertip": "Add or remove leading zeros from text codes. Preserve source values and write the result as text."
+  },
+  "r_HAMU_ListDefinedNames": {
+    "label": "List Defined Names",
+    "screentip": "List Defined Names",
+    "supertip": "List workbook/worksheet names, references, visibility and broken references on a new sheet without modifying the names."
+  },
+  "r_HAMU_ListLinks": {
+    "label": "List External Links",
+    "screentip": "List External Links",
+    "supertip": "List external Excel workbook links on a new worksheet."
+  },
+  "r_HAMU_MaskData": {
+    "label": "Mask Data",
+    "screentip": "Mask Data",
+    "supertip": "Mask selected text according to the available options. Keep an original copy when required."
+  },
+  "r_HAMU_MergeDuplicates": {
+    "label": "Merge Duplicate Records",
+    "screentip": "Merge Duplicate Records",
+    "supertip": "Merge records by one or more key columns, sum selected numeric fields, keep the first nonblank value in other fields and include a record count."
+  },
+  "r_HAMU_PatternFind": {
+    "label": "Find by Regular Expression",
+    "screentip": "Find by Regular Expression",
+    "supertip": "Find text matching a regular-expression pattern and highlight matching cells. Use a preset or a custom pattern."
+  },
+  "r_HAMU_PivotExport": {
+    "label": "Split Pivot",
+    "screentip": "Export Pivot Filters",
+    "supertip": "Export separate PivotTable filter results to worksheets. Select a cell within the PivotTable first."
+  },
+  "r_HAMU_PivotRowsToColumns": {
+    "label": "Pivot",
+    "screentip": "Pivot",
+    "supertip": "Build a cross-tab by moving row categories into columns and summarizing values."
+  },
+  "r_HAMU_RowStriping": {
+    "label": "Stripe Rows",
+    "screentip": "Stripe Rows",
+    "supertip": "Apply alternating row colors to the selected area."
+  },
+  "r_HAMU_SampleData": {
+    "label": "Sample Data",
+    "screentip": "Sample Data",
+    "supertip": "Create a sample of records using the requested sample size or selection options."
+  },
+  "r_HAMU_SaveCopy": {
+    "label": "Save Copy",
+    "screentip": "Save Copy",
+    "supertip": "Save a copy at a chosen location, preserving the open workbook identity, unsaved state, file format and macros."
+  },
+  "r_HAMU_SelectColumnsToNewTable": {
+    "label": "Copy Columns",
+    "screentip": "Copy Columns",
+    "supertip": "Select columns by header names or positions such as 1,2,3 within the selected data. Whole-column sources are trimmed to populated rows."
+  },
+  "r_HAMU_SelectSpecialCells": {
+    "label": "Select Special Cells",
+    "screentip": "Select Special Cells",
+    "supertip": "Select formulas, constants, errors, blanks or visible cells within the current area. Do not change values or formatting."
+  },
+  "r_HAMU_ShowHidden": {
+    "label": "Show Hidden Items",
+    "screentip": "Show Hidden Items",
+    "supertip": "Reveal hidden sheets, rows or columns as supported by the command."
+  },
+  "r_HAMU_ShuffleRows": {
+    "label": "Shuffle Rows",
+    "screentip": "Shuffle Rows",
+    "supertip": "Randomize the order of data rows while preserving values within each row."
+  },
+  "r_HAMU_SmartAppendByHeaders": {
+    "label": "Smart Append",
+    "screentip": "Smart Append",
+    "supertip": "Append worksheets by matching header names, even when column order differs. Missing columns remain blank. Add the source sheet name and preserve the source worksheets."
+  },
+  "r_HAMU_SmartJoin": {
+    "label": "Join by Key",
+    "screentip": "Join by Key",
+    "supertip": "Match two datasets using selected key columns. Check key types, spaces and duplicates before choosing the fields to include."
+  },
+  "r_HAMU_SortSheets": {
+    "label": "Sort Sheets",
+    "screentip": "Sort Sheets",
+    "supertip": "Sort worksheet tabs alphabetically."
+  },
+  "r_HAMU_SplitByValueToFiles": {
+    "label": "Split to Files",
+    "screentip": "Split into Files",
+    "supertip": "Create separate files for distinct values in a selected column. Choose the destination folder and preserve the source data."
+  },
+  "r_HAMU_SplitDataWizard": {
+    "label": "Split Data",
+    "screentip": "Split Data",
+    "supertip": "Split values or datasets using the options shown in the dialog. Choose the source columns and desired output."
+  },
+  "r_HAMU_SplitURLParameters": {
+    "label": "Extract URL",
+    "screentip": "Expand URL Parameters",
+    "supertip": "Extract URL query parameters into separate columns for analysis."
+  },
+  "r_HAMU_StandardFormat": {
+    "label": "Number and Date Format",
+    "screentip": "Number and Date Format",
+    "supertip": "Apply integer number formatting or standard date formatting. Formatting controls display and does not automatically repair data types."
+  },
+  "r_HAMU_StandardizeHeaders": {
+    "label": "Clean Headers",
+    "screentip": "Normalize Headers",
+    "supertip": "Clean spaces and normalize column headings to a consistent naming scheme."
+  },
+  "r_HAMU_SumByColor": {
+    "label": "Sum by Color",
+    "screentip": "Sum by Color",
+    "supertip": "Sum numeric values matching the sample cell's displayed fill color, including conditional formatting. Ignore blank, text and error values."
+  },
+  "r_HAMU_TableTotals": {
+    "label": "Total Row",
+    "screentip": "Total Row",
+    "supertip": "Toggle the active table total row and sum numeric columns."
+  },
+  "r_HAMU_Transfer": {
+    "label": "Transfer",
+    "screentip": "Transfer Wizard",
+    "supertip": "Transfer LAMBDA definitions, cell styles, named data ranges, sheet data and Excel tables. Sheet/table transfer copies values and formatting, without VBA."
+  },
+  "r_HAMU_UDFHelp": {
+    "label": "Worksheet Functions",
+    "screentip": "Worksheet Functions",
+    "supertip": "Show the eight HAMU worksheet functions with examples. Function names remain unchanged when switching language."
+  },
+  "r_HAMU_UnmergeAndFill": {
+    "label": "Unmerge and Fill",
+    "screentip": "Unmerge and Fill",
+    "supertip": "Unmerge cells and fill the resulting area with the original merged value."
+  },
+  "r_HAMU_UnpivotColumnsToRows": {
+    "label": "Unpivot",
+    "screentip": "Unpivot",
+    "supertip": "Convert wide columns into field/value rows. Keep text headers such as 2026.01 as text."
+  },
+  "r_UDF_GizliLink": {
+    "label": "HAMU_GizliLink",
+    "screentip": "HAMU_GizliLink",
+    "supertip": "=HAMU_GizliLink(A1) | Return the first hyperlink address in the cell."
+  },
+  "r_UDF_LambdaMultiLookup": {
+    "label": "HAMU_L_CokluAra",
+    "screentip": "HAMU_L_CokluAra",
+    "supertip": "Exact lookup across two key/result pairs, returning the first match. Example: =HAMU_L_CokluAra(G2;A2:A10;B2:B10;D2:D10;E2:E10). Transfer it from the LAMBDA template; Microsoft 365/Excel 2024 required."
+  },
+  "r_UDF_LambdaMultiSum": {
+    "label": "HAMU_L_CokluTopla",
+    "screentip": "HAMU_L_CokluTopla",
+    "supertip": "Sum matching values across two key/value pairs. Example: =HAMU_L_CokluTopla(G2;A2:A10;B2:B10;D2:D10;E2:E10). Transfer from the template; Microsoft 365/Excel 2024 required."
+  },
+  "r_UDF_LambdaUniqueMerge": {
+    "label": "HAMU_L_BenzersizBirlestir",
+    "screentip": "HAMU_L_BenzersizBirlestir",
+    "supertip": "Combine nonblank values from two areas into a sorted unique list. Example: =HAMU_L_BenzersizBirlestir(A2:B10;D2:E10). Requires a blank spill area and Microsoft 365/Excel 2024."
+  },
+  "r_UDF_LinkParamDegeri": {
+    "label": "HAMU_LinkParamDegeri",
+    "screentip": "HAMU_LinkParamDegeri",
+    "supertip": "=HAMU_LinkParamDegeri(A1;\"id\") | Return the value of the specified URL query parameter."
+  },
+  "r_UDF_RengeGoreSay": {
+    "label": "HAMU_RengeGoreSay",
+    "screentip": "HAMU_RengeGoreSay",
+    "supertip": "=HAMU_RengeGoreSay(A1:A20;B1) | Count cells with the same direct fill color as B1. Recalculate with F9 after changing formatting."
+  },
+  "r_UDF_RenklileriTopla": {
+    "label": "HAMU_RengeGoreTopla",
+    "screentip": "HAMU_RengeGoreTopla",
+    "supertip": "=HAMU_RengeGoreTopla(A1:A20;B1) | Sum numbers with the same direct fill color as B1. Recalculate with F9 after changing formatting."
+  },
+  "r_UDF_SayidanMetine": {
+    "label": "HAMU_SayidanMetine",
+    "screentip": "HAMU_SayidanMetine",
+    "supertip": "=HAMU_SayidanMetine(123) | Spell numbers in Turkish. Supports absolute values below 15 digits and reads decimal digits individually. The output language stays Turkish."
+  },
+  "r_UDF_TablodanVeriGetir": {
+    "label": "HAMU_TablodanVeriGetir",
+    "screentip": "HAMU_TablodanVeriGetir",
+    "supertip": "=HAMU_TablodanVeriGetir(A1;\"Tablo1\";\"Kod\";\"Ad\") | Return the first matching value from a table in the workbook containing the formula."
+  },
+  "r_UDF_URLDecode": {
+    "label": "HAMU_URLCoz",
+    "screentip": "HAMU_URLCoz",
+    "supertip": "=HAMU_URLCoz(A1) | Decode UTF-8 URL characters; preserve invalid percent sequences."
+  },
+  "r_UDF_YerelDosyaYolu": {
+    "label": "HAMU_YerelDosyaYolu",
+    "screentip": "HAMU_YerelDosyaYolu",
+    "supertip": "=HAMU_YerelDosyaYolu(A1) | Map a personal OneDrive URL to a local path using the local OneDrive environment variable; preserve other URL types."
+  },
+  "reshapeHub": {
+    "label": "Reshape"
+  },
+  "settingLanguage": {
+    "label": "Interface Language"
+  },
+  "settingsCenter": {
+    "label": "Settings",
+    "helperText": "Manage language, registration locations and trading preferences from this center."
+  },
+  "settingsStorage": {
+    "label": "Preferences belong to this Windows user and do not change other workbooks' settings."
+  },
+  "tabHAMU": {
+    "label": "HAMU Tools"
+  },
+  "textSub0": {
+    "label": "Text Tools"
+  },
+  "textSub1": {
+    "label": "Regular Expressions",
+    "screentip": "Regular Expressions",
+    "supertip": "Find, extract or replace text using regular expressions. Use examples or a custom pattern."
+  },
+  "textSub2": {
+    "label": "Cell Layout",
+    "screentip": "Cell Layout",
+    "supertip": "Tools for cell layout, number and date formats, and column widths."
+  },
+  "topic1": {
+    "label": "Range and Output Selection"
+  },
+  "topic6": {
+    "label": "HAMU Worksheet Functions"
+  },
+  "topic7": {
+    "label": "Troubleshooting and Limits"
+  },
+  "topic8": {
+    "label": "All Tools"
+  },
+  "worksheetFunctions": {
+    "label": "Worksheet Functions"
+  }
+}

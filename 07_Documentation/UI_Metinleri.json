@@ -1,0 +1,688 @@
+{
+  "aboutProfile": {
+    "label": "HAMU hakkında"
+  },
+  "auditHighlight": {
+    "label": "Vurgu ve Sayım"
+  },
+  "backupNote": {
+    "label": "VBA işlemleri geri alma geçmişini temizleyebilir. Önemli dosyalarda önce Yedek Al kullanın."
+  },
+  "brand": {
+    "label": "HAMU · V1",
+    "helperText": "Excel üretkenlik ve veri araçları"
+  },
+  "brandLogo": {
+    "altText": "Özgün HAMU logosu"
+  },
+  "brandName": {
+    "label": "Hüseyin Avni UZUN"
+  },
+  "brandPurpose": {
+    "label": "Veriyi düzenleyin. Tekrarlayan işleri hızlandırın. Sonuçları anlaşılır kılın."
+  },
+  "bsHAMU": {
+    "label": "HAMU Tools"
+  },
+  "extraFunctions": {
+    "label": "Fonksiyonlar",
+    "screentip": "Fonksiyonlar",
+    "supertip": "HAMU hücre fonksiyonlarını ve LAMBDA şablonlarını örnekleriyle inceleyin."
+  },
+  "extractHub": {
+    "label": "Ayıkla"
+  },
+  "fileHub": {
+    "label": "Dosya"
+  },
+  "g0": {
+    "label": "Aktarma"
+  },
+  "g1": {
+    "label": "Dosya"
+  },
+  "g2": {
+    "label": "Veri"
+  },
+  "g3": {
+    "label": "Metin ve Hücre"
+  },
+  "g4": {
+    "label": "Tablo"
+  },
+  "g5": {
+    "label": "Tarih"
+  },
+  "g6": {
+    "label": "Sayfa ve Görsel"
+  },
+  "g7": {
+    "label": "Denetim"
+  },
+  "g8": {
+    "label": "Bilgi"
+  },
+  "guide0": {
+    "label": "01  Nereden başlamalıyım?",
+    "helperText": "Kaynak veriyi seçin, uygun aracı açın ve açıklamayı okuyun. İlk kez kullanıyorsanız dört adımlı başlangıç rehberini inceleyin."
+  },
+  "guide1": {
+    "label": "02  Veriyi temizleyin",
+    "helperText": "Başlıkları düzenleyin, boşlukları ve tekrarları inceleyin. Kodların başındaki sıfırları koruyun; metin ve sayı türlerini kontrol edin."
+  },
+  "guide2": {
+    "label": "03  Listeden anlamlı sonuçlara",
+    "helperText": "Aynı yapılı listeleri birleştirin, ortak anahtarla eşleştirin; Grupla, Pivot ve Unpivot ile veri yapısını dönüştürün."
+  },
+  "guide3": {
+    "label": "04  Dosyalarınızı yönetin",
+    "helperText": "Önce tarih ve saatli bir yedek alın. Klasör envanteri, dosyalardan veri toplama ve şablon aktarımı için uygun akışı seçin."
+  },
+  "guide4": {
+    "label": "05  Görseller ve kodlar",
+    "helperText": "Hücre içine veya üstüne resim ekleme seçeneklerini öğrenin. Barkod ve karekod üretiminde internet ve veri paylaşımı bilgilerini okuyun."
+  },
+  "guideButton0": {
+    "label": "Rehberi aç"
+  },
+  "guideButton1": {
+    "label": "Rehberi aç"
+  },
+  "guideButton2": {
+    "label": "Rehberi aç"
+  },
+  "guideButton3": {
+    "label": "Rehberi aç"
+  },
+  "guideButton4": {
+    "label": "Rehberi aç"
+  },
+  "internetNote": {
+    "label": "Barkod ve karekod içeriği, üretim için üçüncü taraf internet servisine gönderilir."
+  },
+  "lambdaFunctions": {
+    "label": "LAMBDA Şablonları"
+  },
+  "learn": {
+    "label": "İhtiyacınız olan bilgi"
+  },
+  "m3": {
+    "label": "Düzenle",
+    "screentip": "Metin ve Hücre — Diğer Araçlar",
+    "supertip": "Bu kategorideki diğer komutları ve açıklamalarını gösterir."
+  },
+  "m4": {
+    "label": "Tablo Araçları",
+    "screentip": "Tablo ve Görünüm — Diğer Araçlar",
+    "supertip": "Bu kategorideki diğer komutları ve açıklamalarını gösterir."
+  },
+  "m5": {
+    "label": "Tarih Araçları",
+    "screentip": "Tarih Araçları — Diğer Araçlar",
+    "supertip": "Bu kategorideki diğer komutları ve açıklamalarını gösterir."
+  },
+  "m6": {
+    "label": "Sayfa Araçları",
+    "screentip": "Sayfa ve Görsel — Diğer Araçlar",
+    "supertip": "Bu kategorideki diğer komutları ve açıklamalarını gösterir."
+  },
+  "m7": {
+    "label": "Denetim\nAraçları",
+    "screentip": "Kontrol ve Denetim — Diğer Araçlar",
+    "supertip": "Bu kategorideki diğer komutları ve açıklamalarını gösterir."
+  },
+  "m8": {
+    "label": "Bilgi",
+    "screentip": "Yardım ve Hakkında — Diğer Araçlar",
+    "supertip": "Bu kategorideki diğer komutları ve açıklamalarını gösterir."
+  },
+  "mergeHub": {
+    "label": "Birleştir"
+  },
+  "note": {
+    "label": "Çalışmaya başlamadan"
+  },
+  "openLambdaTemplates": {
+    "label": "Şablonu Aç",
+    "supertip": "Üç uzman LAMBDA tanımı içeren dosyayı açar. Aktarma Sihirbazı ile kendi kitabınıza alın."
+  },
+  "openSettings": {
+    "label": "Tüm ayarları düzenle"
+  },
+  "profile0": {
+    "label": "Web sitesi"
+  },
+  "profile1": {
+    "label": "GitHub"
+  },
+  "profile2": {
+    "label": "hamu@huseyinavniuzun.com"
+  },
+  "qualityHub": {
+    "label": "Kalite"
+  },
+  "quick_HAMU_About": {
+    "label": "Hakkında",
+    "screentip": "Hakkında",
+    "supertip": "HAMU Tools V1 sürümü, HAMU markası ve huseyinavniuzun.com bilgileri ile eklentinin kapsamını gösterir."
+  },
+  "quick_HAMU_AutoFit": {
+    "label": "Sığdır",
+    "screentip": "Sığdır",
+    "supertip": "Seçili alanın satır yüksekliğini metne göre sığdırır. Sütun genişliği değişmez."
+  },
+  "quick_HAMU_AutoTable": {
+    "label": "Hızlı\nTablo",
+    "screentip": "Otomatik Tablo Oluştur",
+    "supertip": "Tek hücre seçildiyse çevresindeki kesintisiz veri alanını, aksi halde seçilen alanı başlıklı Excel tablosuna dönüştürür. HAMU stili ve filtreleri uygular."
+  },
+  "quick_HAMU_CheckDates": {
+    "label": "Tarih Kontrolü",
+    "screentip": "Tarih Kontrolü",
+    "supertip": "Seçili hücrelerdeki değerlerin geçerli bir tarih olup olmadığını kontrol eder. Geçerli tarihleri ve tanımlanamayan değerleri farklı renklerle işaretler."
+  },
+  "quick_HAMU_CleanData": {
+    "label": "Temizle\nKırp",
+    "screentip": "Metin ve Boşluk Temizle",
+    "supertip": "Seçili metinlerde görünmeyen NBSP karakterlerini, sekmeleri, satır sonlarını, sıfır genişlikli boşlukları ve art arda gelen gereksiz boşlukları temizler. Metnin başı/sonundaki boşlukları kaldırır; formülleri değiştirmez."
+  },
+  "quick_HAMU_CompareSheets": {
+    "label": "Sayfaları Karşılaştır",
+    "screentip": "Sayfaları Karşılaştır",
+    "supertip": "İki çalışma sayfasını belirlediğiniz anahtar sütuna göre karşılaştırır ve eklenen, silinen veya değişen kayıtları ayrı bir raporda gösterir."
+  },
+  "quick_HAMU_DatePicker": {
+    "label": "Tarih Seç",
+    "screentip": "Tarih Seçici",
+    "supertip": "HAMU takvim penceresini açar. Aktif hücrede tarih varsa takvim o tarihle açılır; seçtiğiniz tarih hücreye gerçek Excel tarihi olarak dd.mm.yyyy biçiminde yazılır."
+  },
+  "quick_HAMU_DynamicValidation": {
+    "label": "Dinamik Veri Doğrulama Listesi",
+    "screentip": "Dinamik Veri Doğrulama Listesi",
+    "supertip": "Seçili hücrelere liste tipi veri doğrulama uygular. Kaynak olarak adlandırılmış aralık, Tablo[Sütun], doğrudan aralık veya A1# biçimindeki dinamik taşan dizi kullanılabilir. Bir adlandırma A1# kaynağına bağlıysa taşan aralık büyüdükçe doğrulama listesi de dinamik kalır."
+  },
+  "quick_HAMU_FixDates": {
+    "label": "Tarihleri Düzelt",
+    "screentip": "Tarihleri Düzelt",
+    "supertip": "03/10/2026, 2026-10-03, 20261003, 3 Ekim 2026 ve benzeri farklı tarih gösterimlerini gerçek Excel tarihine dönüştürür ve dd.mm.yyyy biçiminde standardize eder."
+  },
+  "quick_HAMU_Help": {
+    "label": "Yardım",
+    "screentip": "Yardım",
+    "supertip": "HAMU Tools içindeki komutların kullanım amacı ve temel kullanım bilgilerini gösterir."
+  },
+  "quick_HAMU_HighlightDuplicates": {
+    "label": "Tekrar Edenleri Vurgula",
+    "screentip": "Tekrar Edenleri Vurgula",
+    "supertip": "Seçili alanda birden fazla kez bulunan değerleri tespit eder ve tekrar eden hücreleri renklendirir."
+  },
+  "quick_HAMU_MarkProblemCells": {
+    "label": "Sorunlu\nHücreler",
+    "screentip": "Sorunlu Hücreleri İşaretle",
+    "supertip": "Sayı gibi görünen metinleri ve eşittir işaretiyle başlayan ancak gerçek formül olmayan metinleri bularak hücreleri farklı renklerle işaretler."
+  },
+  "quick_HAMU_RegexReplace": {
+    "label": "Normal İfade ile Değiştir",
+    "screentip": "Normal İfade ile Değiştir",
+    "supertip": "Seçili metin hücrelerinde RegEx normal ifadeleri kullanarak toplu bul/değiştir işlemi yapar. Gruplama ve $1 gibi geri başvurular kullanılabilir."
+  },
+  "quick_HAMU_ResizeTable": {
+    "label": "Tabloyu Genişlet",
+    "screentip": "Tabloyu Genişlet",
+    "supertip": "Tablonun altındaki bitişik verileri tabloya dahil eder."
+  },
+  "quick_HAMU_SelectionToPNG": {
+    "label": "Resim Kaydet",
+    "screentip": "Resim Kaydet",
+    "supertip": "Seçili alanı PNG, JPG veya GIF olarak kaydeder. Çok büyük görsel alanlarını durdurur ve geçici grafiği temizler."
+  },
+  "quick_HAMU_SheetIndex": {
+    "label": "Sayfa İndeksi",
+    "screentip": "Sayfa İndeksi",
+    "supertip": "Görünür çalışma sayfalarını listeleyen ve her sayfaya tıklanabilir bağlantı veren bir İçindekiler sayfası oluşturur."
+  },
+  "quick_HAMU_TextCase": {
+    "label": "Harf Dönüştür",
+    "screentip": "Harf Dönüştür",
+    "supertip": "Seçili metinleri tamamı büyük, tamamı küçük veya baş harfleri büyük biçime dönüştürür."
+  },
+  "r_HAMU_AddDateToFilename": {
+    "label": "Tarihli Sürüm",
+    "screentip": "Tarihli Sürüm",
+    "supertip": "Kaydedilmiş dosyanın aynı klasörde tarih ve saat eklenmiş kopyasını oluşturur. Yeni kopya açılıp doğrulandıktan sonra eski dosya kapatılır ve silinir. Yeni dosya açılamazsa eski dosya korunur."
+  },
+  "r_HAMU_AddDuplicateCount": {
+    "label": "Tekrar Sayısını Yaz",
+    "screentip": "Tekrar Sayısını Yaz",
+    "supertip": "Giriş listesindeki her değerin kaç kez geçtiğini hesaplayıp ayrı seçtiğiniz çıkış alanına yazar. Tek çıkış hücresi seçerseniz sonuç aşağı doğru genişler."
+  },
+  "r_HAMU_AddTextAffixes": {
+    "label": "Başa / Sona Ekle",
+    "screentip": "Başa / Sona Ekle",
+    "supertip": "Seçili tek sütundaki metinlerin başına ve/veya sonuna metin ekler. Sonuç seçtiğiniz başlangıç hücresine yazılır; kaynak korunur. Boş hücreler boş kalır."
+  },
+  "r_HAMU_AppendSelectedTables": {
+    "label": "Tabloları Birleştir",
+    "screentip": "Seçili Tabloları Alt Alta Birleştir",
+    "supertip": "Belirttiğiniz Excel tablolarının aynı yapıdaki satırlarını tek bir sonuç tablosunda alt alta toplar."
+  },
+  "r_HAMU_Backup": {
+    "label": "Yedek Oluştur",
+    "screentip": "Yedek Oluştur",
+    "supertip": "Dosyanın tarih ve saatli kopyasını Belgeler > HAMU > Backup klasörüne kaydeder. Sonuç ekranında tam yolu gösterir; Klasörü Aç ile yedek klasörüne ulaşabilirsiniz."
+  },
+  "r_HAMU_BreakLinks": {
+    "label": "Harici Bağlantıları Kır",
+    "screentip": "Harici Bağlantıları Kır",
+    "supertip": "Çalışma kitabındaki harici Excel bağlantılarını kırar. Bağlantılı formüller mevcut değerlerine dönüştürülebileceği için işlemden önce yedek alınması önerilir."
+  },
+  "r_HAMU_ClearHighlights": {
+    "label": "Vurguyu Kaldır",
+    "screentip": "Vurguyu Kaldır",
+    "supertip": "Seçili alandaki HAMU vurgu renklerini kaldırır. Aynı oturumda önceki dolguyu geri yükler; daha eski vurgular sarı/turuncu paletiyle tanınır."
+  },
+  "r_HAMU_CollectFilesData": {
+    "label": "Dosyalardan Topla",
+    "screentip": "Klasörden Veri Topla",
+    "supertip": "Klasördeki Excel ve CSV dosyalarının ilk veri sayfalarını tek sonuçta alt alta toplar. İlk satır başlıktır; aynı başlıklar eşleştirilir. KaynakDosya eklenir, kaynak dosyalar değiştirilmez. Aynı tür tabloları içeren dosyalar kullanın."
+  },
+  "r_HAMU_CombineCSVs": {
+    "label": "CSV Dosyalarını Birleştir",
+    "screentip": "CSV Dosyalarını Birleştir",
+    "supertip": "Seçtiğiniz klasördeki CSV dosyalarını tek sayfada alt alta toplar; ilk dosyanın başlığını kullanır ve sonraki dosyalarda başlık satırını atlar."
+  },
+  "r_HAMU_CompareTwoLists": {
+    "label": "İki Listeyi Karşılaştır",
+    "screentip": "İki Listeyi Karşılaştır",
+    "supertip": "İki tek sütunlu listeyi karşılaştırır; yalnızca birinci listede, yalnızca ikinci listede veya her iki listede bulunan değerleri raporlar."
+  },
+  "r_HAMU_ConsolidateSheets": {
+    "label": "Sayfaları Birleştir",
+    "screentip": "Sayfaları Alt Alta Birleştir",
+    "supertip": "Aktif çalışma kitabındaki sayfaların kullanılan alanlarını tek sayfada birleştirir ve kaynak sayfa bilgisini sonuç verisine ekler."
+  },
+  "r_HAMU_ConvertColumnTypes": {
+    "label": "Veri Türünü Düzelt",
+    "screentip": "Sütun Veri Tipini Düzelt",
+    "supertip": "Bir veya birden fazla sütunu metin, sayı, tarih, tam sayı veya yüzde tipine dönüştürür; dönüştürülemeyen hücreleri sayarak işlem sonucunu raporlar."
+  },
+  "r_HAMU_ConvertFormulasToValues": {
+    "label": "Formülleri Değere Dönüştür",
+    "screentip": "Formülleri Değere Dönüştür",
+    "supertip": "Seçili hücrelerdeki formülleri mevcut sonuçlarıyla değiştirir. İşlem sonrasında hücrelerde formül yerine sabit değer kalır."
+  },
+  "r_HAMU_ConvertQuotedNumbers": {
+    "label": "Metin Olarak Saklanan Sayıları Düzelt",
+    "screentip": "Metin Olarak Saklanan Sayıları Düzelt",
+    "supertip": "Başında gizli tek tırnak bulunan veya Excel tarafından metin olarak saklanan sayısal değerleri gerçek sayıya dönüştürmeye çalışır."
+  },
+  "r_HAMU_CopyVisibleTable": {
+    "label": "Görünür Satırları Kopyala",
+    "screentip": "Görünür Satırları Kopyala",
+    "supertip": "Filtre sonrası görünen kayıtları yeni sayfada bağımsız tabloya kopyalar."
+  },
+  "r_HAMU_CountByColor": {
+    "label": "Renge Göre Say",
+    "screentip": "Renge Göre Say",
+    "supertip": "Seçilen aralıkta örnek hücrenin görüntülenen dolgu rengiyle eşleşen hücreleri sayar; koşullu biçimlendirme dahildir."
+  },
+  "r_HAMU_CreateQRCode": {
+    "label": "Karekod\nBarkod",
+    "screentip": "Karekod ve Barkod",
+    "supertip": "Tek ekranda Karekod veya Barkod seçin; tür değişince model listesi güncellenir. Metin, bağlantı, e-posta ve telefon içeriği; tek giriş veya tek sütundan toplu üretim. Kodlar verinin sağındaki boş hücreye eklenir. İnternet gerekir; en fazla 250 kod."
+  },
+  "r_HAMU_DataEntry": {
+    "label": "Veri Girişi",
+    "screentip": "Veri Girişi",
+    "supertip": "Excel’in yerleşik veri giriş formunu açar. Bir tabloya veya benzersiz başlıkları olan kesintisiz listeye tıklayın; en fazla 32 sütun."
+  },
+  "r_HAMU_DataProfile": {
+    "label": "Veri Profili",
+    "screentip": "Veri Profilini Çıkar",
+    "supertip": "Seçtiğiniz başlıklı veri alanındaki sütunların doluluk, boşluk, benzersiz değer ve veri türlerini özetler. Sorunları görmek için bir rapor oluşturur; kaynak veriyi değiştirmez."
+  },
+  "r_HAMU_DataQualityReport": {
+    "label": "Kalite Raporu",
+    "screentip": "Veri Kalitesi Raporu",
+    "supertip": "Başlıklı tabloyu denetleyerek boş alan, tekrar eden kayıt ve veri türü sorunlarını raporlar. Sonuç yeni sayfaya yazılır; sorunları kaynaktan otomatik silmez. Önce raporu inceleyin."
+  },
+  "r_HAMU_DateBuilder": {
+    "label": "Tarih Oluştur",
+    "screentip": "Tarih Oluştur",
+    "supertip": "Ayrı sütunlarda bulunan yıl, ay ve gün değerlerini birleştirerek gerçek Excel tarihleri oluşturur. Ay alanında sayı veya Türkçe ay adı kullanılabilir."
+  },
+  "r_HAMU_DateRangeList": {
+    "label": "Tarih Listesi",
+    "screentip": "Tarih Listesi",
+    "supertip": "Başlangıç ve bitiş dahil tarih listesi oluşturur. Tüm günler veya yalnız hafta içi seçilir; hafta içi seçeneği resmî tatilleri hesaplamaz. Sonuç seçtiğiniz başlangıç hücresine yazılır."
+  },
+  "r_HAMU_DeduplicateItems": {
+    "label": "Hücre İçi Tekrarlar",
+    "screentip": "Hücre İçi Tekrarlar",
+    "supertip": "Virgül veya belirttiğiniz ayraçla ayrılmış hücre içi öğeleri tekilleştirir. Örneğin elma, armut, elma → elma, armut. İlk sıra korunur; sonuç ayrı hedefe yazılır."
+  },
+  "r_HAMU_DeleteBlankCells": {
+    "label": "Boşlukları Sil",
+    "screentip": "Boşlukları Sil",
+    "supertip": "Seçili alandaki boş hücreleri silerek alttaki hücreleri yukarı kaydırır. Veri hizasını etkileyebileceği için tek sütunlu listelerde kullanılması önerilir."
+  },
+  "r_HAMU_DeleteDropdowns": {
+    "label": "Eski Dropdown Nesnelerini Sil",
+    "screentip": "Eski Dropdown Nesnelerini Sil",
+    "supertip": "Aktif sayfadaki eski Form Denetimi ve ActiveX açılır kutu nesnelerini siler. Hücrelerdeki veri doğrulama listeleri korunur."
+  },
+  "r_HAMU_ExpandColumns": {
+    "label": "Genişlet",
+    "screentip": "Genişlet",
+    "supertip": "Seçili alanın sütun genişliğini metne göre ayarlar."
+  },
+  "r_HAMU_ExportSheetsAsPDF": {
+    "label": "PDF Kaydet",
+    "screentip": "PDF Kaydet",
+    "supertip": "Alan Seç veya Etkin Sayfa seçeneğiyle PDF kaydeder. Alan Seç her zaman Excel aralık seçicisini açar; mevcut seçimi kendiliğinden kaydetmez. Otomatik/dikey/yatay yön sunar."
+  },
+  "r_HAMU_ExtractDigits": {
+    "label": "Metinden Sayıları Ayıkla",
+    "screentip": "Metinden Sayıları Ayıkla",
+    "supertip": "Metin içindeki rakam karakterlerini ayıklar ve sonucu hedef alana aktarır."
+  },
+  "r_HAMU_ExtractTextPart": {
+    "label": "Metin Parçası Al",
+    "screentip": "Metin Parçası Al",
+    "supertip": "Soldan/sağdan belirli sayıda karakteri, bir işaretin öncesini/sonrasını veya iki işaret arasını ayıklar. İlk eşleşmeyi kullanır; eşleşme yoksa boş sonuç verir. Kaynak korunur."
+  },
+  "r_HAMU_ExtractUniqueList": {
+    "label": "Benzersiz Liste",
+    "screentip": "Benzersiz Liste",
+    "supertip": "Tekrar eden değerleri bir kez listeler. Çıktı için mevcut sayfada veya başka sayfada başlangıç hücresi seçebilir ya da yeni sayfa oluşturabilirsiniz. Dolu hedefte onay ister; kaynak hata ve boş hücrelerini atlar."
+  },
+  "r_HAMU_FillBlanksZero": {
+    "label": "Boşlukları Sıfırla Doldur",
+    "screentip": "Boşlukları Sıfırla Doldur",
+    "supertip": "Seçili aralıktaki gerçekten boş hücrelere 0 yazar. Dolu hücreleri ve boş metin döndüren formülleri korur."
+  },
+  "r_HAMU_FillDownBlanks": {
+    "label": "Boşlukları Aşağı Doldur",
+    "screentip": "Boşlukları Aşağı Doldur",
+    "supertip": "Seçili aralıktaki boş hücreleri aynı sütundaki en yakın üst dolu değerle doldurur. Pivot veya rapor çıktılarındaki grup etiketlerini satırlara yaymak için kullanışlıdır."
+  },
+  "r_HAMU_FilterRowsToNewTable": {
+    "label": "Koşulla Satır Filtrele",
+    "screentip": "Koşulla Satır Filtrele",
+    "supertip": "Koşula uyan satırları yeni sayfaya kopyalar; kaynak değişmez. Şehir=Bursa yalnız Bursa kayıtlarını, Satış>0 pozitif satışları, Ürün~TV içinde TV geçenleri seçer. Noktalı virgülle birleştirilen koşulların hepsi sağlanmalıdır."
+  },
+  "r_HAMU_FindMissingCombinations": {
+    "label": "Eksikleri Bul",
+    "screentip": "Eksik Kombinasyonları Bul",
+    "supertip": "Mağaza, Ürün, Hafta gibi seçtiğiniz sütunların benzersiz değerlerinden tüm olası kombinasyonları oluşturur ve kaynak veri setinde bulunmayan kombinasyonları yeni bir sayfada listeler."
+  },
+  "r_HAMU_FolderIndex": {
+    "label": "Klasör İçeriği",
+    "screentip": "Klasör İçeriği",
+    "supertip": "Klasör seçildikten sonra yalnız bu klasör veya alt klasörlerle birlikte tarama seçilir. Alt klasör taraması uzun sürebilir. Dosyaları bağlantı, yol, tür, okunabilir boyut ve tarihlerle listeler."
+  },
+  "r_HAMU_FormulaAudit": {
+    "label": "Formül Denetimi",
+    "screentip": "Formül Denetimi",
+    "supertip": "Kitaptaki formülleri kaynak hücre bağlantısı, formül metni, görüntülenen sonuç, hata durumu ve dış kitap başvurusu bilgisiyle yeni sayfada listeler. Kaynak formüller değiştirilmez. Dış başvuru tespiti doğrudan XLS/CSV kitap başvurularını tarar."
+  },
+  "r_HAMU_GroupAndSummarize": {
+    "label": "Grupla ve Özetle",
+    "screentip": "Grupla ve Özetle",
+    "supertip": "Bir veya birden fazla sütuna göre kayıtları gruplar; birden fazla sayısal sütunu aynı anda toplar. Sütunları numarayla veya başlık adıyla seçebilirsiniz."
+  },
+  "r_HAMU_HighlightByCriteria": {
+    "label": "Hücre Türüne Göre Vurgula",
+    "screentip": "Hücre Türüne Göre Vurgula",
+    "supertip": "Seçili alanda sayı, metin, hata veya boş hücreleri seçtiğiniz kritere göre vurgular."
+  },
+  "r_HAMU_InsertPhotosFromFolder": {
+    "label": "Toplu\nFotoğraf",
+    "screentip": "Klasörden Toplu Fotoğraf Ekle",
+    "supertip": "Seçtiğiniz klasördeki görselleri aktif hücreden başlayarak satırlara ekler ve yan hücreye dosya adını yazar."
+  },
+  "r_HAMU_LeadingZeros": {
+    "label": "Baştaki Sıfırlar",
+    "screentip": "Baştaki Sıfırlar",
+    "supertip": "Kodları sabit uzunluğa baştan sıfır ekleyerek düzenler veya baştaki sıfırları kaldırır. Sonuç metin olarak seçtiğiniz hedefe yazılır; uzun kodlar ve kaynak korunur."
+  },
+  "r_HAMU_ListDefinedNames": {
+    "label": "Tanımlı Adları Listele",
+    "screentip": "Tanımlı Adları Listele",
+    "supertip": "Kitap ve sayfa kapsamındaki tanımlı adları, başvurularını, görünürlüklerini ve geçersiz başvuru durumlarını yeni sayfada listeler. Adları değiştirmez veya silmez."
+  },
+  "r_HAMU_ListLinks": {
+    "label": "Harici Bağlantıları Listele",
+    "screentip": "Harici Bağlantıları Listele",
+    "supertip": "Çalışma kitabındaki Excel türü dış bağlantıları yeni bir sayfada listeler."
+  },
+  "r_HAMU_MaskData": {
+    "label": "Veriyi Maskele",
+    "screentip": "Veriyi Maskele",
+    "supertip": "Seçili metinlerin belirlediğiniz kadar başlangıç ve bitiş karakterini koruyup ortadaki karakterleri yıldızla gizler."
+  },
+  "r_HAMU_MergeDuplicates": {
+    "label": "Tekrarları Birleştir",
+    "screentip": "Tekrarları Birleştir",
+    "supertip": "Tek veya çoklu anahtar sütunlarla tekrar eden kayıtları tek satırda birleştirir. Seçtiğiniz sayısal sütunları toplar, diğer alanlarda ilk dolu değeri korur ve kaç kaydın birleştiğini ayrıca yazar."
+  },
+  "r_HAMU_PatternFind": {
+    "label": "Normal İfade ile Bul",
+    "screentip": "Normal İfade ile Bul",
+    "supertip": "Seçili hücrelerde RegEx normal ifade desenine uyan metinleri bulur ve eşleşen hücreleri vurgular. Sayı, kod, telefon veya belirli metin kalıplarını tespit etmek için kullanılabilir."
+  },
+  "r_HAMU_PivotExport": {
+    "label": "Pivotu Böl",
+    "screentip": "Pivot Filtrelerini Ayrı Sayfalara Aktar",
+    "supertip": "Seçili PivotTable'ın rapor filtresindeki değerleri sırayla uygular ve her filtre sonucu için ayrı çalışma sayfası oluşturur."
+  },
+  "r_HAMU_PivotRowsToColumns": {
+    "label": "Pivot",
+    "screentip": "Satırlardan Çapraz Tablo Oluştur",
+    "supertip": "Uzun formattaki veriyi tekrar geniş çapraz tabloya dönüştürür. Birden fazla sabit anahtar sütunu kullanabilir; yeni sütun başlıklarını seçilen alandan üretir ve aynı hücreye düşen kayıtları toplama, ilk değer veya sayım yöntemiyle birleştirir."
+  },
+  "r_HAMU_RowStriping": {
+    "label": "Satırları Renklendir",
+    "screentip": "Satırları Renklendir",
+    "supertip": "Seçili aralıkta dönüşümlü satır renklendirmesi uygular. Çalıştırıldığında mavi, yeşil, sarı, turuncu, mor, gri ve pembe tonlarından birini seçebilirsiniz."
+  },
+  "r_HAMU_SampleData": {
+    "label": "Veriden Örnek Al",
+    "screentip": "Veriden Örnek Al",
+    "supertip": "Tüm veri kümesinden rastgele N satır seçebilir veya belirlediğiniz grup sütunlarına göre her gruptan en fazla N rastgele kayıt alarak yeni bir örnek veri sayfası oluşturabilir."
+  },
+  "r_HAMU_SaveCopy": {
+    "label": "Kopya Kaydet",
+    "screentip": "Kopya Kaydet",
+    "supertip": "Dosyanın bir kopyasını seçtiğiniz konuma kaydeder. Açık dosyanın adı, konumu ve kaydedilmemiş değişiklik durumu korunur; biçim ve makrolar değiştirilmez."
+  },
+  "r_HAMU_SelectColumnsToNewTable": {
+    "label": "Sütun Kopyala",
+    "screentip": "Sütun Kopyala",
+    "supertip": "Başlık ve veri alanından sütunları adlarıyla veya seçim içindeki 1,2,3 gibi numaralarla seçer. Seçilen sütunlar ile yeni bir tablo oluşturulur."
+  },
+  "r_HAMU_SelectSpecialCells": {
+    "label": "Özel Hücreleri Seç",
+    "screentip": "Özel Hücreleri Seç",
+    "supertip": "Mevcut seçimdeki formül, sabit değer, hata, boş veya görünür hücreleri seçer. Değer ve biçimler değiştirilmez; boş metin döndüren formüller gerçek boş sayılmaz."
+  },
+  "r_HAMU_ShowHidden": {
+    "label": "Tüm Gizlileri Göster",
+    "screentip": "Tüm Gizlileri Göster",
+    "supertip": "Aktif çalışma kitabındaki gizli çalışma sayfalarını, satırları ve sütunları görünür hale getirir."
+  },
+  "r_HAMU_ShuffleRows": {
+    "label": "Satırları Karıştır",
+    "screentip": "Satırları Karıştır",
+    "supertip": "Kaynak veriyi değiştirmeden, başlık satırını koruyarak veri satırlarını rastgele sırada yeni bir çalışma sayfasına aktarır."
+  },
+  "r_HAMU_SmartAppendByHeaders": {
+    "label": "Akıllı Birleştir",
+    "screentip": "Başlıklara Göre Akıllı Birleştir",
+    "supertip": "Aynı bilgileri içeren sayfaları alt alta birleştirir. Örneğin Ocak ve Şubat satışlarında sütun sırası farklı olsa da Ürün başlıkları eşleştirilir. Eksik sütunlar boş kalır, KaynakSayfa eklenir. Kaynak sayfalar değiştirilmez; ilk satırlar başlık olmalıdır."
+  },
+  "r_HAMU_SmartJoin": {
+    "label": "Anahtara Göre Tablo Eşleştir",
+    "screentip": "Anahtara Göre Tablo Eşleştir",
+    "supertip": "İki tablodaki kayıtları müşteri kodu veya ürün kodu gibi ortak alanlarla yan yana eşleştirir. LEFT: ilk tablonun tüm satırları; INNER: yalnız eşleşenler; FULL: iki tablonun tüm kayıtları. İkinci tablodan alınacak sütunlar ayrıca seçilir. Kaynaklar değiştirilmez."
+  },
+  "r_HAMU_SortSheets": {
+    "label": "Sayfaları Alfabetik Sırala",
+    "screentip": "Sayfaları Alfabetik Sırala",
+    "supertip": "Çalışma kitabındaki çalışma sayfalarını adlarına göre alfabetik olarak yeniden sıralar."
+  },
+  "r_HAMU_SplitByValueToFiles": {
+    "label": "Dosyalara Böl",
+    "screentip": "Değere Göre Ayrı Dosyalar Oluştur",
+    "supertip": "Seçtiğiniz sütunun benzersiz değerlerine göre veriyi filtreler ve her değer için ayrı bir Excel dosyası oluşturur."
+  },
+  "r_HAMU_SplitDataWizard": {
+    "label": "Veriyi Böl",
+    "screentip": "Veriyi Böl",
+    "supertip": "Seçili tabloyu satır sayısına, eşit parçalara, tek veya çoklu sütun değerlerine göre ya da yıl, çeyrek, ay ve hafta bazında tarih grupları oluşturarak böler. Çıktıları yeni çalışma sayfalarına veya ayrı Excel dosyalarına aktarabilirsiniz."
+  },
+  "r_HAMU_SplitURLParameters": {
+    "label": "URL Ayıkla",
+    "screentip": "URL Parametrelerini Sütunlara Ayır",
+    "supertip": "URL'lerde soru işaretinden sonra bulunan sorgu parametrelerini algılar ve her parametreyi ayrı bir sütun halinde yeni sayfaya çıkarır."
+  },
+  "r_HAMU_StandardFormat": {
+    "label": "Standart Sayı ve Tarih Biçimi",
+    "screentip": "Standart Sayı ve Tarih Biçimi",
+    "supertip": "Gerçek sayıları ondalıksız tam sayı görünümüyle, tarih hücrelerini gg.aa.yyyy biçiminde gösterir. Hücre değerlerini yuvarlamaz veya değiştirmez."
+  },
+  "r_HAMU_StandardizeHeaders": {
+    "label": "Başlıkları Düzelt",
+    "screentip": "Başlıkları Standardize Et",
+    "supertip": "Sütun başlıklarını teknik snake_case biçimine dönüştürebilir veya gereksiz boşlukları temizleyerek okunabilir başlık yapısını koruyabilir. Aynı başlık oluşursa otomatik olarak benzersiz ad üretir."
+  },
+  "r_HAMU_SumByColor": {
+    "label": "Renge Göre Topla",
+    "screentip": "Renge Göre Topla",
+    "supertip": "Örnek hücrenin görüntülenen dolgu rengiyle eşleşen sayısal değerleri toplar; metin, boş ve hata değerlerini toplama katmaz."
+  },
+  "r_HAMU_TableTotals": {
+    "label": "Toplam Satırı",
+    "screentip": "Toplam Satırı",
+    "supertip": "Etkin tablonun toplam satırını açar veya kapatır; sayısal sütunlara toplam ekler."
+  },
+  "r_HAMU_Transfer": {
+    "label": "Aktar",
+    "screentip": "Aktarma Sihirbazı",
+    "supertip": "Şablondan LAMBDA, hücre stili, adlandırılmış veri aralığı, sayfa verisi ve Excel tablosu aktarır. Sayfa/tablo aktarımı değer ve biçim kopyalar; VBA taşımaz."
+  },
+  "r_HAMU_UDFHelp": {
+    "label": "Çalışma Sayfası Fonksiyonları",
+    "screentip": "Çalışma Sayfası Fonksiyonları",
+    "supertip": "HAMU çalışma sayfası fonksiyonlarını ve formül örneklerini gösterir."
+  },
+  "r_HAMU_UnmergeAndFill": {
+    "label": "Birleşimleri Çöz ve Doldur",
+    "screentip": "Birleşimleri Çöz ve Doldur",
+    "supertip": "Birleştirilmiş hücreleri çözer ve birleşik alanın sol üst değerini çözülen hücrelerin tamamına yazar."
+  },
+  "r_HAMU_UnpivotColumnsToRows": {
+    "label": "Unpivot",
+    "screentip": "Sütunları Satırlara Dönüştür",
+    "supertip": "Solda belirlediğiniz birden fazla sabit sütunu korur; sağa doğru uzanan pivot sütunlarını Alan ve Değer yapısında satırlara dönüştürür."
+  },
+  "r_UDF_GizliLink": {
+    "label": "HAMU_GizliLink",
+    "screentip": "HAMU_GizliLink",
+    "supertip": "=HAMU_GizliLink(A1) | Hücrenin ilk köprü adresini getirir."
+  },
+  "r_UDF_LambdaMultiLookup": {
+    "label": "HAMU_L_CokluAra",
+    "screentip": "HAMU_L_CokluAra",
+    "supertip": "İki ayrı anahtar/sonuç sütununda tam eşleşme arar; ilk sonucu verir. Örnek: =HAMU_L_CokluAra(G2;A2:A10;B2:B10;D2:D10;E2:E10). LAMBDA şablonundan aktarılır; Microsoft 365/Excel 2024 gerekir."
+  },
+  "r_UDF_LambdaMultiSum": {
+    "label": "HAMU_L_CokluTopla",
+    "screentip": "HAMU_L_CokluTopla",
+    "supertip": "İki ayrı anahtar/değer sütununda koşula uyan sayıları toplar. Örnek: =HAMU_L_CokluTopla(G2;A2:A10;B2:B10;D2:D10;E2:E10). Şablondan aktarılır; Microsoft 365/Excel 2024 gerekir."
+  },
+  "r_UDF_LambdaUniqueMerge": {
+    "label": "HAMU_L_BenzersizBirlestir",
+    "screentip": "HAMU_L_BenzersizBirlestir",
+    "supertip": "İki alandaki dolu değerleri tek bir sıralı benzersiz listeye dönüştürür. Örnek: =HAMU_L_BenzersizBirlestir(A2:B10;D2:E10). Sonuç için boş taşma alanı gerekir. Microsoft 365/Excel 2024 gerekir."
+  },
+  "r_UDF_LinkParamDegeri": {
+    "label": "HAMU_LinkParamDegeri",
+    "screentip": "HAMU_LinkParamDegeri",
+    "supertip": "=HAMU_LinkParamDegeri(A1;\"id\") | URL içindeki sorgu parametresinin değerini getirir."
+  },
+  "r_UDF_RengeGoreSay": {
+    "label": "HAMU_RengeGoreSay",
+    "screentip": "HAMU_RengeGoreSay",
+    "supertip": "=HAMU_RengeGoreSay(A1:A20;B1) | B1 ile aynı dolgu rengine sahip hücreleri sayar. Biçim değişimi sonrası F9 kullanın."
+  },
+  "r_UDF_RenklileriTopla": {
+    "label": "HAMU_RengeGoreTopla",
+    "screentip": "HAMU_RengeGoreTopla",
+    "supertip": "=HAMU_RengeGoreTopla(A1:A20;B1) | B1 ile aynı dolgu rengine sahip sayıları toplar. Biçim değişimi sonrası F9 kullanın."
+  },
+  "r_UDF_SayidanMetine": {
+    "label": "HAMU_SayidanMetine",
+    "screentip": "HAMU_SayidanMetine",
+    "supertip": "=HAMU_SayidanMetine(123) | Türkçe: yüz yirmi üç. 15 basamaktan küçük mutlak değerler; ondalık kısmı tek tek okur."
+  },
+  "r_UDF_TablodanVeriGetir": {
+    "label": "HAMU_TablodanVeriGetir",
+    "screentip": "HAMU_TablodanVeriGetir",
+    "supertip": "=HAMU_TablodanVeriGetir(A1;\"Tablo1\";\"Kod\";\"Ad\") | Formülün bulunduğu kitapta tablodan ilk eşleşen değeri getirir."
+  },
+  "r_UDF_URLDecode": {
+    "label": "HAMU_URLCoz",
+    "screentip": "HAMU_URLCoz",
+    "supertip": "=HAMU_URLCoz(A1) | UTF-8 URL karakterlerini çözer. Geçersiz yüzde dizisini korur."
+  },
+  "r_UDF_YerelDosyaYolu": {
+    "label": "HAMU_YerelDosyaYolu",
+    "screentip": "HAMU_YerelDosyaYolu",
+    "supertip": "=HAMU_YerelDosyaYolu(A1) | Kişisel OneDrive URL yolunu yerel OneDrive ortam değişkeniyle eşler; diğer URL türlerini korur."
+  },
+  "reshapeHub": {
+    "label": "Dönüştür"
+  },
+  "settingLanguage": {
+    "label": "Arayüz dili"
+  },
+  "settingsCenter": {
+    "label": "Ayarlar",
+    "helperText": "Dil, kayıt konumları ve işlem tercihlerini bu merkezden yönetin."
+  },
+  "settingsStorage": {
+    "label": "Tercihler kullanıcıya özeldir; diğer çalışma kitaplarının ayarlarını değiştirmez."
+  },
+  "tabHAMU": {
+    "label": "HAMU Tools"
+  },
+  "textSub0": {
+    "label": "Metin Araçları"
+  },
+  "textSub1": {
+    "label": "Normal İfade",
+    "screentip": "Normal İfade",
+    "supertip": "Normal ifadelerle metin bulun, ayıklayın veya değiştirin. Hazır örnekler ve özel desenler kullanılabilir."
+  },
+  "textSub2": {
+    "label": "Hücre Düzeni",
+    "screentip": "Hücre Düzeni",
+    "supertip": "Hücre görünümünü, sayı ve tarih biçimlerini ve sütun genişliklerini düzenleyen araçlar."
+  },
+  "topic1": {
+    "label": "Aralık ve çıktı seçimi"
+  },
+  "topic6": {
+    "label": "HAMU hücre fonksiyonları"
+  },
+  "topic7": {
+    "label": "Sorun giderme ve sınırlar"
+  },
+  "topic8": {
+    "label": "Tüm araçlar"
+  },
+  "worksheetFunctions": {
+    "label": "Hücre Fonksiyonları"
+  }
+}

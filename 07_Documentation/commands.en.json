@@ -1,0 +1,653 @@
+[
+  {
+    "id": "HAMU_Transfer",
+    "label": "Transfer Wizard",
+    "category": "Main",
+    "description": "Transfer LAMBDA definitions, cell styles, named data ranges, sheet data and Excel tables. Sheet/table transfer copies values and formatting, without VBA.",
+    "subcategory": ""
+  },
+  {
+    "id": "HAMU_Backup",
+    "label": "Create Backup",
+    "category": "Files",
+    "description": "Save a timestamped copy to the backup folder configured in Settings. The result displays its full path and an Open Folder button.",
+    "subcategory": ""
+  },
+  {
+    "id": "HAMU_AddDateToFilename",
+    "label": "Dated Version",
+    "category": "Files",
+    "description": "Create a timestamped copy in the original folder. Open and verify the copy before closing and deleting the original; keep the original if verification fails.",
+    "subcategory": ""
+  },
+  {
+    "id": "HAMU_ExportSheetsAsPDF",
+    "label": "Save PDF",
+    "category": "Files",
+    "description": "Save PDF using Select Range or Active Sheet. Select Range always opens Excel's range picker instead of automatically exporting the selection. Choose automatic, portrait or landscape.",
+    "subcategory": ""
+  },
+  {
+    "id": "HAMU_FolderIndex",
+    "label": "Folder Contents",
+    "category": "Files",
+    "description": "List files with hyperlinks, local paths, extensions, types, readable sizes and creation/modification dates. Choose current-folder or recursive scanning; large folder trees take longer.",
+    "subcategory": ""
+  },
+  {
+    "id": "HAMU_CombineCSVs",
+    "label": "Combine CSV Files",
+    "category": "Data",
+    "description": "Append CSV files from a folder to one sheet. Keep the first file's header and skip header rows in subsequent files.",
+    "subcategory": "Birleştirme"
+  },
+  {
+    "id": "HAMU_ConsolidateSheets",
+    "label": "Combine Sheets",
+    "category": "Data",
+    "description": "Append used ranges from worksheets in the active workbook and add the source worksheet name to the results.",
+    "subcategory": "Birleştirme"
+  },
+  {
+    "id": "HAMU_AppendSelectedTables",
+    "label": "Combine Tables",
+    "category": "Data",
+    "description": "Combine rows from selected Excel tables with matching structures into one result table.",
+    "subcategory": "Birleştirme"
+  },
+  {
+    "id": "HAMU_SmartAppendByHeaders",
+    "label": "Smart Append",
+    "category": "Data",
+    "description": "Append worksheets by matching header names, even when column order differs. Missing columns remain blank. Add the source sheet name and preserve the source worksheets.",
+    "subcategory": "Birleştirme"
+  },
+  {
+    "id": "HAMU_CollectFilesData",
+    "label": "Collect Files",
+    "category": "Data",
+    "description": "Read the first data sheet from Excel/CSV files in a folder and append matching headers. Add the source filename without changing source files.",
+    "subcategory": "Birleştirme"
+  },
+  {
+    "id": "HAMU_SmartJoin",
+    "label": "Join by Key",
+    "category": "Data",
+    "description": "Match two datasets using selected key columns. Check key types, spaces and duplicates before choosing the fields to include.",
+    "subcategory": "Dönüştürme"
+  },
+  {
+    "id": "HAMU_GroupAndSummarize",
+    "label": "Group and Summarize",
+    "category": "Data",
+    "description": "Group records by one or more key columns and summarize selected numeric fields. Specify column numbers or header names.",
+    "subcategory": "Dönüştürme"
+  },
+  {
+    "id": "HAMU_UnpivotColumnsToRows",
+    "label": "Unpivot",
+    "category": "Data",
+    "description": "Convert wide columns into field/value rows. Keep text headers such as 2026.01 as text.",
+    "subcategory": "Dönüştürme"
+  },
+  {
+    "id": "HAMU_SplitDataWizard",
+    "label": "Split Data",
+    "category": "Data",
+    "description": "Split values or datasets using the options shown in the dialog. Choose the source columns and desired output.",
+    "subcategory": "Bölme ve Dışa Aktarma"
+  },
+  {
+    "id": "HAMU_SplitByValueToFiles",
+    "label": "Split to Files",
+    "category": "Data",
+    "description": "Create separate files for distinct values in a selected column. Choose the destination folder and preserve the source data.",
+    "subcategory": "Bölme ve Dışa Aktarma"
+  },
+  {
+    "id": "HAMU_SplitURLParameters",
+    "label": "Extract URL",
+    "category": "Data",
+    "description": "Extract URL query parameters into separate columns for analysis.",
+    "subcategory": "Bölme ve Dışa Aktarma"
+  },
+  {
+    "id": "HAMU_PivotExport",
+    "label": "Split Pivot",
+    "category": "Data",
+    "description": "Export separate PivotTable filter results to worksheets. Select a cell within the PivotTable first.",
+    "subcategory": "Bölme ve Dışa Aktarma"
+  },
+  {
+    "id": "HAMU_PivotRowsToColumns",
+    "label": "Pivot",
+    "category": "Data",
+    "description": "Build a cross-tab by moving row categories into columns and summarizing values.",
+    "subcategory": "Dönüştürme"
+  },
+  {
+    "id": "HAMU_FillDownBlanks",
+    "label": "Fill Down Blanks",
+    "category": "Text and Cells",
+    "description": "Fill blank cells with the nearest nonblank value above in the same column. Useful for repeated group labels in reports.",
+    "subcategory": "Hücre Düzenleme"
+  },
+  {
+    "id": "HAMU_MergeDuplicates",
+    "label": "Merge Duplicate Records",
+    "category": "Data",
+    "description": "Merge records by one or more key columns, sum selected numeric fields, keep the first nonblank value in other fields and include a record count.",
+    "subcategory": "Dönüştürme"
+  },
+  {
+    "id": "HAMU_StandardizeHeaders",
+    "label": "Clean Headers",
+    "category": "Data",
+    "description": "Clean spaces and normalize column headings to a consistent naming scheme.",
+    "subcategory": "Dönüştürme"
+  },
+  {
+    "id": "HAMU_ConvertColumnTypes",
+    "label": "Convert Types",
+    "category": "Data",
+    "description": "Convert selected columns to the requested data types. Review mixed values and conversion errors.",
+    "subcategory": "Dönüştürme"
+  },
+  {
+    "id": "HAMU_SelectColumnsToNewTable",
+    "label": "Select Columns",
+    "category": "Tables and Layout",
+    "description": "Select columns by header names or positions such as 1,2,3 within the selected data. Whole-column sources are trimmed to populated rows.",
+    "subcategory": "Tablo Oluşturma"
+  },
+  {
+    "id": "HAMU_FilterRowsToNewTable",
+    "label": "Filter Rows",
+    "category": "Data",
+    "description": "Create an output table containing rows that satisfy the chosen column condition. Source data remains unchanged.",
+    "subcategory": "Seçme ve Filtreleme"
+  },
+  {
+    "id": "HAMU_SampleData",
+    "label": "Sample Data",
+    "category": "Data",
+    "description": "Create a sample of records using the requested sample size or selection options.",
+    "subcategory": "Seçme ve Filtreleme"
+  },
+  {
+    "id": "HAMU_ShuffleRows",
+    "label": "Shuffle Rows",
+    "category": "Data",
+    "description": "Randomize the order of data rows while preserving values within each row.",
+    "subcategory": "Seçme ve Filtreleme"
+  },
+  {
+    "id": "HAMU_CompareTwoLists",
+    "label": "Compare Lists",
+    "category": "Data",
+    "description": "Compare values in two lists and report matches and differences.",
+    "subcategory": "Seçme ve Filtreleme"
+  },
+  {
+    "id": "HAMU_ExtractUniqueList",
+    "label": "Unique List",
+    "category": "Data",
+    "description": "Create a list of distinct values in a selected destination range or on a new worksheet. Configure the default destination behavior in Settings.",
+    "subcategory": "Seçme ve Filtreleme"
+  },
+  {
+    "id": "HAMU_DataProfile",
+    "label": "Data Profile",
+    "category": "Data",
+    "description": "Summarize the contents and data types of selected columns to help assess a dataset.",
+    "subcategory": "Veri Kalitesi"
+  },
+  {
+    "id": "HAMU_DataQualityReport",
+    "label": "Quality Report",
+    "category": "Data",
+    "description": "Inspect missing values, duplicates and data consistency. Review the report before deciding how to clean the source data.",
+    "subcategory": "Veri Kalitesi"
+  },
+  {
+    "id": "HAMU_FindMissingCombinations",
+    "label": "Find Missing",
+    "category": "Data",
+    "description": "Find missing combinations of selected category columns.",
+    "subcategory": "Veri Kalitesi"
+  },
+  {
+    "id": "HAMU_CleanData",
+    "label": "Trim and Clean",
+    "category": "Text and Cells",
+    "description": "Clean redundant spaces and invisible characters while preserving Turkish characters.",
+    "subcategory": ""
+  },
+  {
+    "id": "HAMU_TextCase",
+    "label": "Change Case",
+    "category": "Text and Cells",
+    "description": "Choose uppercase, lowercase or title case from a simple selection dialog.",
+    "subcategory": ""
+  },
+  {
+    "id": "HAMU_PatternFind",
+    "label": "Find by Regular Expression",
+    "category": "Text and Cells",
+    "description": "Find text matching a regular-expression pattern and highlight matching cells. Use a preset or a custom pattern.",
+    "subcategory": ""
+  },
+  {
+    "id": "HAMU_RegexReplace",
+    "label": "Replace by Regular Expression",
+    "category": "Text and Cells",
+    "description": "Replace matching text using a regular expression. Capture groups and references such as $1 can be used.",
+    "subcategory": ""
+  },
+  {
+    "id": "HAMU_ExtractDigits",
+    "label": "Extract Digits",
+    "category": "Text and Cells",
+    "description": "Extract numeric characters from selected text values.",
+    "subcategory": ""
+  },
+  {
+    "id": "HAMU_ConvertQuotedNumbers",
+    "label": "Convert Text Numbers",
+    "category": "Text and Cells",
+    "description": "Convert suitable numbers stored as text to numeric values. Review decimal and thousands separators.",
+    "subcategory": ""
+  },
+  {
+    "id": "HAMU_MaskData",
+    "label": "Mask Data",
+    "category": "Text and Cells",
+    "description": "Mask selected text according to the available options. Keep an original copy when required.",
+    "subcategory": ""
+  },
+  {
+    "id": "HAMU_ConvertFormulasToValues",
+    "label": "Formulas to Values",
+    "category": "Text and Cells",
+    "description": "Replace selected formulas with their current calculated results.",
+    "subcategory": ""
+  },
+  {
+    "id": "HAMU_UnmergeAndFill",
+    "label": "Unmerge and Fill",
+    "category": "Text and Cells",
+    "description": "Unmerge cells and fill the resulting area with the original merged value.",
+    "subcategory": ""
+  },
+  {
+    "id": "HAMU_StandardFormat",
+    "label": "Number and Date Format",
+    "category": "Text and Cells",
+    "description": "Apply integer number formatting or standard date formatting. Formatting controls display and does not automatically repair data types.",
+    "subcategory": "Biçimlendirme"
+  },
+  {
+    "id": "HAMU_DeleteBlankCells",
+    "label": "Delete Blanks",
+    "category": "Text and Cells",
+    "description": "Delete empty cells and shift remaining cells upward. Check related columns before changing their alignment.",
+    "subcategory": ""
+  },
+  {
+    "id": "HAMU_DeleteDropdowns",
+    "label": "Remove Old Dropdown Objects",
+    "category": "Sheets and Images",
+    "description": "Remove old worksheet dropdown objects while preserving cell data-validation lists.",
+    "subcategory": ""
+  },
+  {
+    "id": "HAMU_RowStriping",
+    "label": "Stripe Rows",
+    "category": "Sheets and Images",
+    "description": "Apply alternating row colors to the selected area.",
+    "subcategory": ""
+  },
+  {
+    "id": "HAMU_DatePicker",
+    "label": "Date Picker",
+    "category": "Dates",
+    "description": "Choose a date and write it to the previously selected active cell. Select month/year and see the distance from today.",
+    "subcategory": ""
+  },
+  {
+    "id": "HAMU_FixDates",
+    "label": "Fix Dates",
+    "category": "Dates",
+    "description": "Normalize suitable date values and review values that cannot be converted.",
+    "subcategory": ""
+  },
+  {
+    "id": "HAMU_CheckDates",
+    "label": "Check Dates",
+    "category": "Dates",
+    "description": "Inspect date values for invalid or inconsistent entries.",
+    "subcategory": ""
+  },
+  {
+    "id": "HAMU_DateBuilder",
+    "label": "Build Dates",
+    "category": "Dates",
+    "description": "Create dates from separate year, month and day fields.",
+    "subcategory": ""
+  },
+  {
+    "id": "HAMU_SheetIndex",
+    "label": "Sheet Index",
+    "category": "Sheets and Images",
+    "description": "Create a worksheet index with hyperlinks to the workbook's sheets.",
+    "subcategory": ""
+  },
+  {
+    "id": "HAMU_SortSheets",
+    "label": "Sort Sheets",
+    "category": "Sheets and Images",
+    "description": "Sort worksheet tabs alphabetically.",
+    "subcategory": ""
+  },
+  {
+    "id": "HAMU_ShowHidden",
+    "label": "Show Hidden Items",
+    "category": "Sheets and Images",
+    "description": "Reveal hidden sheets, rows or columns as supported by the command.",
+    "subcategory": ""
+  },
+  {
+    "id": "HAMU_DynamicValidation",
+    "label": "Dynamic Validation List",
+    "category": "Sheets and Images",
+    "description": "Create list validation using a named range, Table[Column], direct range or spilled range such as A1#. Table/spill sources can expand dynamically.",
+    "subcategory": ""
+  },
+  {
+    "id": "HAMU_SelectionToPNG",
+    "label": "Save Image",
+    "category": "Sheets and Images",
+    "description": "Save the selected range as PNG, JPG or GIF. Reject oversized images and clean up the temporary chart.",
+    "subcategory": ""
+  },
+  {
+    "id": "HAMU_InsertPhotosFromFolder",
+    "label": "Batch Photos",
+    "category": "Sheets and Images",
+    "description": "Insert supported images from a folder into cells or over cells. In-cell conversion depends on Excel version support; over-cell images are constrained to cell bounds.",
+    "subcategory": ""
+  },
+  {
+    "id": "HAMU_CreateQRCode",
+    "label": "QR and Barcode",
+    "category": "Sheets and Images",
+    "description": "Select QR Code or Barcode in one form; model choices follow the type. Supports text, links, email, phone, single values or a batch column. Batch codes go in empty cells to the right. Internet required; at most 250 codes.",
+    "subcategory": ""
+  },
+  {
+    "id": "HAMU_CompareSheets",
+    "label": "Compare Sheets",
+    "category": "Data Tools",
+    "description": "Compare worksheets and identify differences.",
+    "subcategory": ""
+  },
+  {
+    "id": "HAMU_MarkProblemCells",
+    "label": "Problem Cells",
+    "category": "Review",
+    "description": "Highlight cells with the problems selected in the dialog.",
+    "subcategory": ""
+  },
+  {
+    "id": "HAMU_HighlightByCriteria",
+    "label": "Highlight Cell Types",
+    "category": "Review",
+    "description": "Highlight cells matching a selected type or criterion.",
+    "subcategory": ""
+  },
+  {
+    "id": "HAMU_HighlightDuplicates",
+    "label": "Highlight Duplicates",
+    "category": "Review",
+    "description": "Highlight repeated values within the selected area.",
+    "subcategory": ""
+  },
+  {
+    "id": "HAMU_AddDuplicateCount",
+    "label": "Write Duplicate Counts",
+    "category": "Review",
+    "description": "Count occurrences of each input value and write the counts to a separately selected output range. A single output cell defines the starting point.",
+    "subcategory": ""
+  },
+  {
+    "id": "HAMU_ListLinks",
+    "label": "List External Links",
+    "category": "Review",
+    "description": "List external Excel workbook links on a new worksheet.",
+    "subcategory": ""
+  },
+  {
+    "id": "HAMU_BreakLinks",
+    "label": "Break External Links",
+    "category": "Review",
+    "description": "Break external Excel links. Linked formulas may become values; back up the workbook before proceeding.",
+    "subcategory": ""
+  },
+  {
+    "id": "HAMU_Help",
+    "label": "Help",
+    "category": "Help and About",
+    "description": "Open the usage guide with workflows, selection/output explanations, limitations and the complete tool catalog.",
+    "subcategory": ""
+  },
+  {
+    "id": "HAMU_About",
+    "label": "About",
+    "category": "Help and About",
+    "description": "Show HAMU Tools V1, Hüseyin Avni UZUN and the website, GitHub and email links.",
+    "subcategory": ""
+  },
+  {
+    "id": "HAMU_AutoFit",
+    "label": "AutoFit",
+    "category": "Tables and Layout",
+    "description": "Adjust column widths and row heights to content; this does not extend table data.",
+    "subcategory": ""
+  },
+  {
+    "id": "HAMU_AutoTable",
+    "label": "Create Table",
+    "category": "Tables and Layout",
+    "description": "Create an Excel table from a header/data range and apply a consistent table style. A single selected cell uses its current data region.",
+    "subcategory": ""
+  },
+  {
+    "id": "HAMU_ResizeTable",
+    "label": "Expand Table",
+    "category": "Tables and Layout",
+    "description": "Extend the active Excel table into adjacent data. Select a cell inside an existing table first.",
+    "subcategory": ""
+  },
+  {
+    "id": "HAMU_UDFHelp",
+    "label": "Worksheet Functions",
+    "category": "Help and About",
+    "description": "Show the eight HAMU worksheet functions with examples. Function names remain unchanged when switching language.",
+    "subcategory": ""
+  },
+  {
+    "id": "UDF_URLDecode",
+    "label": "HAMU_URLCoz",
+    "category": "Help and About",
+    "subcategory": "Çalışma Sayfası Fonksiyonları",
+    "description": "=HAMU_URLCoz(A1) | Decode UTF-8 URL characters; preserve invalid percent sequences."
+  },
+  {
+    "id": "UDF_RenklileriTopla",
+    "label": "HAMU_RengeGoreTopla",
+    "category": "Help and About",
+    "subcategory": "Çalışma Sayfası Fonksiyonları",
+    "description": "=HAMU_RengeGoreTopla(A1:A20;B1) | Sum numbers with the same direct fill color as B1. Recalculate with F9 after changing formatting."
+  },
+  {
+    "id": "UDF_RengeGoreSay",
+    "label": "HAMU_RengeGoreSay",
+    "category": "Help and About",
+    "subcategory": "Çalışma Sayfası Fonksiyonları",
+    "description": "=HAMU_RengeGoreSay(A1:A20;B1) | Count cells with the same direct fill color as B1. Recalculate with F9 after changing formatting."
+  },
+  {
+    "id": "UDF_YerelDosyaYolu",
+    "label": "HAMU_YerelDosyaYolu",
+    "category": "Help and About",
+    "subcategory": "Çalışma Sayfası Fonksiyonları",
+    "description": "=HAMU_YerelDosyaYolu(A1) | Map a personal OneDrive URL to a local path using the local OneDrive environment variable; preserve other URL types."
+  },
+  {
+    "id": "UDF_GizliLink",
+    "label": "HAMU_GizliLink",
+    "category": "Help and About",
+    "subcategory": "Çalışma Sayfası Fonksiyonları",
+    "description": "=HAMU_GizliLink(A1) | Return the first hyperlink address in the cell."
+  },
+  {
+    "id": "UDF_LinkParamDegeri",
+    "label": "HAMU_LinkParamDegeri",
+    "category": "Help and About",
+    "subcategory": "Çalışma Sayfası Fonksiyonları",
+    "description": "=HAMU_LinkParamDegeri(A1;\"id\") | Return the value of the specified URL query parameter."
+  },
+  {
+    "id": "UDF_SayidanMetine",
+    "label": "HAMU_SayidanMetine",
+    "category": "Help and About",
+    "subcategory": "Çalışma Sayfası Fonksiyonları",
+    "description": "=HAMU_SayidanMetine(123) | Spell numbers in Turkish. Supports absolute values below 15 digits and reads decimal digits individually. The output language stays Turkish."
+  },
+  {
+    "id": "UDF_TablodanVeriGetir",
+    "label": "HAMU_TablodanVeriGetir",
+    "category": "Help and About",
+    "subcategory": "Çalışma Sayfası Fonksiyonları",
+    "description": "=HAMU_TablodanVeriGetir(A1;\"Tablo1\";\"Kod\";\"Ad\") | Return the first matching value from a table in the workbook containing the formula."
+  },
+  {
+    "id": "HAMU_CountByColor",
+    "label": "Count by Color",
+    "category": "Review",
+    "subcategory": "",
+    "description": "Count cells matching the sample cell's displayed fill color, including conditional formatting."
+  },
+  {
+    "id": "HAMU_SumByColor",
+    "label": "Sum by Color",
+    "category": "Review",
+    "subcategory": "",
+    "description": "Sum numeric values matching the sample cell's displayed fill color, including conditional formatting. Ignore blank, text and error values."
+  },
+  {
+    "id": "HAMU_FillBlanksZero",
+    "label": "Fill Blanks with Zero",
+    "category": "Text and Cells",
+    "subcategory": "Hücre Düzenleme",
+    "description": "Write zero only to genuinely empty cells. Preserve populated cells and formulas returning empty text."
+  },
+  {
+    "id": "HAMU_AddTextAffixes",
+    "label": "Add Prefix or Suffix",
+    "category": "Text and Cells",
+    "subcategory": "Metin Düzenleme",
+    "description": "Add text before or after values and write to a separate output range. Preserve the source and leading zeros."
+  },
+  {
+    "id": "HAMU_LeadingZeros",
+    "label": "Leading Zeros",
+    "category": "Text and Cells",
+    "subcategory": "Metin Düzenleme",
+    "description": "Add or remove leading zeros from text codes. Preserve source values and write the result as text."
+  },
+  {
+    "id": "HAMU_DeduplicateItems",
+    "label": "Deduplicate Cell Items",
+    "category": "Text and Cells",
+    "subcategory": "Metin Düzenleme",
+    "description": "Remove repeated items within each cell using the chosen separator, keeping their first occurrence."
+  },
+  {
+    "id": "HAMU_ExtractTextPart",
+    "label": "Extract Text Part",
+    "category": "Text and Cells",
+    "subcategory": "Metin Düzenleme",
+    "description": "Extract characters from the left/right or text before, after or between specified markers."
+  },
+  {
+    "id": "HAMU_DateRangeList",
+    "label": "Date List",
+    "category": "Dates",
+    "subcategory": "",
+    "description": "Generate dates between a start and end date, optionally excluding weekends. Choose the output start cell."
+  },
+  {
+    "id": "HAMU_FormulaAudit",
+    "label": "Formula Audit",
+    "category": "Review",
+    "subcategory": "Formül ve Ad Denetimi",
+    "description": "List formulas, source-cell links, displayed results, errors and direct external workbook references on a new sheet. Source formulas remain unchanged."
+  },
+  {
+    "id": "HAMU_SelectSpecialCells",
+    "label": "Select Special Cells",
+    "category": "Review",
+    "subcategory": "Formül ve Ad Denetimi",
+    "description": "Select formulas, constants, errors, blanks or visible cells within the current area. Do not change values or formatting."
+  },
+  {
+    "id": "HAMU_ListDefinedNames",
+    "label": "List Defined Names",
+    "category": "Review",
+    "subcategory": "Formül ve Ad Denetimi",
+    "description": "List workbook/worksheet names, references, visibility and broken references on a new sheet without modifying the names."
+  },
+  {
+    "id": "HAMU_DataEntry",
+    "label": "Data Entry",
+    "category": "Tablo ve Görünüm",
+    "description": "Open Excel's native data form for the current table or contiguous list with unique headers; at most 32 columns.",
+    "subcategory": ""
+  },
+  {
+    "id": "HAMU_ClearHighlights",
+    "label": "Clear Highlights",
+    "category": "Kontrol ve Denetim",
+    "description": "Remove HAMU highlights in the selection. Restore prior fills in the same session; older highlights are recognized by their yellow/orange palette.",
+    "subcategory": ""
+  },
+  {
+    "id": "UDF_LambdaMultiLookup",
+    "label": "HAMU_L_CokluAra",
+    "category": "Yardım ve Hakkında",
+    "description": "Exact lookup across two key/result pairs, returning the first match. Example: =HAMU_L_CokluAra(G2;A2:A10;B2:B10;D2:D10;E2:E10). Transfer it from the LAMBDA template; Microsoft 365/Excel 2024 required.",
+    "subcategory": "LAMBDA"
+  },
+  {
+    "id": "UDF_LambdaMultiSum",
+    "label": "HAMU_L_CokluTopla",
+    "category": "Yardım ve Hakkında",
+    "description": "Sum matching values across two key/value pairs. Example: =HAMU_L_CokluTopla(G2;A2:A10;B2:B10;D2:D10;E2:E10). Transfer from the template; Microsoft 365/Excel 2024 required.",
+    "subcategory": "LAMBDA"
+  },
+  {
+    "id": "UDF_LambdaUniqueMerge",
+    "label": "HAMU_L_BenzersizBirlestir",
+    "category": "Yardım ve Hakkında",
+    "description": "Combine nonblank values from two areas into a sorted unique list. Example: =HAMU_L_BenzersizBirlestir(A2:B10;D2:E10). Requires a blank spill area and Microsoft 365/Excel 2024.",
+    "subcategory": "LAMBDA"
+  },
+  {
+    "id": "HAMU_SaveCopy",
+    "label": "Save Copy",
+    "category": "Dosya Yönetimi",
+    "subcategory": "",
+    "description": "Save a copy at a chosen location, preserving the open workbook identity, unsaved state, file format and macros."
+  }
+]

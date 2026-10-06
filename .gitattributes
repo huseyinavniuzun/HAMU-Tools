@@ -1,0 +1,8 @@
+* text=auto
+*.bas text working-tree-encoding=CP1254 eol=crlf
+*.cls text working-tree-encoding=CP1254 eol=crlf
+*.frm text working-tree-encoding=CP1254 eol=crlf
+*.frx binary
+*.png binary
+*.xlam binary
+*.xlsx binary
