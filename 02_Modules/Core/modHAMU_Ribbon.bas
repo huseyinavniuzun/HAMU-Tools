@@ -3,9 +3,10 @@ Option Explicit
 
 Public gRibbon As IRibbonUI
 Private mCommandBusy As Boolean
+Private mRibbonLanguageLoaded As Boolean, mRibbonEnglish As Boolean
 Public Sub RibbonOnLoad(ByVal ribbon As IRibbonUI)
     Set gRibbon = ribbon
-    HAMU_LoadSettings
+    HAMU_ReadRibbonLanguage
 End Sub
 Public Sub HAMU_OnAction(ByVal control As IRibbonControl)
     On Error GoTo Failed
@@ -35,6 +36,7 @@ Public Sub HAMU_RunCommand(ByVal commandTag As String)
     state.Capture
     If Left$(commandTag, 4) = "UDF_" Then HAMU_RegisterFunctions
     Select Case commandTag
+        Case "HAMU_ImportMarkdown": HAMU_ImportMarkdown
         Case "HAMU_DataEntry": HAMU_DataEntry
         Case "HAMU_ClearHighlights": HAMU_ClearHighlights
         Case "HAMU_FillBlanksZero": HAMU_FillBlanksZero
@@ -136,8 +138,7 @@ Public Sub HAMU_RunCommand(ByVal commandTag As String)
         Case Else: Err.Raise vbObjectError + 340, , HAMU_Text("Tanımsız HAMU komutu: ") & commandTag
     End Select
     state.Restore
-    mCommandBusy = False
-    gHAMU_CommandId = ""
+    HAMU_EndToolCommand
     Exit Sub
 Failed:
     Dim errorNumber As Long, errorText As String
@@ -145,12 +146,16 @@ Failed:
     On Error Resume Next
     If Not state Is Nothing Then state.Restore
     On Error GoTo 0
-    mCommandBusy = False
-    gHAMU_CommandId = ""
+    HAMU_EndToolCommand
     HAMU_ShowError commandTag, errorNumber, errorText
+    HAMU_ReleaseIdleCaches
 End Sub
 Public Sub HAMU_About()
-    frmHAMU_About.show
+    Dim view As New frmHAMU_About
+    view.Show vbModal
+    Unload view
+    Set view = Nothing
+    HAMU_ReleaseIdleCaches
 End Sub
 Public Sub HAMU_Help()
     HAMU_OpenGuide "start"
@@ -162,19 +167,23 @@ End Sub
 
 Public Sub HAMU_OnGuide(control As IRibbonControl)
  HAMU_OpenGuide control.Tag
+ HAMU_ReleaseIdleCaches
 End Sub
 
 Public Sub HAMU_OnSettings(control As IRibbonControl)
  HAMU_ShowSettings
+ HAMU_ReleaseIdleCaches
 End Sub
 Public Sub HAMU_GetLanguageIndex(control As IRibbonControl, ByRef returnedVal)
- returnedVal = IIf(HAMU_Setting("Language") = "en", 1, 0)
+ HAMU_ReadRibbonLanguage
+ returnedVal = IIf(mRibbonEnglish, 1, 0)
 End Sub
 Public Sub HAMU_OnLanguage(control As IRibbonControl, ByVal selectedID As String, ByVal selectedIndex As Integer)
  On Error GoTo Failed
  HAMU_SetSetting "Language", IIf(selectedIndex = 1, "en", "tr")
  HAMU_SaveSettings
  HAMU_RefreshRibbon
+ HAMU_ReleaseIdleCaches
  Exit Sub
 Failed:
  HAMU_ReloadSettings
@@ -240,10 +249,12 @@ Private Function HAMU_RibbonText(ByVal controlId As String, ByVal controlTag As 
 End Function
 
 Public Sub HAMU_IsTurkish(ByVal control As IRibbonControl, ByRef returnedVal As Variant)
- returnedVal = (HAMU_Setting("Language") <> "en")
+ HAMU_ReadRibbonLanguage
+ returnedVal = Not mRibbonEnglish
 End Sub
 Public Sub HAMU_IsEnglish(ByVal control As IRibbonControl, ByRef returnedVal As Variant)
- returnedVal = (HAMU_Setting("Language") = "en")
+ HAMU_ReadRibbonLanguage
+ returnedVal = mRibbonEnglish
 End Sub
 
 Public Sub HAMU_BeginToolCommand(ByVal id As String, ByRef accepted As Boolean)
@@ -255,4 +266,19 @@ Public Sub HAMU_BeginToolCommand(ByVal id As String, ByRef accepted As Boolean)
 End Sub
 Public Sub HAMU_EndToolCommand()
  mCommandBusy = False: gHAMU_CommandId = ""
+ HAMU_ReleaseIdleCaches
+End Sub
+
+Private Sub HAMU_ReadRibbonLanguage()
+ If mRibbonLanguageLoaded Then Exit Sub
+ On Error Resume Next
+ mRibbonEnglish = (GetSetting("HAMU Tools", "Ribbon", "Language", "tr") = "en")
+ mRibbonLanguageLoaded = True
+End Sub
+Public Sub HAMU_SetRibbonLanguage(ByVal language As String)
+ mRibbonEnglish = (language = "en"): mRibbonLanguageLoaded = True
+End Sub
+Public Sub HAMU_ReleaseIdleCaches()
+ HAMU_ReleaseLanguageCache
+ HAMU_ReleaseSettingsCache
 End Sub

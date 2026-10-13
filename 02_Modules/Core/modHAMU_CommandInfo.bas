@@ -4,6 +4,8 @@ Option Private Module
 Public gHAMU_CommandId As String
 Public Function HAMU_CommandIntro(ByVal id As String) As String
  Select Case id
+ Case "HAMU_ImportMarkdown"
+ HAMU_CommandIntro = HAMU_L("UTF-8 MD dosyasındaki tabloları seçerek yeni Excel sayfalarına aktarır. Kod blokları atlanır, değerler metin olarak korunur.", "Import selected UTF-8 Markdown tables into new sheets. Code fences are skipped and values stay as text.")
  Case "HAMU_Transfer"
  HAMU_CommandIntro = HAMU_L("Şablondan LAMBDA, hücre stili, adlandırılmış veri aralığı, sayfa verisi ve Excel tablosu aktarır. Sayfa/tablo aktarımı değer ve biçim kopyalar; VBA taşımaz.", "Transfer LAMBDA definitions, cell styles, named data ranges, sheet data and Excel tables. Sheet/table transfer copies values and formatting, without VBA.")
  Case "HAMU_Backup"
@@ -199,6 +201,7 @@ Public Function HAMU_CommandIntro(ByVal id As String) As String
  End Select
 End Function
 Public Function HAMU_CommandLabel(ByVal id As String) As String
+ If id = "HAMU_ImportMarkdown" Then HAMU_CommandLabel = HAMU_L("Markdown Aktar", "Import Markdown"): Exit Function
  Select Case id
  Case "HAMU_Transfer"
  HAMU_CommandLabel = HAMU_L("Aktarma Sihirbazı", "Transfer Wizard")

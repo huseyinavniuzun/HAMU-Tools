@@ -433,7 +433,7 @@ Public Sub HAMU_FindMissingCombinations()
 
     Next i
 
-    If candidateCount > 500000 Then
+    If candidateCount > 1000000 Then
 
         MsgBox _
             HAMU_Text("Olası kombinasyon sayısı çok yüksek: ") & _

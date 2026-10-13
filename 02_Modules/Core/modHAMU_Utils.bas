@@ -173,8 +173,8 @@ Public Function HAMU_PromptRange(ByVal promptText As String, Optional ByVal allo
     End If
     If picked.areas.count = 1 Then Set picked = HAMU_BoundedRange(picked)
     If picked Is Nothing Then Exit Function
-    If picked.CountLarge > 500000 Then
-        HAMU_ShowInfo HAMU_L("Seçim 500.000 hücreyi aşıyor. Daha küçük bir veri alanı seçin; tüm sütunlar dolu son hücreye göre daraltılır.", "Selection exceeds 500,000 cells. Select a smaller data area; whole columns are trimmed to the last populated cell.")
+    If picked.CountLarge > 1000000 Then
+        HAMU_ShowInfo HAMU_L("Seçim 1.000.000 hücreyi aşıyor. Daha küçük bir veri alanı seçin; tüm sütunlar dolu son hücreye göre daraltılır.", "Selection exceeds 1,000,000 cells. Select a smaller data area; whole columns are trimmed to the last populated cell.")
         Exit Function
     End If
     Set HAMU_PromptRange = picked
@@ -226,8 +226,8 @@ Public Function HAMU_WorkRange(Optional ByVal explanation As String = "Islem ara
     End If
     Set r = HAMU_BoundedRange(r)
     If r Is Nothing Then Exit Function
-    If r.CountLarge > 500000 Then
-        HAMU_ShowInfo HAMU_L("Seçim çok büyük. En fazla 500.000 hücrelik bir veri alanı seçin.", "Selection is too large. Select at most 500,000 cells.")
+    If r.CountLarge > 1000000 Then
+        HAMU_ShowInfo HAMU_L("Seçim çok büyük. En fazla 1.000.000 hücrelik bir veri alanı seçin.", "Selection is too large. Select at most 1,000,000 cells.")
         Exit Function
     End If
     Set HAMU_WorkRange = r
@@ -291,6 +291,6 @@ Public Function HAMU_BoundedRange(ByVal source As range, Optional ByVal trimUsed
  If trimUsedExtent Or source.rows.count = source.Worksheet.rows.count Then bottom = lastRow.row
  If trimUsedExtent Or source.columns.count = source.Worksheet.columns.count Then right = lastColumn.column
  Set HAMU_BoundedRange = source.Worksheet.range(source.Cells(1, 1), source.Worksheet.Cells(bottom, right))
- If HAMU_BoundedRange.CountLarge > 500000 Then Err.Raise 5, , HAMU_L("Veri alanı çok büyük. En fazla 500.000 hücre içeren daha küçük bir alan seçin.", "The data range is too large. Select at most 500,000 cells.")
+ If HAMU_BoundedRange.CountLarge > 1000000 Then Err.Raise 5, , HAMU_L("Veri alanı çok büyük. En fazla 1.000.000 hücre içeren daha küçük bir alan seçin.", "The data range is too large. Select at most 1,000,000 cells.")
 End Function
 

@@ -190,7 +190,7 @@ Private Sub HAMU_TransferDataItem(ByVal kind As String, ByVal item As String, By
   Set table = mTemplate.Worksheets(Left$(item, InStr(item, "!") - 1)).ListObjects(Mid$(item, InStr(item, "!") + 1))
   Set source = table.HeaderRowRange.Resize(table.ListRows.count + 1, table.ListColumns.count)
  End Select
- If source.areas.count <> 1 Or source.CountLarge > 500000 Then Err.Raise 5, , HAMU_L("Aktarılan veri tek alan ve en fazla 500.000 hücre olmalı.", "Transferred data must be one area of at most 500,000 cells.")
+ If source.areas.count <> 1 Or source.CountLarge > 1000000 Then Err.Raise 5, , HAMU_L("Aktarılan veri tek alan ve en fazla 1.000.000 hücre olmalı.", "Transferred data must be one area of at most 1,000,000 cells.")
  If kind = "NAME" Then
   Set target = HAMU_GetOrCreateSheet("HAMU_" & Left$(name, 24), mTarget)
  Else

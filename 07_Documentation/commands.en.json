@@ -35,6 +35,13 @@
     "subcategory": ""
   },
   {
+    "id": "HAMU_ImportMarkdown",
+    "label": "Import Markdown",
+    "category": "Data",
+    "subcategory": "Merge",
+    "description": "Import selected UTF-8 Markdown tables into new sheets; preserve values as text and skip code fences."
+  },
+  {
     "id": "HAMU_CombineCSVs",
     "label": "Combine CSV Files",
     "category": "Data",

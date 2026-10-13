@@ -139,7 +139,7 @@ Public Function HAMU_CodeBatchCount(ByVal source As range) As Long
  Set source = HAMU_BoundedRange(source)
  If source.areas.count <> 1 Or source.columns.count <> 1 Then Err.Raise 5, , HAMU_L("Tek bir kesintisiz veri sütunu seçin.", "Select one contiguous data column.")
  If source.column = source.Worksheet.columns.count Then Err.Raise 5, , HAMU_L("Sağda kod eklemek için boş sütun bulunmalı.", "An empty column is required to the right.")
- If source.CountLarge > 500000 Then Err.Raise 5, , HAMU_L("Kaynak çok büyük. Veri alanını daraltın.", "Source is too large. Narrow the data range.")
+ If source.CountLarge > 1000000 Then Err.Raise 5, , HAMU_L("Kaynak çok büyük. Veri alanını daraltın.", "Source is too large. Narrow the data range.")
  Dim cell As range
  For Each cell In source.Cells
   If Len(HAMU_CodeCellValue(cell)) > 0 Then

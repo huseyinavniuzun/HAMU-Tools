@@ -7,7 +7,7 @@ Public Function HAMU_DefaultBackupFolder() As String
 End Function
 Public Sub HAMU_LoadSettings(Optional ByVal settingsPath As String = "")
  If Len(settingsPath) = 0 And Not mSettings Is Nothing Then Exit Sub
- Dim fso As Object, stream As Object, line As String, splitAt As Long, key As String, value As String
+ Dim fso As Object, stream As Object, line As String, splitAt As Long, key As String, value As String, lineCount As Long
  Set mSettings = CreateObject("Scripting.Dictionary")
  mSettings.CompareMode = vbTextCompare
  mSettings.Add "Language", "tr": mSettings.Add "BackupFolder", "": mSettings.Add "ExportFolder", ""
@@ -18,13 +18,16 @@ Public Sub HAMU_LoadSettings(Optional ByVal settingsPath As String = "")
  On Error GoTo Done
  Set fso = CreateObject("Scripting.FileSystemObject")
  If Not fso.FileExists(settingsPath) Then Exit Sub
+ If fso.GetFile(settingsPath).Size > 32768 Then Exit Sub
  Set stream = fso.OpenTextFile(settingsPath, 1, False, -1)
  Do While Not stream.AtEndOfStream
+  lineCount = lineCount + 1: If lineCount > 64 Then Exit Do
   line = stream.ReadLine: splitAt = InStr(line, "=")
   If splitAt > 0 Then
    key = Left$(line, splitAt - 1): value = Mid$(line, splitAt + 1)
    If mSettings.exists(key) Then
     If HAMU_ValidSetting(key, value) Then mSettings(key) = value
+ If key = "Language" Then HAMU_SetRibbonLanguage value
  If key = "Language" And value <> "en" Then HAMU_ReleaseLanguageCache
    End If
   End If
@@ -50,6 +53,7 @@ Public Sub HAMU_SetSetting(ByVal key As String, ByVal value As String)
  If mSettings Is Nothing Then HAMU_LoadSettings
  If Not mSettings.exists(key) Or Not HAMU_ValidSetting(key, value) Then Err.Raise 5, , "Invalid HAMU setting: " & key
  mSettings(key) = value
+ If key = "Language" Then HAMU_SetRibbonLanguage value
  If key = "Language" And value <> "en" Then HAMU_ReleaseLanguageCache
 End Sub
 Public Sub HAMU_SaveSettings()
@@ -65,6 +69,7 @@ Public Sub HAMU_SaveSettings()
  stream.Close
  If fso.FileExists(mSettingsPath) Then fso.CopyFile mSettingsPath, backup, True
  fso.CopyFile temp, mSettingsPath, True: fso.DeleteFile temp
+ SaveSetting "HAMU Tools", "Ribbon", "Language", CStr(mSettings("Language"))
 End Sub
 Public Function HAMU_BackupFolder() As String
  HAMU_BackupFolder = HAMU_Setting("BackupFolder")
@@ -90,3 +95,7 @@ Public Sub HAMU_ReloadSettings()
  HAMU_LoadSettings path
 End Sub
 
+
+Public Sub HAMU_ReleaseSettingsCache()
+ Set mSettings = Nothing
+End Sub

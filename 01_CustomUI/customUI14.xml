@@ -17,6 +17,7 @@
         </group>
         <group id="g2" label="Veri">
           <menu id="mergeHub" image="HAMU_SmartAppendByHeaders_32" size="large" itemSize="large" tag="UI:mergeHub" showLabel="true" label="Birleştir">
+            <button id="r_HAMU_ImportMarkdown" tag="HAMU_ImportMarkdown" onAction="HAMU_OnAction" image="HAMU_CombineCSVs_32" showLabel="true" label="Markdown Aktar" screentip="Markdown Aktar" supertip="MD dosyasındaki tabloları yeni Excel sayfalarına aktarır. UTF-8 metin ve birden fazla tablo desteklenir; kod blokları atlanır." />
             <button id="r_HAMU_SmartAppendByHeaders" tag="HAMU_SmartAppendByHeaders" onAction="HAMU_OnAction" image="HAMU_SmartAppendByHeaders_32" showLabel="true" label="Akıllı Birleştir" screentip="Başlıklara Göre Akıllı Birleştir" supertip="Aynı bilgileri içeren sayfaları alt alta birleştirir. Örneğin Ocak ve Şubat satışlarında sütun sırası farklı olsa da Ürün başlıkları eşleştirilir. Eksik sütunlar boş kalır, KaynakSayfa eklenir. Kaynak sayfalar değiştirilmez; ilk satırlar başlık olmalıdır." />
             <button id="r_HAMU_CombineCSVs" tag="HAMU_CombineCSVs" onAction="HAMU_OnAction" image="HAMU_CombineCSVs_32" showLabel="true" label="CSV Dosyalarını Birleştir" screentip="CSV Dosyalarını Birleştir" supertip="Seçtiğiniz klasördeki CSV dosyalarını tek sayfada alt alta toplar; ilk dosyanın başlığını kullanır ve sonraki dosyalarda başlık satırını atlar." />
             <button id="r_HAMU_ConsolidateSheets" tag="HAMU_ConsolidateSheets" onAction="HAMU_OnAction" image="HAMU_ConsolidateSheets_32" showLabel="true" label="Sayfaları Birleştir" screentip="Sayfaları Alt Alta Birleştir" supertip="Aktif çalışma kitabındaki sayfaların kullanılan alanlarını tek sayfada birleştirir ve kaynak sayfa bilgisini sonuç verisine ekler." />
@@ -177,6 +178,7 @@
         </group>
         <group id="en_g2" label="Data">
           <menu id="en_mergeHub" image="HAMU_SmartAppendByHeaders_32" size="large" itemSize="large" tag="UI:mergeHub" showLabel="true" label="Combine">
+            <button id="en_r_HAMU_ImportMarkdown" tag="HAMU_ImportMarkdown" onAction="HAMU_OnAction" image="HAMU_CombineCSVs_32" showLabel="true" label="Import Markdown" screentip="Import Markdown" supertip="Import UTF-8 Markdown tables into new Excel sheets. Multiple tables are supported; code fences are skipped." />
             <button id="en_r_HAMU_SmartAppendByHeaders" tag="HAMU_SmartAppendByHeaders" onAction="HAMU_OnAction" image="HAMU_SmartAppendByHeaders_32" showLabel="true" label="Smart Append" screentip="Smart Append" supertip="Append worksheets by matching header names, even when column order differs. Missing columns remain blank. Add the source sheet name and preserve the source worksheets." />
             <button id="en_r_HAMU_CombineCSVs" tag="HAMU_CombineCSVs" onAction="HAMU_OnAction" image="HAMU_CombineCSVs_32" showLabel="true" label="Combine CSV Files" screentip="Combine CSV Files" supertip="Append CSV files from a folder to one sheet. Keep the first file's header and skip header rows in subsequent files." />
             <button id="en_r_HAMU_ConsolidateSheets" tag="HAMU_ConsolidateSheets" onAction="HAMU_OnAction" image="HAMU_ConsolidateSheets_32" showLabel="true" label="Combine Sheets" screentip="Append Worksheets" supertip="Append used ranges from worksheets in the active workbook and add the source worksheet name to the results." />
@@ -383,7 +385,7 @@
               <item id="languageTR" label="Türkçe / Turkish" />
               <item id="languageEN" label="English" />
             </dropDown>
-            <labelControl id="settingsBackup" getLabel="HAMU_GetSettingsSummary" />
+            <labelControl id="settingsBackup" label="Kayıt konumlarını ve işlem tercihlerini Ayarlar bölümünden düzenleyin." />
             <labelControl id="settingsStorage" label="Tercihler kullanıcıya özeldir; diğer çalışma kitaplarının ayarlarını değiştirmez." />
           </topItems>
         </group>
@@ -462,7 +464,7 @@
               <item id="en_languageTR" label="Türkçe / Turkish" />
               <item id="en_languageEN" label="English" />
             </dropDown>
-            <labelControl id="en_settingsBackup" getLabel="HAMU_GetSettingsSummary" />
+            <labelControl id="en_settingsBackup" label="Manage save locations and command preferences in Settings." />
             <labelControl id="en_settingsStorage" label="Preferences belong to this Windows user and do not change other workbooks' settings." />
           </topItems>
         </group>

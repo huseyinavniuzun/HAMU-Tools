@@ -35,6 +35,13 @@
     "subcategory": ""
   },
   {
+    "id": "HAMU_ImportMarkdown",
+    "label": "Markdown Aktar",
+    "category": "Veri İşlemleri",
+    "subcategory": "Birleştir",
+    "description": "UTF-8 MD dosyasındaki tabloları seçerek yeni Excel sayfalarına aktarır. Kod blokları atlanır, değerler metin olarak korunur."
+  },
+  {
     "id": "HAMU_CombineCSVs",
     "label": "CSV Dosyalarını Birleştir",
     "category": "Veri İşlemleri",

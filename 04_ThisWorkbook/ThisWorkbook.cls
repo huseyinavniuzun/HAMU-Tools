@@ -8,9 +8,7 @@ Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = True
 Option Explicit
-Private Sub Workbook_Open()
-    HAMU_LoadSettings
-End Sub
+' No workbook startup event: tools run only on user command.
 
 
 

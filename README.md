@@ -16,6 +16,7 @@ Excel'in Windows masaüstü sürümünü ve VBA desteğini gerektirir. Karekod/b
 ## Neler var?
 
 - Veri birleştirme, ayıklama, bölme, gruplama, pivot ve unpivot.
+- Markdown (`.md`) tablolarını seçerek yeni Excel sayfalarına aktarma.
 - Metin temizleme, Türkçe harf dönüşümü ve Normal İfade ile bul/değiştir.
 - Hızlı tablo, veri girişi, sütun seçimi ve tablo düzenleme.
 - Tarih seçici, tarih düzeltme ve tarih kontrolü.
@@ -48,6 +49,7 @@ Dosyadaki bir modülü değiştirmek hazır `.xlam` dosyasını kendiliğinden g
 - [Hücre fonksiyonları](07_Documentation/HAMU_Hucre_Fonksiyonlari.md)
 - [Okunabilir Türkçe/İngilizce metinler](07_Documentation/V1_Okunabilir_Metinler.md)
 - [Performans incelemesi ve kalan sınırlar](07_Documentation/Performans_Inceleme_Raporu.md)
+- [Açılış davranışı ve Markdown aktarımı](07_Documentation/Acilis_ve_Markdown_Raporu.md)
 
 ## Geliştirici
 
