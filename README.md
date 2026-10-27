@@ -2,7 +2,13 @@
 
 **HAMU · Hüseyin Avni UZUN**
 
-Microsoft Excel için veri düzenleme, tablo, tarih, sayfa, denetim ve aktarım araçları. Ribbon ve Dosya > HAMU Tools üzerinden erişilir. Türkçe ve İngilizce arayüzü destekler.
+HAMU Tools’u Excel’de veri düzenleme, tablo, tarih, sayfa, denetim ve aktarım işlerini kolaylaştırmak için geliştirdim. Araçlara HAMU Tools şeridinden ve Dosya > HAMU Tools menüsünden ulaşabilirsiniz. Türkçe ve İngilizce arayüzü destekliyorum.
+
+## 27.10.2026 güncellemesi
+
+Toplu Fotoğraf’ta fotoğrafların kalitesinin düşmesi sorununu düzelttim. Hücre içine ve hücre üstüne eklenen fotoğraflar artık özgün çözünürlüğünü koruyor. JPEG fotoğrafları hücre içine eklerken Excel’in yeniden sıkıştırmasını önlemek için kayıpsız PNG kullanıyorum. Fotoğrafın hücrede küçük görünmesi, çözünürlüğünün düşürüldüğü anlamına gelmiyor.
+
+PNG, JPEG ve yön bilgisi içeren fotoğrafları dosyayı kaydedip yeniden açarak kontrol ettim. Görüntü pikselleri özgün fotoğrafla aynı kaldı. Sıkıştırma uygulanmadığı için çalışma kitabının boyutu eski yönteme göre daha büyük olabilir.
 
 ## İndir ve kur
 
@@ -59,4 +65,4 @@ Dosyadaki bir modülü değiştirmek hazır `.xlam` dosyasını kendiliğinden g
 - [GitHub](https://github.com/huseyinavniuzun)
 - [hamu@huseyinavniuzun.com](mailto:hamu@huseyinavniuzun.com)
 
-Bu depoda ayrı bir açık kaynak lisansı henüz belirtilmemiştir.
+Henüz ayrı bir açık kaynak lisansı seçmedim.

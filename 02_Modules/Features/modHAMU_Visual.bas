@@ -38,7 +38,7 @@ Public Sub HAMU_InsertPhotosFromFolder()
     On Error GoTo ErrH
     Dim ws As Worksheet, startCell As range, folderPath As String, files As Collection, i As Long, tgt As range
     Set ws = hamuScope.Worksheet
-    If TypeName(hamuScope) = "Range" Then Set startCell = hamuScope.Cells(1, 1) Else Set startCell = ws.range("A1")
+    If TypeName(hamuScope) = "Range" Then Set startCell = hamuScope.cells(1, 1) Else Set startCell = ws.range("A1")
     With Application.FileDialog(msoFileDialogFolderPicker)
         .title = HAMU_Text("Resim klasörünü seçin")
         If .show <> -1 Then Exit Sub
@@ -51,6 +51,8 @@ Public Sub HAMU_InsertPhotosFromFolder()
     Set files = HAMU_GetImageFiles(folderPath)
     If files.count = 0 Then HAMU_ShowInfo HAMU_Text("Klasörde desteklenen resim dosyası yok."): Exit Sub
     If files.count > ws.rows.count - startCell.row + 1 Then Err.Raise 5, , HAMU_Text("Resimler bu başlangıç hücresinden sayfaya sığmıyor.")
+    Application.ScreenUpdating = False
+    Application.EnableEvents = False
     For i = 1 To files.count
         Set tgt = startCell.Offset(i - 1, 0)
         ws.rows(tgt.row).RowHeight = 100
@@ -113,28 +115,128 @@ End Sub
 
 
 
-Public Sub HAMU_PlacePhoto(ByVal target As range, ByVal filePath As String, ByVal insideCell As Boolean)
-    Dim shape As Object
-    If target.MergeCells Then Set target = target.MergeArea
-    Set shape = target.Worksheet.Shapes.AddPicture(filePath, msoFalse, msoTrue, target.Left, target.Top, -1, -1)
-    With shape
-        .LockAspectRatio = msoTrue
-        .width = target.width
-        If .Height > target.Height Then .Height = target.Height
-        .Left = target.Left + (target.width - .width) / 2
-        .Top = target.Top + (target.Height - .Height) / 2
-        .Placement = xlMoveAndSize
-    End With
+Public Sub HAMU_PlacePhoto(ByVal target As Range, ByVal filePath As String, ByVal insideCell As Boolean)
+    Dim picture As Object, frame As Object, imagePath As String, temporaryPath As String
+    Dim state As New clsHAMU_AppState, ratio As Double, w As Double, h As Double
+    Dim number As Long, description As String
+    On Error GoTo Failed
+    state.Capture
+    If target Is Nothing Then Err.Raise 5, , HAMU_L("Fotoğrafın ekleneceği hücreyi seçin.", "Select the destination cell.")
+    If target.MergeCells Then
+        If insideCell Then Err.Raise 5, , HAMU_L("Birleştirilmiş hücrelerde Hücre Üstüne seçeneğini kullanın.", "Use Over Cells for merged cells.")
+        Set target = target.MergeArea
+    End If
+    imagePath = filePath
+    If insideCell Then
+        ' Excel recompresses some raster cell pictures even when AddPicture2 compression is disabled.
+        ' Decode once into lossless PNG, then convert at native size rather than cell size.
+        imagePath = HAMU_CellPhotoSource(filePath, temporaryPath)
+    End If
+    Set picture = HAMU_AddNativePhoto(target, imagePath)
     If insideCell Then
         target.Worksheet.Activate: target.Cells(1, 1).Select
-        On Error GoTo Unsupported
-        shape.Select
-        CallByName shape, "PlacePictureInCell", VbMethod
+        picture.Select
+        CallByName picture, "PlacePictureInCell", VbMethod
+        Set picture = Nothing
+    Else
+        ' A picture fill keeps the embedded source bytes when Excel saves a small display size.
+        ' Resizing a standard picture triggers DPI downsampling in affected Excel builds.
+        ratio = picture.Width / picture.Height
+        w = target.Width: h = w / ratio
+        If h > target.Height Then h = target.Height: w = h * ratio
+        Set frame = target.Worksheet.Shapes.AddShape(msoShapeRectangle, _
+            target.Left + (target.Width - w) / 2, target.Top + (target.Height - h) / 2, w, h)
+        With frame
+            .Fill.UserPicture filePath
+            .Line.Visible = msoFalse
+            .LockAspectRatio = msoTrue
+            .Placement = xlMoveAndSize
+            .AlternativeText = Mid$(filePath, InStrRev(filePath, Application.PathSeparator) + 1)
+        End With
+        picture.Delete: Set picture = Nothing
+        Set frame = Nothing
     End If
+    HAMU_DeleteTemporaryPhoto temporaryPath
+    state.Restore
     Exit Sub
-Unsupported:
-    On Error Resume Next: shape.Delete: On Error GoTo 0
-    Err.Raise vbObjectError + 405, , HAMU_Text("Bu Excel sürümü hücre içine resmi desteklemiyor. Hücre üstüne seçeneğini kullanın.")
+Failed:
+    number = Err.Number: description = Err.Description
+    On Error Resume Next
+    If Not picture Is Nothing Then picture.Delete
+    If Not frame Is Nothing Then frame.Delete
+    HAMU_DeleteTemporaryPhoto temporaryPath
+    state.Restore
+    On Error GoTo 0
+    If number = 438 Or number = 445 Then
+        description = HAMU_L("Bu Excel sürümü hücre içi fotoğrafı desteklemiyor. Hücre Üstüne seçeneğini kullanın.", "This Excel version does not support in-cell photos. Use Over Cells.")
+    End If
+    Err.Raise number, "HAMU_PlacePhoto", description
+End Sub
+
+Private Function HAMU_AddNativePhoto(ByVal target As Range, ByVal filePath As String) As Object
+    Dim shapes As Object, picture As Object, number As Long, description As String
+    Set shapes = target.Worksheet.Shapes
+    On Error Resume Next
+    Set picture = shapes.AddPicture2(filePath, msoFalse, msoTrue, target.Left, target.Top, -1, -1, msoPictureCompressFalse)
+    number = Err.Number: description = Err.Description
+    On Error GoTo 0
+    If picture Is Nothing Then
+        If number <> 438 And number <> 445 And number <> 450 Then Err.Raise number, , description
+        Set picture = shapes.AddPicture(filePath, msoFalse, msoTrue, target.Left, target.Top, -1, -1)
+    End If
+    Set HAMU_AddNativePhoto = picture
+End Function
+
+Private Function HAMU_CellPhotoSource(ByVal filePath As String, ByRef temporaryPath As String) As String
+    Dim extension As String, image As Object, process As Object, converted As Object, fso As Object
+    Dim imageProperty As Object, orientation As Long, rotation As Long, flipH As Boolean, flipV As Boolean
+    extension = LCase$(Mid$(filePath, InStrRev(filePath, ".") + 1))
+    HAMU_CellPhotoSource = filePath
+    Select Case extension
+        Case "jpg", "jpeg", "bmp", "tif", "tiff", "gif"
+        Case Else: Exit Function
+    End Select
+    Set image = CreateObject("WIA.ImageFile")
+    image.LoadFile filePath
+    Set process = CreateObject("WIA.ImageProcess")
+    For Each imageProperty In image.Properties
+        If imageProperty.PropertyID = 274 Then orientation = CLng(imageProperty.Value): Exit For
+    Next
+    Select Case orientation
+        Case 2: flipH = True
+        Case 3: rotation = 180
+        Case 4: flipV = True
+        Case 5: rotation = 90: flipH = True
+        Case 6: rotation = 90
+        Case 7: rotation = 90: flipV = True
+        Case 8: rotation = 270
+    End Select
+    If rotation <> 0 Or flipH Or flipV Then
+        process.Filters.Add process.FilterInfos("RotateFlip").FilterID
+        With process.Filters(1).Properties
+            .Item("RotationAngle").Value = rotation
+            .Item("FlipHorizontal").Value = flipH
+            .Item("FlipVertical").Value = flipV
+        End With
+    End If
+    process.Filters.Add process.FilterInfos("Convert").FilterID
+    process.Filters(process.Filters.Count).Properties("FormatID").Value = "{B96B3CAF-0728-11D3-9D7B-0000F81EF32E}"
+    Set converted = process.Apply(image)
+    ' Pixels have been oriented; avoid applying the EXIF rotation again.
+    On Error Resume Next
+    converted.Properties("Orientation").Value = 1
+    Err.Clear
+    On Error GoTo 0
+    Set fso = CreateObject("Scripting.FileSystemObject")
+    temporaryPath = fso.BuildPath(fso.GetSpecialFolder(2).Path, "HAMU_" & fso.GetTempName & ".png")
+    converted.SaveFile temporaryPath
+    HAMU_CellPhotoSource = temporaryPath
+End Function
+
+Private Sub HAMU_DeleteTemporaryPhoto(ByVal path As String)
+    If Len(path) = 0 Then Exit Sub
+    On Error Resume Next
+    Kill path
 End Sub
 
 Public Sub HAMU_ExportRangeImage(ByVal source As range, ByVal path As String, ByVal extension As String)

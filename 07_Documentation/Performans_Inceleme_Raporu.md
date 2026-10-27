@@ -1,14 +1,14 @@
 # HAMU Tools V1 — Performans incelemesi
 
-Tarih: 05.10.2026. İncelenen dosya: `08_Addin/HAMUToolsV1.xlam`, kullanıcının yeni HAMU Tools klasöründeki güncel sürümü.
+Tarih: 05.10.2026. İncelenen dosya: `08_Addin/HAMUToolsV1.xlam`, güncel HAMU Tools sürümü.
 
 ## Sonuç ve kapsam
 
 Gerçek bir takılma nedeni yeniden üretildi: Normal İfade ile değiştir işlemi, korumalı hücreye yazarken 1004 hatası aldığında Excel'in `ScreenUpdating` ve `EnableEvents` ayarlarını kapalı bırakıyordu. Bu, işlem sona erse bile ekranın yenilenmemesine ve Excel olaylarının çalışmamasına neden olabilir. Hata yolu ve ayarların geri yüklenmesi düzeltildi.
 
-Eklentinin tamamındaki kodlar; açılış işlemleri, olaylar, zamanlayıcılar, genel Excel ayarları, kalıcı nesneler, aralık işlemleri ve çalışma sayfası fonksiyonları bakımından tarandı. Seçili riskli yollar izole Excel örneğinde çalıştırıldı. Her özellik her veri kümesiyle test edilmedi. Kullanıcının takıldığı canlı Excel oturumuna ait CPU kaydı veya döküm alınmadı; bütün donmaların tek nedeninin bulunduğu iddia edilmiyor.
+Eklentinin tamamındaki kodlar; açılış işlemleri, olaylar, zamanlayıcılar, genel Excel ayarları, kalıcı nesneler, aralık işlemleri ve çalışma sayfası fonksiyonları bakımından tarandı. Seçili riskli yollar izole Excel örneğinde çalıştırıldı. Her özellik her veri kümesiyle test edilmedi. Takılmanın yaşandığı Excel oturumuna ait CPU kaydı veya döküm almadım; bütün donmaların tek nedeninin bulunduğu iddia edilmiyor.
 
-Güncel dosyanız esas alındı. Ribbon XML'i, ikonlar, çalışma kitabı parçaları ve form tasarımları korunmuştur. Paket karşılaştırmasında değişen tek içerik `xl/vbaProject.bin` oldu. Takvim ve Normal İfade formlarının boyutları ve kontrol konumları ayrıca karşılaştırıldı.
+Güncel eklenti dosyasını esas aldım. Ribbon XML'i, ikonlar, çalışma kitabı parçaları ve form tasarımları korunmuştur. Paket karşılaştırmasında değişen tek içerik `xl/vbaProject.bin` oldu. Takvim ve Normal İfade formlarının boyutları ve kontrol konumları ayrıca karşılaştırıldı.
 
 ## Kanıtlanan sorunlar ve uygulanan düzeltmeler
 
@@ -30,7 +30,7 @@ Güncel dosyanız esas alındı. Ribbon XML'i, ikonlar, çalışma kitabı parç
 | Kullanılmayan kod | Eski dinamik Ribbon etiket modülündeki 155 callback artık XML veya diğer kodlar tarafından çağrılmıyordu. | `modHAMU_RibbonLabels` kaldırıldı. Kullanılan özellikler ve HAMU hücre fonksiyonları kaldırılmadı. |
 | Durum çubuğu | Bu Excel ortamında False ataması bazı bağlamlarda metin `FALSE` olarak görünüyordu. | Ortak geri yükleme kodu bu durumu denetleyip metni temizliyor; önceden var olan özel durum mesajını koruyor. |
 
-Telefon ayıklamanın kullanıcının özgün verisinde formül yazması henüz birebir yeniden üretilemedi: eski sürümde basit `+90` örneği zaten metin çıktı. Yeni sürümün açık metin yazması ayrı testlerle doğrulandı. Özgün hatalı sonuç ve kullanılan şablon, kalan olasılıkları ayırt etmek için gereklidir.
+Telefon ayıklamanın özgün veride formül yazması henüz birebir yeniden üretilemedi: eski sürümde basit `+90` örneği zaten metin çıktı. Yeni sürümün açık metin yazması ayrı testlerle doğrulandı. Özgün hatalı sonuç ve kullanılan şablon, kalan olasılıkları ayırt etmek için gereklidir.
 
 ## Eklenti kullanılmıyorken neler çalışıyor?
 
@@ -60,9 +60,9 @@ Son izole 5.000 hücre testinde eski sürüm 0,085938 sn, yeni sürüm 0,070313 
 
 ## Kurulum ve geri dönüş
 
-Güncellenen dosya aynı ad ve aynı `08_Addin` konumunda teslim edilir. Önceki eklenti ve değiştirilen kaynak dosyalar `09_Backups` altında tarih/saatli klasöre kopyalanır. Açık Excel oturumu eski VBA projesini bellekte tutabilir; bütün çalışmalar kaydedildikten sonra Excel tamamen kapatılıp yeniden açılmalıdır. Bu işlem kullanıcının Excel oturumunu otomatik kapatmaz.
+Güncellenen dosya aynı ad ve aynı `08_Addin` konumunda teslim edilir. Önceki eklenti ve değiştirilen kaynak dosyalar `09_Backups` altında tarih/saatli klasöre kopyalanır. Açık Excel oturumu eski VBA projesini bellekte tutabilir; bütün çalışmalar kaydedildikten sonra Excel tamamen kapatılıp yeniden açılmalıdır. Güncelleme açık Excel oturumlarını otomatik kapatmaz.
 
-Kaynaklar VBA ile uyumlu Windows-1254 kodlamasında ve BOM olmadan tutulur. Türkçe metinler hex'e çevrilmedi. Kullanıcının form ve Ribbon düzenleri yeniden tasarlanmadı.
+Kaynaklar VBA ile uyumlu Windows-1254 kodlamasında ve BOM olmadan tutulur. Türkçe metinler hex'e çevrilmedi. Mevcut form ve Ribbon düzenlerini korudum.
 
 ## Teknik dayanak
 

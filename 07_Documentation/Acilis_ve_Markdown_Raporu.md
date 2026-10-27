@@ -22,7 +22,7 @@ Excel'in kayıtlı açılış girdisi `"HAMUToolsV1.xlam"`. Bu adla yüklenen ko
 4. Ayar dosyası yalnızca araç ihtiyaç duyduğunda yükleniyor. Okuma 32 KB / 64 satırla sınırlandı; ayar dosyasının büyümesi açılışı etkileyemez.
 5. Komut tamamlandığında/hata çıkışında geçici ayar ve İngilizce çeviri sözlükleri bırakılıyor. Dil değişimi Ribbon'a canlı yansıyor; kaydedilmiş dil açılış için küçük ayrı tercihte tutuluyor.
 6. Hakkında formu yerel bir örnek olarak açılıp kapanınca Unload ediliyor. Markdown dosya akışı ve geçici tablolar işlem sonunda kapanıyor/bırakılıyor.
-7. İş mantığı kullanıcının çağrısında çalışır. Takvimin form içi tıklama nesneleri, açık Normal İfade formu ve mevcut Vurguyu Kaldır geçmişi kendi kullanım ömrüne bağlıdır. Vurgu geçmişi ilk rengi geri getirmek için saklanan sınırlı veridir; arka plan dinleyicisi değildir.
+7. Araçlar yalnızca çağrıldığında çalışır. Takvimin form içi tıklama nesneleri, açık Normal İfade formu ve mevcut Vurguyu Kaldır geçmişi kendi kullanım ömrüne bağlıdır. Vurgu geçmişi ilk rengi geri getirmek için saklanan sınırlı veridir; arka plan dinleyicisi değildir.
 
 Yeni zamanlayıcı, `OnKey`, uygulama düzeyinde hücre/seçim/değişim/hesaplama dinleyicisi veya volatile fonksiyon eklenmedi. Tek WithEvents nesnesi açık takvim formunun gün düğmesine aittir. Klasörü Aç için ShellExecute yalnızca o komutta çağrılır.
 
@@ -62,12 +62,12 @@ Bu birer kısa örnektir; hızlanma oranı veya bellek sızıntısı ölçümü 
 
 ## Doğrulama
 
-Son VBA projesi derlendi. Testler: Ribbon'un ayar/çeviri/form hazırlamaması, komut sonunda önbellek bırakılması, canlı dil durumu, UTF-8 okuma, birden fazla tablo, iki tür kod çiti, kaçışlı ayraç, boş hücreler, bozuk satır ve hücre sınırı, tek tablo seçimi, metin çıktısı, tablo stili, korumalı kitap ve yarım aktarımı geri alma. Excel'in çağıran ekran/olay/hesaplama ayarları korundu. Test yordamları teslim eklentisinden çıkarıldı.
+Son VBA projesi derlendi. Testler: Ribbon'un ayar/çeviri/form hazırlamaması, komut sonunda önbellek bırakılması, canlı dil durumu, UTF-8 okuma, birden fazla tablo, iki tür kod çiti, kaçışlı ayraç, boş hücreler, bozuk satır ve hücre sınırı, tek tablo seçimi, metin çıktısı, tablo stili, korumalı kitap ve yarım aktarımı geri alma. Excel'in çağıran ekran/olay/hesaplama ayarları korundu. Test yordamlarını yayımladığım eklentiden çıkardım.
 
 Paket karşılaştırmasında yalnızca VBA projesi ve Ribbon XML'i değişti. Mevcut ikonlar ve form tasarım kaynakları aktif kopyadan korunmuştur. Türkçe VBA kaynakları Windows-1254, XML ve belgeler UTF-8'dir.
 
 ## Sonraki kullanım
 
-Önceki aktif ve masaüstü dosyaları tarihli yedeklenir. Güncel eklenti her iki konuma uygulanır. Kullanıcı Excel oturumu otomatik kapatılmaz. Kaydedip Excel'i tamamen kapatarak yeniden açın; eski VBA projesi açık süreç belleğinde kalabilir.
+Önceki aktif ve masaüstü dosyaları tarihli yedeklenir. Güncel eklenti her iki konuma uygulanır. Açık Excel oturumları otomatik kapatılmaz. Kaydedip Excel'i tamamen kapatarak yeniden açın; eski VBA projesi açık süreç belleğinde kalabilir.
 
 Çökmeler sürerse Office kayıtlarını da kapsayan sonraki adım eklentisiz/güvenli modda aynı dosyanın denenmesi ve Office onarımıyla ayırmadır. Office kurulumu bu çalışmada değiştirilmedi. [Microsoft'un Excel donma/çökme rehberi](https://support.microsoft.com/en-us/excel/excel-not-responding-hangs-freezes-or-stops-working) eklentileri ve açılış dosyalarını ayrı ayrı kontrol etmeyi ve Office onarımını anlatır. [Ribbon nesnesi belgesi](https://learn.microsoft.com/en-us/office/vba/api/office.iribbonui) açılış ve Ribbon callback davranışını açıklar.
