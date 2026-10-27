@@ -36,7 +36,7 @@ Public Sub HAMU_InsertPhotosFromFolder()
     Set hamuScope = HAMU_PromptRange(HAMU_Text("Klasörden Toplu Fotoğraf Ekle: işlem yapılacak hücreleri seçin."))
     If hamuScope Is Nothing Then Exit Sub
     On Error GoTo ErrH
-    Dim ws As Worksheet, startCell As range, folderPath As String, files As Collection, i As Long, tgt As range
+    Dim ws As Worksheet, startCell As range, folderPath As String, files As Collection, prepared As Collection, tempFolder As String, i As Long, tgt As range
     Set ws = hamuScope.Worksheet
     If TypeName(hamuScope) = "Range" Then Set startCell = hamuScope.cells(1, 1) Else Set startCell = ws.range("A1")
     With Application.FileDialog(msoFileDialogFolderPicker)
@@ -44,31 +44,44 @@ Public Sub HAMU_InsertPhotosFromFolder()
         If .show <> -1 Then Exit Sub
         folderPath = .SelectedItems(1)
     End With
-    Dim mode As Long
-    mode = CLng(HAMU_Setting("ImagePlacement"))
-    If mode = 0 Then mode = HAMU_ChooseIndex(HAMU_Text("Resim Yerleşimi"), HAMU_Text("Hücre içine: Excel hücre resmi. Hücre üstüne: hücre sınırları içinde hareket eden görsel."), Array(HAMU_Text("Hücre içine"), HAMU_Text("Hücre üstüne")))
-    If mode = 0 Then Exit Sub
+    Dim mode As Long, optimize As Boolean, options As frmHAMU_PhotoOptions
+    Set options = New frmHAMU_PhotoOptions
+    options.Setup CLng(HAMU_Setting("ImagePlacement"))
+    options.Show vbModal
+    If Not options.accepted Then Unload options: Exit Sub
+    mode = options.cboPlacement.ListIndex + 1
+    optimize = (options.cboQuality.ListIndex = 0)
+    Unload options: Set options = Nothing
     Set files = HAMU_GetImageFiles(folderPath)
     If files.count = 0 Then HAMU_ShowInfo HAMU_Text("Klasörde desteklenen resim dosyası yok."): Exit Sub
     If files.count > ws.rows.count - startCell.row + 1 Then Err.Raise 5, , HAMU_Text("Resimler bu başlangıç hücresinden sayfaya sığmıyor.")
     Application.ScreenUpdating = False
     Application.EnableEvents = False
     Application.Calculation = xlCalculationManual
-    If mode = 1 Then HAMU_ImportCellPhotoBatch startCell, files
+    If mode = 1 Then HAMU_ImportCellPhotoBatch startCell, files, optimize
+    If mode <> 1 Then
+        If optimize Then Set prepared = HAMU_PreparePhotoFiles(files, tempFolder) Else Set prepared = files
+    End If
     For i = 1 To files.count
         Set tgt = startCell.Offset(i - 1, 0)
         If mode <> 1 Then
             If ws.rows(tgt.row).RowHeight < 100 Then ws.rows(tgt.row).RowHeight = 100
-            Call HAMU_PlacePhoto(tgt, CStr(files(i)), False)
+            Call HAMU_PlacePhoto(tgt, CStr(prepared(i)), False)
         End If
         If Not tgt.Offset(0, 1).HasFormula And IsEmpty(tgt.Offset(0, 1).Value2) Then
             tgt.Offset(0, 1).Value2 = Mid$(CStr(files(i)), InStrRev(CStr(files(i)), Application.PathSeparator) + 1)
         End If
     Next i
+    HAMU_PhotoCleanFolder tempFolder
+    hamuState.Restore
     Exit Sub
 ErrH:
     Dim hamuErrorNumber As Long, hamuErrorText As String
     hamuErrorNumber = Err.number: hamuErrorText = Err.description
+    On Error Resume Next
+    HAMU_PhotoCleanFolder tempFolder
+    hamuState.Restore
+    On Error GoTo 0
     HAMU_ShowError "HAMU_InsertPhotosFromFolder", hamuErrorNumber, hamuErrorText
 End Sub
 
@@ -136,8 +149,8 @@ Public Sub HAMU_PlacePhoto(ByVal target As range, ByVal filePath As String, ByVa
         ' Decode once into lossless PNG, then convert at native size rather than cell size.
         imagePath = HAMU_CellPhotoSource(filePath, temporaryPath)
     End If
-    Set picture = HAMU_AddNativePhoto(target, imagePath)
     If insideCell Then
+        Set picture = HAMU_AddNativePhoto(target, imagePath)
         target.Worksheet.Activate: target.cells(1, 1).Select
         picture.Select
         Dim picturesBefore As Long
@@ -153,7 +166,11 @@ Public Sub HAMU_PlacePhoto(ByVal target As range, ByVal filePath As String, ByVa
     Else
         ' A picture fill keeps the embedded source bytes when Excel saves a small display size.
         ' Resizing a standard picture triggers DPI downsampling in affected Excel builds.
-        ratio = picture.width / picture.Height
+        ratio = HAMU_PhotoAspectRatio(filePath)
+        If ratio <= 0 Then
+            Set picture = HAMU_AddNativePhoto(target, imagePath)
+            ratio = picture.width / picture.Height
+        End If
         w = target.width: h = w / ratio
         If h > target.Height Then h = target.Height: w = h * ratio
         Set frame = target.Worksheet.shapes.AddShape(msoShapeRectangle, _
@@ -165,7 +182,8 @@ Public Sub HAMU_PlacePhoto(ByVal target As range, ByVal filePath As String, ByVa
             .Placement = xlMoveAndSize
             .AlternativeText = Mid$(filePath, InStrRev(filePath, Application.PathSeparator) + 1)
         End With
-        picture.Delete: Set picture = Nothing
+        If Not picture Is Nothing Then picture.Delete
+        Set picture = Nothing
         Set frame = Nothing
     End If
     HAMU_DeleteTemporaryPhoto temporaryPath
@@ -184,6 +202,16 @@ Failed:
     End If
     Err.Raise number, "HAMU_PlacePhoto", description
 End Sub
+
+Private Function HAMU_PhotoAspectRatio(ByVal path As String) As Double
+    Dim metadata As Object
+    On Error GoTo Done
+    Set metadata = CreateObject("WIA.ImageFile")
+    metadata.LoadFile path
+    If metadata.Height > 0 Then HAMU_PhotoAspectRatio = metadata.Width / metadata.Height
+Done:
+    Set metadata = Nothing
+End Function
 
 Private Function HAMU_AddNativePhoto(ByVal target As range, ByVal filePath As String) As Object
     Dim shapes As Object, picture As Object, number As Long, description As String
