@@ -53,10 +53,14 @@ Public Sub HAMU_InsertPhotosFromFolder()
     If files.count > ws.rows.count - startCell.row + 1 Then Err.Raise 5, , HAMU_Text("Resimler bu başlangıç hücresinden sayfaya sığmıyor.")
     Application.ScreenUpdating = False
     Application.EnableEvents = False
+    Application.Calculation = xlCalculationManual
+    If mode = 1 Then HAMU_ImportCellPhotoBatch startCell, files
     For i = 1 To files.count
         Set tgt = startCell.Offset(i - 1, 0)
-        ws.rows(tgt.row).RowHeight = 100
-        Call HAMU_PlacePhoto(tgt, CStr(files(i)), mode = 1)
+        If mode <> 1 Then
+            If ws.rows(tgt.row).RowHeight < 100 Then ws.rows(tgt.row).RowHeight = 100
+            Call HAMU_PlacePhoto(tgt, CStr(files(i)), False)
+        End If
         If Not tgt.Offset(0, 1).HasFormula And IsEmpty(tgt.Offset(0, 1).Value2) Then
             tgt.Offset(0, 1).Value2 = Mid$(CStr(files(i)), InStrRev(CStr(files(i)), Application.PathSeparator) + 1)
         End If
@@ -115,7 +119,7 @@ End Sub
 
 
 
-Public Sub HAMU_PlacePhoto(ByVal target As Range, ByVal filePath As String, ByVal insideCell As Boolean)
+Public Sub HAMU_PlacePhoto(ByVal target As range, ByVal filePath As String, ByVal insideCell As Boolean)
     Dim picture As Object, frame As Object, imagePath As String, temporaryPath As String
     Dim state As New clsHAMU_AppState, ratio As Double, w As Double, h As Double
     Dim number As Long, description As String
@@ -134,21 +138,29 @@ Public Sub HAMU_PlacePhoto(ByVal target As Range, ByVal filePath As String, ByVa
     End If
     Set picture = HAMU_AddNativePhoto(target, imagePath)
     If insideCell Then
-        target.Worksheet.Activate: target.Cells(1, 1).Select
+        target.Worksheet.Activate: target.cells(1, 1).Select
         picture.Select
+        Dim picturesBefore As Long
+        picturesBefore = target.Worksheet.Shapes.Count
+        ' Excel silently skips PlacePictureInCell with ScreenUpdating=False.
+        ' Restore the caller's original screen setting through state.Restore.
+        Application.ScreenUpdating = True
         CallByName picture, "PlacePictureInCell", VbMethod
+        If target.Worksheet.Shapes.Count <> picturesBefore - 1 Then
+            Err.Raise vbObjectError + 406, , HAMU_L("Excel fotoğrafı hücre içine yerleştiremedi. Fotoğraf eklenmedi; yeniden deneyin.", "Excel did not convert the photo into an in-cell picture. No photo was left behind; try again.")
+        End If
         Set picture = Nothing
     Else
         ' A picture fill keeps the embedded source bytes when Excel saves a small display size.
         ' Resizing a standard picture triggers DPI downsampling in affected Excel builds.
-        ratio = picture.Width / picture.Height
-        w = target.Width: h = w / ratio
+        ratio = picture.width / picture.Height
+        w = target.width: h = w / ratio
         If h > target.Height Then h = target.Height: w = h * ratio
-        Set frame = target.Worksheet.Shapes.AddShape(msoShapeRectangle, _
-            target.Left + (target.Width - w) / 2, target.Top + (target.Height - h) / 2, w, h)
+        Set frame = target.Worksheet.shapes.AddShape(msoShapeRectangle, _
+            target.Left + (target.width - w) / 2, target.Top + (target.Height - h) / 2, w, h)
         With frame
             .Fill.UserPicture filePath
-            .Line.Visible = msoFalse
+            .line.visible = msoFalse
             .LockAspectRatio = msoTrue
             .Placement = xlMoveAndSize
             .AlternativeText = Mid$(filePath, InStrRev(filePath, Application.PathSeparator) + 1)
@@ -160,7 +172,7 @@ Public Sub HAMU_PlacePhoto(ByVal target As Range, ByVal filePath As String, ByVa
     state.Restore
     Exit Sub
 Failed:
-    number = Err.Number: description = Err.Description
+    number = Err.number: description = Err.description
     On Error Resume Next
     If Not picture Is Nothing Then picture.Delete
     If Not frame Is Nothing Then frame.Delete
@@ -173,12 +185,12 @@ Failed:
     Err.Raise number, "HAMU_PlacePhoto", description
 End Sub
 
-Private Function HAMU_AddNativePhoto(ByVal target As Range, ByVal filePath As String) As Object
+Private Function HAMU_AddNativePhoto(ByVal target As range, ByVal filePath As String) As Object
     Dim shapes As Object, picture As Object, number As Long, description As String
-    Set shapes = target.Worksheet.Shapes
+    Set shapes = target.Worksheet.shapes
     On Error Resume Next
     Set picture = shapes.AddPicture2(filePath, msoFalse, msoTrue, target.Left, target.Top, -1, -1, msoPictureCompressFalse)
-    number = Err.Number: description = Err.Description
+    number = Err.number: description = Err.description
     On Error GoTo 0
     If picture Is Nothing Then
         If number <> 438 And number <> 445 And number <> 450 Then Err.Raise number, , description
@@ -192,6 +204,10 @@ Private Function HAMU_CellPhotoSource(ByVal filePath As String, ByRef temporaryP
     Dim imageProperty As Object, orientation As Long, rotation As Long, flipH As Boolean, flipV As Boolean
     extension = LCase$(Mid$(filePath, InStrRev(filePath, ".") + 1))
     HAMU_CellPhotoSource = filePath
+    If extension = "webp" Then
+        HAMU_CellPhotoSource = HAMU_WebpCellSource(filePath, temporaryPath)
+        Exit Function
+    End If
     Select Case extension
         Case "jpg", "jpeg", "bmp", "tif", "tiff", "gif"
         Case Else: Exit Function
@@ -200,7 +216,7 @@ Private Function HAMU_CellPhotoSource(ByVal filePath As String, ByRef temporaryP
     image.LoadFile filePath
     Set process = CreateObject("WIA.ImageProcess")
     For Each imageProperty In image.Properties
-        If imageProperty.PropertyID = 274 Then orientation = CLng(imageProperty.Value): Exit For
+        If imageProperty.PropertyID = 274 Then orientation = CLng(imageProperty.value): Exit For
     Next
     Select Case orientation
         Case 2: flipH = True
@@ -214,21 +230,21 @@ Private Function HAMU_CellPhotoSource(ByVal filePath As String, ByRef temporaryP
     If rotation <> 0 Or flipH Or flipV Then
         process.Filters.Add process.FilterInfos("RotateFlip").FilterID
         With process.Filters(1).Properties
-            .Item("RotationAngle").Value = rotation
-            .Item("FlipHorizontal").Value = flipH
-            .Item("FlipVertical").Value = flipV
+            .item("RotationAngle").value = rotation
+            .item("FlipHorizontal").value = flipH
+            .item("FlipVertical").value = flipV
         End With
     End If
     process.Filters.Add process.FilterInfos("Convert").FilterID
-    process.Filters(process.Filters.Count).Properties("FormatID").Value = "{B96B3CAF-0728-11D3-9D7B-0000F81EF32E}"
+    process.Filters(process.Filters.count).Properties("FormatID").value = "{B96B3CAF-0728-11D3-9D7B-0000F81EF32E}"
     Set converted = process.Apply(image)
     ' Pixels have been oriented; avoid applying the EXIF rotation again.
     On Error Resume Next
-    converted.Properties("Orientation").Value = 1
+    converted.Properties("Orientation").value = 1
     Err.Clear
     On Error GoTo 0
     Set fso = CreateObject("Scripting.FileSystemObject")
-    temporaryPath = fso.BuildPath(fso.GetSpecialFolder(2).Path, "HAMU_" & fso.GetTempName & ".png")
+    temporaryPath = fso.BuildPath(fso.GetSpecialFolder(2).path, "HAMU_" & fso.GetTempName & ".png")
     converted.SaveFile temporaryPath
     HAMU_CellPhotoSource = temporaryPath
 End Function
@@ -299,3 +315,34 @@ Private Sub HAMU_CopyRangePicture(ByVal source As range)
  Err.Raise 5, , HAMU_L("Excel resmi hazırlayamadı. Yeniden deneyin.", "Excel could not prepare the image. Please retry.")
 End Sub
 
+
+Private Function HAMU_WebpCellSource(ByVal filePath As String, ByRef temporaryPath As String) As String
+    Dim fso As Object, shell As Object, stream As Object, node As Object, document As Object
+    Dim script As String, encoded As String, bytes As Variant, code As Long
+    Set fso = CreateObject("Scripting.FileSystemObject")
+    temporaryPath = fso.BuildPath(fso.GetSpecialFolder(2).Path, "HAMU_" & fso.GetTempName & ".png")
+    ' Windows WIC supports WebP; WIA does not. Run the decoder only for this operation.
+    ' Quote path data before encoding the fixed script; no file data is executed as code.
+    script = "$ErrorActionPreference='Stop';Add-Type -AssemblyName PresentationCore;"
+    script = script & "$src=$null;$dst=$null;try{"
+    script = script & "$src=[IO.File]::OpenRead('" & Replace$(filePath, "'", "''") & "');"
+    script = script & "$frame=[Windows.Media.Imaging.BitmapFrame]::Create($src,[Windows.Media.Imaging.BitmapCreateOptions]::PreservePixelFormat,[Windows.Media.Imaging.BitmapCacheOption]::OnLoad);"
+    script = script & "$stride=[int][Math]::Ceiling($frame.PixelWidth*$frame.Format.BitsPerPixel/8.0);$pixels=New-Object byte[] ($stride*$frame.PixelHeight);$frame.CopyPixels($pixels,$stride,0);"
+    script = script & "$normalized=[Windows.Media.Imaging.BitmapSource]::Create($frame.PixelWidth,$frame.PixelHeight,96.0,96.0,$frame.Format,$frame.Palette,$pixels,$stride);"
+    script = script & "$png=New-Object Windows.Media.Imaging.PngBitmapEncoder;$png.Frames.Add([Windows.Media.Imaging.BitmapFrame]::Create($normalized));"
+    script = script & "$dst=[IO.File]::Create('" & Replace$(temporaryPath, "'", "''") & "');$png.Save($dst)"
+    script = script & "}finally{if($dst){$dst.Dispose()};if($src){$src.Dispose()}}"
+    Set stream = CreateObject("ADODB.Stream")
+    stream.Type = 2: stream.Charset = "unicode": stream.Open: stream.WriteText script
+    stream.Position = 0: stream.Type = 1: stream.Position = 2: bytes = stream.Read: stream.Close
+    Set document = CreateObject("MSXML2.DOMDocument.6.0")
+    Set node = document.createElement("base64")
+    node.DataType = "bin.base64": node.nodeTypedValue = bytes
+    encoded = Replace$(Replace$(node.Text, vbCr, ""), vbLf, "")
+    Set shell = CreateObject("WScript.Shell")
+    code = shell.Run("powershell.exe -NoProfile -NonInteractive -WindowStyle Hidden -EncodedCommand " & encoded, 0, True)
+    If code <> 0 Or Not fso.FileExists(temporaryPath) Then
+        Err.Raise vbObjectError + 407, , HAMU_L("Windows, WebP fotoğrafı kayıpsız dönüştüremedi. PNG kullanın veya Hücre Üstüne seçin.", "Windows could not decode the WebP losslessly. Use PNG or Over Cells.")
+    End If
+    HAMU_WebpCellSource = temporaryPath
+End Function

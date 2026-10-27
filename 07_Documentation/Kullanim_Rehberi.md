@@ -450,3 +450,10 @@ Kitap ve sayfa kapsamındaki tanımlı adları, başvurularını, görünürlük
 ## Ayarlar ve dil
 
 Dosya > HAMU Tools > Ayarlar bölümünde yedek/PDF klasörleri ve ortak seçim/çıktı tercihleri düzenlenir. Dil seçimi Türkçe veya English olarak kalıcı saklanır. Ayrıntılı tercih tablosu için V1_Ayarlar_Dil_ve_Guvenilirlik.md dosyasını okuyun.
+
+
+## Toplu Fotoğraf
+
+Sayfa ve Görsel > Toplu Fotoğraf aracında başlangıç hücresini ve fotoğraf klasörünü seçin. **Hücre İçine** seçeneği fotoğrafları aşağı doğru gerçek hücre resimleri olarak yerleştirir. Hücreyi büyütüp küçülttüğünüzde fotoğraf hücreye uyar; özgün çözünürlük korunur. Satırlar en az 100 punto olacak şekilde ayarlanır; daha yüksek satırlar korunur.
+
+**Hücre Üstüne** seçeneği görselleri hücre sınırlarına bağlı nesneler olarak ekler. Uygun sağ hücreye dosya adı yazılır; dolu hücreler ve formüller değiştirilmez.

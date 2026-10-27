@@ -46,3 +46,14 @@ HAMU_BoundedRange(source, trimUsedExtent=False) bütün satır/sütun seçimini 
 HAMU_ExportRangeImage seçim ve uygulama durumunu geri yükler, geçici grafiği siler. Clipboard işlemleri yeniden girişe karşı ortak dispatcher koruması altında çalışır. Dosya varlığının yanında içerik pikselleri de test edilir. PDF yardımcı metodu PageSetup ayarlarını geri yükler.
 
 LAMBDA tanımları 09_Templates kitabındadır; modHAMU_UDF sadece sekiz VBA hücre işlevini dışarı açar. Şablondaki gizli Excel uyumluluk adlarını gereksiz kullanıcı işlevi sanıp silmeyin. Aktarım testinde hedef kitabın görünür adlarını sayın.
+
+
+## Toplu Fotoğraf: hızlı hücre içi aktarım
+
+Hücre içi fotoğraf aktarımını `modHAMU_PhotoBatch.HAMU_ImportCellPhotoBatch(target, files)` ile toplu çalışacak şekilde düzenledim. `modHAMU_Visual.HAMU_InsertPhotosFromFolder` dosyaları toplar, aktarımı başlatır ve uygun sağ hücrelere dosya adlarını yazar.
+
+Görsellerin dosya verilerinden geçici bir Open XML hücre resmi kitabı hazırlanır; hücre resimleri hedefe yalnızca değer olarak aktarılır. Böylece hücre biçimleri korunur, büyük resim şekilleri oluşturulmaz ve pikseller yeniden kodlanmaz. Geçici bellek kullanımını sınırlamak için dosyalar 50’şerli gruplar halinde işlenir.
+
+Paket hazırlamada Windows’un yerleşik PowerShell ve .NET ZIP bileşenleri yalnızca komut sırasında kullanılır. İşlem tamamlanınca yardımcı süreç biter; geçici kitap, dosya listesi ve şablon dosyası kapatılıp silinir. Başlangıç dinleyicisi veya zamanlayıcı eklenmez. Ekran, olay, hesaplama ve kesinti ayarları önceki değerlerine döner.
+
+`HAMU_PhotoSeed` içindeki Base64, arayüz/dil metni değil, küçük bir ikili Open XML şablonudur. Paketleme kodu `HAMU_PhotoPackageScript` içinde okunabilir PowerShell metni olarak bulunur. Hücre üstü fotoğraflar `HAMU_PlacePhoto` yolunu kullanır.

@@ -6,9 +6,9 @@ HAMU Tools’u Excel’de veri düzenleme, tablo, tarih, sayfa, denetim ve aktar
 
 ## 27.10.2026 güncellemesi
 
-Toplu Fotoğraf’ta fotoğrafların kalitesinin düşmesi sorununu düzelttim. Hücre içine ve hücre üstüne eklenen fotoğraflar artık özgün çözünürlüğünü koruyor. JPEG fotoğrafları hücre içine eklerken Excel’in yeniden sıkıştırmasını önlemek için kayıpsız PNG kullanıyorum. Fotoğrafın hücrede küçük görünmesi, çözünürlüğünün düşürüldüğü anlamına gelmiyor.
+Toplu Fotoğraf’ı hızlandırdım. Fotoğraflar artık büyük şekiller olarak eklenip küçültülmeden, topluca gerçek hücre resimleri olarak yerleşiyor. Özgün kaliteyi ve mevcut hücre biçimlerini korudum. Hücre üstüne ekleme seçeneği de kullanılabiliyor.
 
-PNG, JPEG ve yön bilgisi içeren fotoğrafları dosyayı kaydedip yeniden açarak kontrol ettim. Görüntü pikselleri özgün fotoğrafla aynı kaldı. Sıkıştırma uygulanmadığı için çalışma kitabının boyutu eski yönteme göre daha büyük olabilir.
+Yedi görselle yaptığım karşılaştırmada aktarım süresi 2,87 saniyeden 1,38 saniyeye indi. PNG, JPEG, WebP, BMP, TIFF, GIF ve yön bilgisi içeren fotoğrafları kaydedip yeniden açarak kontrol ettim. 51 fotoğraflık aktarım ve hata sonrası temizlik kontrollerini de tamamladım.
 
 ## İndir ve kur
 
